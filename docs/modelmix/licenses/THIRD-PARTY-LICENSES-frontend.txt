@@ -1,0 +1,2495 @@
+﻿THIRD-PARTY-LICENSES-frontend.txt
+Generated: 2026-09-01
+Command: npx.cmd --yes license-checker --start . (npm package license-checker) executed in frontend/ (reads node_modules + package.json metadata; inspects each installed package's declared license, repository, and license file)
+Tree covers all runtime and devDependencies installed in frontend/node_modules at generation time.
+Γö£ΓöÇ @asamuzakjp/css-color@3.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/asamuzaK/cssColor
+Γöé  Γö£ΓöÇ publisher: asamuzaK
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@asamuzakjp\css-color
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@asamuzakjp\css-color\LICENSE
+Γö£ΓöÇ @babel/code-frame@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\code-frame
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\code-frame\LICENSE
+Γö£ΓöÇ @babel/compat-data@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\compat-data
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\compat-data\LICENSE
+Γö£ΓöÇ @babel/core@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\core
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\core\LICENSE
+Γö£ΓöÇ @babel/generator@7.29.8
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\generator
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\generator\LICENSE
+Γö£ΓöÇ @babel/helper-compilation-targets@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-compilation-targets
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-compilation-targets\LICENSE
+Γö£ΓöÇ @babel/helper-globals@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-globals
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-globals\LICENSE
+Γö£ΓöÇ @babel/helper-module-imports@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-module-imports
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-module-imports\LICENSE
+Γö£ΓöÇ @babel/helper-module-transforms@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-module-transforms
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-module-transforms\LICENSE
+Γö£ΓöÇ @babel/helper-plugin-utils@7.27.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-plugin-utils
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-plugin-utils\LICENSE
+Γö£ΓöÇ @babel/helper-string-parser@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-string-parser
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-string-parser\LICENSE
+Γö£ΓöÇ @babel/helper-validator-identifier@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-validator-identifier
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-validator-identifier\LICENSE
+Γö£ΓöÇ @babel/helper-validator-option@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-validator-option
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helper-validator-option\LICENSE
+Γö£ΓöÇ @babel/helpers@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helpers
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\helpers\LICENSE
+Γö£ΓöÇ @babel/parser@7.29.8
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\parser
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\parser\LICENSE
+Γö£ΓöÇ @babel/plugin-transform-react-jsx-self@7.27.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\plugin-transform-react-jsx-self
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\plugin-transform-react-jsx-self\LICENSE
+Γö£ΓöÇ @babel/plugin-transform-react-jsx-source@7.27.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\plugin-transform-react-jsx-source
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\plugin-transform-react-jsx-source\LICENSE
+Γö£ΓöÇ @babel/runtime@7.28.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\runtime
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\runtime\LICENSE
+Γö£ΓöÇ @babel/template@7.29.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\template
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\template\LICENSE
+Γö£ΓöÇ @babel/traverse@7.29.8
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\traverse
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\traverse\LICENSE
+Γö£ΓöÇ @babel/types@7.29.8
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/babel/babel
+Γöé  Γö£ΓöÇ publisher: The Babel Team
+Γöé  Γö£ΓöÇ url: https://babel.dev/team
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\types
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@babel\types\LICENSE
+Γö£ΓöÇ @csstools/color-helpers@5.1.0
+Γöé  Γö£ΓöÇ licenses: MIT-0
+Γöé  Γö£ΓöÇ repository: https://github.com/csstools/postcss-plugins
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\color-helpers
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\color-helpers\LICENSE.md
+Γö£ΓöÇ @csstools/css-calc@2.1.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/csstools/postcss-plugins
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\css-calc
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\css-calc\LICENSE.md
+Γö£ΓöÇ @csstools/css-color-parser@3.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/csstools/postcss-plugins
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\css-color-parser
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\css-color-parser\LICENSE.md
+Γö£ΓöÇ @csstools/css-parser-algorithms@3.0.5
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/csstools/postcss-plugins
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\css-parser-algorithms
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\css-parser-algorithms\LICENSE.md
+Γö£ΓöÇ @csstools/css-tokenizer@3.0.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/csstools/postcss-plugins
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\css-tokenizer
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@csstools\css-tokenizer\LICENSE.md
+Γö£ΓöÇ @emotion/babel-plugin@11.13.5
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/babel-plugin
+Γöé  Γö£ΓöÇ publisher: Kye Hohenberger
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\babel-plugin
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\babel-plugin\LICENSE
+Γö£ΓöÇ @emotion/cache@11.14.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/cache
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\cache
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\cache\LICENSE
+Γö£ΓöÇ @emotion/hash@0.9.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/hash
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\hash
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\hash\LICENSE
+Γö£ΓöÇ @emotion/memoize@0.9.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/memoize
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\memoize
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\memoize\LICENSE
+Γö£ΓöÇ @emotion/react@11.14.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/react
+Γöé  Γö£ΓöÇ publisher: Emotion Contributors
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\react
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\react\LICENSE
+Γö£ΓöÇ @emotion/serialize@1.3.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/serialize
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\serialize
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\serialize\LICENSE
+Γö£ΓöÇ @emotion/sheet@1.4.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/sheet
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\sheet
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\sheet\LICENSE
+Γö£ΓöÇ @emotion/unitless@0.10.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/unitless
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\unitless
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\unitless\LICENSE
+Γö£ΓöÇ @emotion/use-insertion-effect-with-fallbacks@1.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/use-insertion-effect-with-fallbacks
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\use-insertion-effect-with-fallbacks
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\use-insertion-effect-with-fallbacks\LICENSE
+Γö£ΓöÇ @emotion/utils@1.4.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/utils
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\utils
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\utils\LICENSE
+Γö£ΓöÇ @emotion/weak-memoize@0.4.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/emotion-js/emotion/tree/main/packages/weak-memoize
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\weak-memoize
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\weak-memoize\LICENSE
+Γö£ΓöÇ @esbuild/win32-x64@0.28.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/evanw/esbuild
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@esbuild\win32-x64
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@esbuild\win32-x64\README.md
+Γö£ΓöÇ @eslint-community/eslint-utils@4.9.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint-community/eslint-utils
+Γöé  Γö£ΓöÇ publisher: Toru Nagashima
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint-community\eslint-utils
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint-community\eslint-utils\LICENSE
+Γö£ΓöÇ @eslint-community/regexpp@4.12.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint-community/regexpp
+Γöé  Γö£ΓöÇ publisher: Toru Nagashima
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint-community\regexpp
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint-community\regexpp\LICENSE
+Γö£ΓöÇ @eslint/config-array@0.21.1
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/rewrite
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\config-array
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\config-array\LICENSE
+Γö£ΓöÇ @eslint/config-helpers@0.4.2
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/rewrite
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\config-helpers
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\config-helpers\LICENSE
+Γö£ΓöÇ @eslint/core@0.17.0
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/rewrite
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\core
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\core\LICENSE
+Γö£ΓöÇ @eslint/eslintrc@3.3.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/eslintrc
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\eslintrc
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\eslintrc\LICENSE
+Γö£ΓöÇ @eslint/js@9.39.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/eslint
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\js
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\js\LICENSE
+Γö£ΓöÇ @eslint/object-schema@2.1.7
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/rewrite
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\object-schema
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\object-schema\LICENSE
+Γö£ΓöÇ @eslint/plugin-kit@0.4.1
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/rewrite
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\plugin-kit
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\plugin-kit\LICENSE
+Γö£ΓöÇ @floating-ui/core@1.7.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/floating-ui/floating-ui
+Γöé  Γö£ΓöÇ publisher: atomiks
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@floating-ui\core
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@floating-ui\core\LICENSE
+Γö£ΓöÇ @floating-ui/dom@1.7.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/floating-ui/floating-ui
+Γöé  Γö£ΓöÇ publisher: atomiks
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@floating-ui\dom
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@floating-ui\dom\LICENSE
+Γö£ΓöÇ @floating-ui/utils@0.2.10
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/floating-ui/floating-ui
+Γöé  Γö£ΓöÇ publisher: atomiks
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@floating-ui\utils
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@floating-ui\utils\LICENSE
+Γö£ΓöÇ @humanfs/core@0.19.1
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/humanwhocodes/humanfs
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@humanfs\core
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@humanfs\core\LICENSE
+Γö£ΓöÇ @humanfs/node@0.16.7
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/humanwhocodes/humanfs
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@humanfs\node
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@humanfs\node\LICENSE
+Γö£ΓöÇ @humanwhocodes/module-importer@1.0.1
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/humanwhocodes/module-importer
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zaks
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@humanwhocodes\module-importer
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@humanwhocodes\module-importer\LICENSE
+Γö£ΓöÇ @humanwhocodes/retry@0.4.3
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/humanwhocodes/retry
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zaks
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@humanwhocodes\retry
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@humanwhocodes\retry\LICENSE
+Γö£ΓöÇ @jridgewell/gen-mapping@0.3.13
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jridgewell/sourcemaps
+Γöé  Γö£ΓöÇ publisher: Justin Ridgewell
+Γöé  Γö£ΓöÇ email: justin@ridgewell.name
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\gen-mapping
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\gen-mapping\LICENSE
+Γö£ΓöÇ @jridgewell/remapping@2.3.5
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jridgewell/sourcemaps
+Γöé  Γö£ΓöÇ publisher: Justin Ridgewell
+Γöé  Γö£ΓöÇ email: justin@ridgewell.name
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\remapping
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\remapping\LICENSE
+Γö£ΓöÇ @jridgewell/resolve-uri@3.1.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jridgewell/resolve-uri
+Γöé  Γö£ΓöÇ publisher: Justin Ridgewell
+Γöé  Γö£ΓöÇ email: justin@ridgewell.name
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\resolve-uri
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\resolve-uri\LICENSE
+Γö£ΓöÇ @jridgewell/sourcemap-codec@1.5.5
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jridgewell/sourcemaps
+Γöé  Γö£ΓöÇ publisher: Justin Ridgewell
+Γöé  Γö£ΓöÇ email: justin@ridgewell.name
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\sourcemap-codec
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\sourcemap-codec\LICENSE
+Γö£ΓöÇ @jridgewell/trace-mapping@0.3.31
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jridgewell/sourcemaps
+Γöé  Γö£ΓöÇ publisher: Justin Ridgewell
+Γöé  Γö£ΓöÇ email: justin@ridgewell.name
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\trace-mapping
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@jridgewell\trace-mapping\LICENSE
+Γö£ΓöÇ @rolldown/pluginutils@1.0.0-beta.47
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/rolldown/rolldown
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@rolldown\pluginutils
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@rolldown\pluginutils\LICENSE
+Γö£ΓöÇ @rollup/rollup-win32-x64-gnu@4.63.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/rollup/rollup
+Γöé  Γö£ΓöÇ publisher: Lukas Taegert-Atkinson
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@rollup\rollup-win32-x64-gnu
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@rollup\rollup-win32-x64-gnu\README.md
+Γö£ΓöÇ @rollup/rollup-win32-x64-msvc@4.63.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/rollup/rollup
+Γöé  Γö£ΓöÇ publisher: Lukas Taegert-Atkinson
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@rollup\rollup-win32-x64-msvc
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@rollup\rollup-win32-x64-msvc\README.md
+Γö£ΓöÇ @standard-schema/spec@1.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/standard-schema/standard-schema
+Γöé  Γö£ΓöÇ publisher: Colin McDonnell
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@standard-schema\spec
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@standard-schema\spec\LICENSE
+Γö£ΓöÇ @types/babel__core@7.20.5
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\babel__core
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\babel__core\LICENSE
+Γö£ΓöÇ @types/babel__generator@7.27.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\babel__generator
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\babel__generator\LICENSE
+Γö£ΓöÇ @types/babel__template@7.4.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\babel__template
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\babel__template\LICENSE
+Γö£ΓöÇ @types/babel__traverse@7.28.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\babel__traverse
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\babel__traverse\LICENSE
+Γö£ΓöÇ @types/chai@5.2.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\chai
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\chai\LICENSE
+Γö£ΓöÇ @types/debug@4.1.12
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\debug
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\debug\LICENSE
+Γö£ΓöÇ @types/deep-eql@4.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\deep-eql
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\deep-eql\LICENSE
+Γö£ΓöÇ @types/estree-jsx@1.0.5
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\estree-jsx
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\estree-jsx\LICENSE
+Γö£ΓöÇ @types/estree@1.0.9
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\estree
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\estree\LICENSE
+Γö£ΓöÇ @types/hast@3.0.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\hast
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\hast\LICENSE
+Γö£ΓöÇ @types/json-schema@7.0.15
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\json-schema
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\json-schema\LICENSE
+Γö£ΓöÇ @types/mdast@4.0.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\mdast
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\mdast\LICENSE
+Γö£ΓöÇ @types/ms@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\ms
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\ms\LICENSE
+Γö£ΓöÇ @types/parse-json@4.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\parse-json
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\parse-json\LICENSE
+Γö£ΓöÇ @types/react-dom@19.2.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\react-dom
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\react-dom\LICENSE
+Γö£ΓöÇ @types/react-transition-group@4.4.12
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\react-transition-group
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\react-transition-group\LICENSE
+Γö£ΓöÇ @types/react@19.2.6
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\react
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\react\LICENSE
+Γö£ΓöÇ @types/unist@2.0.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\parse-entities\node_modules\@types\unist
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\parse-entities\node_modules\@types\unist\LICENSE
+Γö£ΓöÇ @types/unist@3.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\unist
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@types\unist\LICENSE
+Γö£ΓöÇ @ungap/structured-clone@1.3.0
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/ungap/structured-clone
+Γöé  Γö£ΓöÇ publisher: Andrea Giammarchi
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@ungap\structured-clone
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@ungap\structured-clone\LICENSE
+Γö£ΓöÇ @vitejs/plugin-react@5.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitejs/vite-plugin-react
+Γöé  Γö£ΓöÇ publisher: Evan You
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitejs\plugin-react
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitejs\plugin-react\LICENSE
+Γö£ΓöÇ @vitest/expect@4.1.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitest-dev/vitest
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\expect
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\expect\LICENSE
+Γö£ΓöÇ @vitest/mocker@4.1.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitest-dev/vitest
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\mocker
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\mocker\LICENSE
+Γö£ΓöÇ @vitest/pretty-format@4.1.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitest-dev/vitest
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\pretty-format
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\pretty-format\LICENSE
+Γö£ΓöÇ @vitest/runner@4.1.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitest-dev/vitest
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\runner
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\runner\LICENSE
+Γö£ΓöÇ @vitest/snapshot@4.1.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitest-dev/vitest
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\snapshot
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\snapshot\LICENSE
+Γö£ΓöÇ @vitest/spy@4.1.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitest-dev/vitest
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\spy
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\spy\LICENSE
+Γö£ΓöÇ @vitest/utils@4.1.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitest-dev/vitest
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\utils
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@vitest\utils\LICENSE
+Γö£ΓöÇ acorn-jsx@5.3.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/acornjs/acorn-jsx
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\acorn-jsx
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\acorn-jsx\LICENSE
+Γö£ΓöÇ acorn@8.15.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/acornjs/acorn
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\acorn
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\acorn\LICENSE
+Γö£ΓöÇ agent-base@7.1.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/TooTallNate/proxy-agents
+Γöé  Γö£ΓöÇ publisher: Nathan Rajlich
+Γöé  Γö£ΓöÇ email: nathan@tootallnate.net
+Γöé  Γö£ΓöÇ url: http://n8.io/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\agent-base
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\agent-base\LICENSE
+Γö£ΓöÇ ajv@6.15.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/ajv-validator/ajv
+Γöé  Γö£ΓöÇ publisher: Evgeny Poberezkin
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\ajv
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\ajv\LICENSE
+Γö£ΓöÇ ansi-styles@4.3.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/chalk/ansi-styles
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\ansi-styles
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\ansi-styles\license
+Γö£ΓöÇ argparse@2.0.1
+Γöé  Γö£ΓöÇ licenses: Python-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/nodeca/argparse
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\argparse
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\argparse\LICENSE
+Γö£ΓöÇ assertion-error@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/chaijs/assertion-error
+Γöé  Γö£ΓöÇ publisher: Jake Luer
+Γöé  Γö£ΓöÇ email: jake@qualiancy.com
+Γöé  Γö£ΓöÇ url: http://qualiancy.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\assertion-error
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\assertion-error\LICENSE
+Γö£ΓöÇ babel-plugin-macros@3.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/kentcdodds/babel-plugin-macros
+Γöé  Γö£ΓöÇ publisher: Kent C. Dodds
+Γöé  Γö£ΓöÇ email: me@kentcdodds.com
+Γöé  Γö£ΓöÇ url: https://kentcdodds.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\babel-plugin-macros
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\babel-plugin-macros\LICENSE
+Γö£ΓöÇ bail@2.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/bail
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\bail
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\bail\license
+Γö£ΓöÇ balanced-match@1.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/juliangruber/balanced-match
+Γöé  Γö£ΓöÇ publisher: Julian Gruber
+Γöé  Γö£ΓöÇ email: mail@juliangruber.com
+Γöé  Γö£ΓöÇ url: http://juliangruber.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\balanced-match
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\balanced-match\LICENSE.md
+Γö£ΓöÇ baseline-browser-mapping@2.11.20
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/web-platform-dx/baseline-browser-mapping
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\baseline-browser-mapping
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\baseline-browser-mapping\LICENSE.txt
+Γö£ΓöÇ brace-expansion@1.1.18
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/juliangruber/brace-expansion
+Γöé  Γö£ΓöÇ publisher: Julian Gruber
+Γöé  Γö£ΓöÇ email: mail@juliangruber.com
+Γöé  Γö£ΓöÇ url: http://juliangruber.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\brace-expansion
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\brace-expansion\LICENSE
+Γö£ΓöÇ browserslist@4.28.8
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/browserslist/browserslist
+Γöé  Γö£ΓöÇ publisher: Andrey Sitnik
+Γöé  Γö£ΓöÇ email: andrey@sitnik.es
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\browserslist
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\browserslist\LICENSE
+Γö£ΓöÇ callsites@3.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/callsites
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\callsites
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\callsites\license
+Γö£ΓöÇ caniuse-lite@1.0.30001810
+Γöé  Γö£ΓöÇ licenses: CC-BY-4.0
+Γöé  Γö£ΓöÇ repository: https://github.com/browserslist/caniuse-lite
+Γöé  Γö£ΓöÇ publisher: Ben Briggs
+Γöé  Γö£ΓöÇ email: beneb.info@gmail.com
+Γöé  Γö£ΓöÇ url: http://beneb.info
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\caniuse-lite
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\caniuse-lite\LICENSE
+Γö£ΓöÇ ccount@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/ccount
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\ccount
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\ccount\license
+Γö£ΓöÇ chai@6.2.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/chaijs/chai
+Γöé  Γö£ΓöÇ publisher: Jake Luer
+Γöé  Γö£ΓöÇ email: jake@alogicalparadox.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\chai
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\chai\LICENSE
+Γö£ΓöÇ chalk@4.1.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/chalk/chalk
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\chalk
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\chalk\license
+Γö£ΓöÇ character-entities-html4@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/character-entities-html4
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\character-entities-html4
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\character-entities-html4\license
+Γö£ΓöÇ character-entities-legacy@3.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/character-entities-legacy
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\character-entities-legacy
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\character-entities-legacy\license
+Γö£ΓöÇ character-entities@2.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/character-entities
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\character-entities
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\character-entities\license
+Γö£ΓöÇ character-reference-invalid@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/character-reference-invalid
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\character-reference-invalid
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\character-reference-invalid\license
+Γö£ΓöÇ color-convert@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/Qix-/color-convert
+Γöé  Γö£ΓöÇ publisher: Heather Arthur
+Γöé  Γö£ΓöÇ email: fayearthur@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\color-convert
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\color-convert\LICENSE
+Γö£ΓöÇ color-name@1.1.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/colorjs/color-name
+Γöé  Γö£ΓöÇ publisher: DY
+Γöé  Γö£ΓöÇ email: dfcreative@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\color-name
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\color-name\LICENSE
+Γö£ΓöÇ comma-separated-tokens@2.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/comma-separated-tokens
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\comma-separated-tokens
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\comma-separated-tokens\license
+Γö£ΓöÇ concat-map@0.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/substack/node-concat-map
+Γöé  Γö£ΓöÇ publisher: James Halliday
+Γöé  Γö£ΓöÇ email: mail@substack.net
+Γöé  Γö£ΓöÇ url: http://substack.net
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\concat-map
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\concat-map\LICENSE
+Γö£ΓöÇ convert-source-map@1.9.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/thlorenz/convert-source-map
+Γöé  Γö£ΓöÇ publisher: Thorsten Lorenz
+Γöé  Γö£ΓöÇ email: thlorenz@gmx.de
+Γöé  Γö£ΓöÇ url: http://thlorenz.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\babel-plugin\node_modules\convert-source-map
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@emotion\babel-plugin\node_modules\convert-source-map\LICENSE
+Γö£ΓöÇ convert-source-map@2.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/thlorenz/convert-source-map
+Γöé  Γö£ΓöÇ publisher: Thorsten Lorenz
+Γöé  Γö£ΓöÇ email: thlorenz@gmx.de
+Γöé  Γö£ΓöÇ url: http://thlorenz.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\convert-source-map
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\convert-source-map\LICENSE
+Γö£ΓöÇ cosmiconfig@7.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/davidtheclark/cosmiconfig
+Γöé  Γö£ΓöÇ publisher: David Clark
+Γöé  Γö£ΓöÇ email: david.dave.clark@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\cosmiconfig
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\cosmiconfig\LICENSE
+Γö£ΓöÇ cross-spawn@7.0.6
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/moxystudio/node-cross-spawn
+Γöé  Γö£ΓöÇ publisher: Andr├⌐ Cruz
+Γöé  Γö£ΓöÇ email: andre@moxy.studio
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\cross-spawn
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\cross-spawn\LICENSE
+Γö£ΓöÇ cssstyle@4.6.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/cssstyle
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\cssstyle
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\cssstyle\LICENSE
+Γö£ΓöÇ csstype@3.2.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/frenic/csstype
+Γöé  Γö£ΓöÇ publisher: Fredrik Nicol
+Γöé  Γö£ΓöÇ email: fredrik.nicol@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\csstype
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\csstype\LICENSE
+Γö£ΓöÇ data-urls@5.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/data-urls
+Γöé  Γö£ΓöÇ publisher: Domenic Denicola
+Γöé  Γö£ΓöÇ email: d@domenic.me
+Γöé  Γö£ΓöÇ url: https://domenic.me/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\data-urls
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\data-urls\LICENSE.txt
+Γö£ΓöÇ debug@4.4.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/debug-js/debug
+Γöé  Γö£ΓöÇ publisher: Josh Junon
+Γöé  Γö£ΓöÇ url: https://github.com/qix-
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\debug
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\debug\LICENSE
+Γö£ΓöÇ decimal.js@10.6.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/MikeMcl/decimal.js
+Γöé  Γö£ΓöÇ publisher: Michael Mclaughlin
+Γöé  Γö£ΓöÇ email: M8ch88l@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\decimal.js
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\decimal.js\LICENCE.md
+Γö£ΓöÇ decode-named-character-reference@1.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/decode-named-character-reference
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\decode-named-character-reference
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\decode-named-character-reference\license
+Γö£ΓöÇ deep-is@0.1.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/thlorenz/deep-is
+Γöé  Γö£ΓöÇ publisher: Thorsten Lorenz
+Γöé  Γö£ΓöÇ email: thlorenz@gmx.de
+Γöé  Γö£ΓöÇ url: http://thlorenz.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\deep-is
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\deep-is\LICENSE
+Γö£ΓöÇ dequal@2.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/lukeed/dequal
+Γöé  Γö£ΓöÇ publisher: Luke Edwards
+Γöé  Γö£ΓöÇ email: luke.edwards05@gmail.com
+Γöé  Γö£ΓöÇ url: https://lukeed.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\dequal
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\dequal\license
+Γö£ΓöÇ devlop@1.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/devlop
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\devlop
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\devlop\license
+Γö£ΓöÇ dom-helpers@5.2.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/react-bootstrap/dom-helpers
+Γöé  Γö£ΓöÇ publisher: Jason Quense
+Γöé  Γö£ΓöÇ email: monastic.panic@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\dom-helpers
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\dom-helpers\LICENSE
+Γö£ΓöÇ electron-to-chromium@1.5.416
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/Kilian/electron-to-chromium
+Γöé  Γö£ΓöÇ publisher: Kilian Valkhof
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\electron-to-chromium
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\electron-to-chromium\LICENSE
+Γö£ΓöÇ entities@6.0.1
+Γöé  Γö£ΓöÇ licenses: BSD-2-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/fb55/entities
+Γöé  Γö£ΓöÇ publisher: Felix Boehm
+Γöé  Γö£ΓöÇ email: me@feedic.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\entities
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\entities\LICENSE
+Γö£ΓöÇ error-ex@1.3.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/qix-/node-error-ex
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\error-ex
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\error-ex\LICENSE
+Γö£ΓöÇ es-module-lexer@2.3.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/guybedford/es-module-lexer
+Γöé  Γö£ΓöÇ publisher: Guy Bedford
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\es-module-lexer
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\es-module-lexer\LICENSE
+Γö£ΓöÇ esbuild@0.28.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/evanw/esbuild
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\esbuild
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\esbuild\LICENSE.md
+Γö£ΓöÇ escalade@3.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/lukeed/escalade
+Γöé  Γö£ΓöÇ publisher: Luke Edwards
+Γöé  Γö£ΓöÇ email: luke.edwards05@gmail.com
+Γöé  Γö£ΓöÇ url: https://lukeed.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\escalade
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\escalade\license
+Γö£ΓöÇ escape-string-regexp@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/escape-string-regexp
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\escape-string-regexp
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\escape-string-regexp\license
+Γö£ΓöÇ escape-string-regexp@5.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/escape-string-regexp
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-find-and-replace\node_modules\escape-string-regexp
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-find-and-replace\node_modules\escape-string-regexp\license
+Γö£ΓöÇ eslint-plugin-react-hooks@7.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/react
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint-plugin-react-hooks
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint-plugin-react-hooks\LICENSE
+Γö£ΓöÇ eslint-plugin-react-refresh@0.4.24
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/ArnaudBarre/eslint-plugin-react-refresh
+Γöé  Γö£ΓöÇ publisher: Arnaud Barr├⌐
+Γöé  Γö£ΓöÇ url: https://github.com/ArnaudBarre
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint-plugin-react-refresh
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint-plugin-react-refresh\LICENSE
+Γö£ΓöÇ eslint-scope@8.4.0
+Γöé  Γö£ΓöÇ licenses: BSD-2-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/js
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint-scope
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint-scope\LICENSE
+Γö£ΓöÇ eslint-visitor-keys@3.4.3
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/eslint-visitor-keys
+Γöé  Γö£ΓöÇ publisher: Toru Nagashima
+Γöé  Γö£ΓöÇ url: https://github.com/mysticatea
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint-community\eslint-utils\node_modules\eslint-visitor-keys
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint-community\eslint-utils\node_modules\eslint-visitor-keys\LICENSE
+Γö£ΓöÇ eslint-visitor-keys@4.2.1
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/js
+Γöé  Γö£ΓöÇ publisher: Toru Nagashima
+Γöé  Γö£ΓöÇ url: https://github.com/mysticatea
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint-visitor-keys
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint-visitor-keys\LICENSE
+Γö£ΓöÇ eslint@9.39.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/eslint
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ email: nicholas+npm@nczconsulting.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\eslint\LICENSE
+Γö£ΓöÇ espree@10.4.0
+Γöé  Γö£ΓöÇ licenses: BSD-2-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/eslint/js
+Γöé  Γö£ΓöÇ publisher: Nicholas C. Zakas
+Γöé  Γö£ΓöÇ email: nicholas+npm@nczconsulting.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\espree
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\espree\LICENSE
+Γö£ΓöÇ esquery@1.6.0
+Γöé  Γö£ΓöÇ licenses: BSD-3-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/estools/esquery
+Γöé  Γö£ΓöÇ publisher: Joel Feenstra
+Γöé  Γö£ΓöÇ email: jrfeenst+esquery@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\esquery
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\esquery\license.txt
+Γö£ΓöÇ esrecurse@4.3.0
+Γöé  Γö£ΓöÇ licenses: BSD-2-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/estools/esrecurse
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\esrecurse
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\esrecurse\README.md
+Γö£ΓöÇ estraverse@5.3.0
+Γöé  Γö£ΓöÇ licenses: BSD-2-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/estools/estraverse
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\estraverse
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\estraverse\LICENSE.BSD
+Γö£ΓöÇ estree-util-is-identifier-name@3.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/estree-util-is-identifier-name
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\estree-util-is-identifier-name
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\estree-util-is-identifier-name\license
+Γö£ΓöÇ estree-walker@3.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/Rich-Harris/estree-walker
+Γöé  Γö£ΓöÇ publisher: Rich Harris
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\estree-walker
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\estree-walker\LICENSE
+Γö£ΓöÇ esutils@2.0.3
+Γöé  Γö£ΓöÇ licenses: BSD-2-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/estools/esutils
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\esutils
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\esutils\LICENSE.BSD
+Γö£ΓöÇ expect-type@1.4.0
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/mmkal/expect-type
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\expect-type
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\expect-type\LICENSE
+Γö£ΓöÇ extend@3.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/justmoon/node-extend
+Γöé  Γö£ΓöÇ publisher: Stefan Thomas
+Γöé  Γö£ΓöÇ email: justmoon@members.fsf.org
+Γöé  Γö£ΓöÇ url: http://www.justmoon.net
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\extend
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\extend\LICENSE
+Γö£ΓöÇ fast-deep-equal@3.1.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/epoberezkin/fast-deep-equal
+Γöé  Γö£ΓöÇ publisher: Evgeny Poberezkin
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\fast-deep-equal
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\fast-deep-equal\LICENSE
+Γö£ΓöÇ fast-json-stable-stringify@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/epoberezkin/fast-json-stable-stringify
+Γöé  Γö£ΓöÇ publisher: James Halliday
+Γöé  Γö£ΓöÇ email: mail@substack.net
+Γöé  Γö£ΓöÇ url: http://substack.net
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\fast-json-stable-stringify
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\fast-json-stable-stringify\LICENSE
+Γö£ΓöÇ fast-levenshtein@2.0.6
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/hiddentao/fast-levenshtein
+Γöé  Γö£ΓöÇ publisher: Ramesh Nair
+Γöé  Γö£ΓöÇ email: ram@hiddentao.com
+Γöé  Γö£ΓöÇ url: http://www.hiddentao.com/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\fast-levenshtein
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\fast-levenshtein\LICENSE.md
+Γö£ΓöÇ fdir@6.5.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/thecodrr/fdir
+Γöé  Γö£ΓöÇ publisher: thecodrr
+Γöé  Γö£ΓöÇ email: thecodrr@protonmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\fdir
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\fdir\LICENSE
+Γö£ΓöÇ file-entry-cache@8.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jaredwray/file-entry-cache
+Γöé  Γö£ΓöÇ publisher: Jared Wray
+Γöé  Γö£ΓöÇ url: https://jaredwray.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\file-entry-cache
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\file-entry-cache\LICENSE
+Γö£ΓöÇ find-root@1.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/js-n/find-root
+Γöé  Γö£ΓöÇ publisher: jsdnxx
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\find-root
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\find-root\LICENSE.md
+Γö£ΓöÇ find-up@5.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/find-up
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\find-up
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\find-up\license
+Γö£ΓöÇ flat-cache@4.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jaredwray/flat-cache
+Γöé  Γö£ΓöÇ publisher: Jared Wray
+Γöé  Γö£ΓöÇ url: https://jaredwray.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\flat-cache
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\flat-cache\LICENSE
+Γö£ΓöÇ flatted@3.4.4
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/WebReflection/flatted
+Γöé  Γö£ΓöÇ publisher: Andrea Giammarchi
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\flatted
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\flatted\LICENSE
+Γö£ΓöÇ function-bind@1.1.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/Raynos/function-bind
+Γöé  Γö£ΓöÇ publisher: Raynos
+Γöé  Γö£ΓöÇ email: raynos2@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\function-bind
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\function-bind\LICENSE
+Γö£ΓöÇ gensync@1.0.0-beta.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/loganfsmyth/gensync
+Γöé  Γö£ΓöÇ publisher: Logan Smyth
+Γöé  Γö£ΓöÇ email: loganfsmyth@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\gensync
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\gensync\LICENSE
+Γö£ΓöÇ glob-parent@6.0.2
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/gulpjs/glob-parent
+Γöé  Γö£ΓöÇ publisher: Gulp Team
+Γöé  Γö£ΓöÇ email: team@gulpjs.com
+Γöé  Γö£ΓöÇ url: https://gulpjs.com/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\glob-parent
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\glob-parent\LICENSE
+Γö£ΓöÇ globals@14.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/globals
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\eslintrc\node_modules\globals
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@eslint\eslintrc\node_modules\globals\license
+Γö£ΓöÇ globals@16.5.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/globals
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\globals
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\globals\license
+Γö£ΓöÇ has-flag@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/has-flag
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\has-flag
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\has-flag\license
+Γö£ΓöÇ hasown@2.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/inspect-js/hasOwn
+Γöé  Γö£ΓöÇ publisher: Jordan Harband
+Γöé  Γö£ΓöÇ email: ljharb@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\hasown
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\hasown\LICENSE
+Γö£ΓöÇ hast-util-to-jsx-runtime@2.3.6
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/hast-util-to-jsx-runtime
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\hast-util-to-jsx-runtime
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\hast-util-to-jsx-runtime\license
+Γö£ΓöÇ hast-util-whitespace@3.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/hast-util-whitespace
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\hast-util-whitespace
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\hast-util-whitespace\license
+Γö£ΓöÇ hermes-estree@0.25.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/hermes
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\hermes-estree
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\hermes-estree\LICENSE
+Γö£ΓöÇ hermes-parser@0.25.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/hermes
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\hermes-parser
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\hermes-parser\LICENSE
+Γö£ΓöÇ hoist-non-react-statics@3.3.2
+Γöé  Γö£ΓöÇ licenses: BSD-3-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/mridgway/hoist-non-react-statics
+Γöé  Γö£ΓöÇ publisher: Michael Ridgway
+Γöé  Γö£ΓöÇ email: mcridgway@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\hoist-non-react-statics
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\hoist-non-react-statics\LICENSE.md
+Γö£ΓöÇ html-encoding-sniffer@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/html-encoding-sniffer
+Γöé  Γö£ΓöÇ publisher: Domenic Denicola
+Γöé  Γö£ΓöÇ email: d@domenic.me
+Γöé  Γö£ΓöÇ url: https://domenic.me/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\html-encoding-sniffer
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\html-encoding-sniffer\LICENSE.txt
+Γö£ΓöÇ html-url-attributes@3.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/rehypejs/rehype-minify/tree/main/packages/html-url-attributes
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\html-url-attributes
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\html-url-attributes\license
+Γö£ΓöÇ http-proxy-agent@7.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/TooTallNate/proxy-agents
+Γöé  Γö£ΓöÇ publisher: Nathan Rajlich
+Γöé  Γö£ΓöÇ email: nathan@tootallnate.net
+Γöé  Γö£ΓöÇ url: http://n8.io/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\http-proxy-agent
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\http-proxy-agent\LICENSE
+Γö£ΓöÇ https-proxy-agent@7.0.6
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/TooTallNate/proxy-agents
+Γöé  Γö£ΓöÇ publisher: Nathan Rajlich
+Γöé  Γö£ΓöÇ email: nathan@tootallnate.net
+Γöé  Γö£ΓöÇ url: http://n8.io/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\https-proxy-agent
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\https-proxy-agent\LICENSE
+Γö£ΓöÇ iconv-lite@0.6.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/ashtuchkin/iconv-lite
+Γöé  Γö£ΓöÇ publisher: Alexander Shtuchkin
+Γöé  Γö£ΓöÇ email: ashtuchkin@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\iconv-lite
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\iconv-lite\LICENSE
+Γö£ΓöÇ ignore@5.3.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/kaelzhang/node-ignore
+Γöé  Γö£ΓöÇ publisher: kael
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\ignore
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\ignore\LICENSE-MIT
+Γö£ΓöÇ import-fresh@3.3.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/import-fresh
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\import-fresh
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\import-fresh\license
+Γö£ΓöÇ imurmurhash@0.1.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jensyt/imurmurhash-js
+Γöé  Γö£ΓöÇ publisher: Jens Taylor
+Γöé  Γö£ΓöÇ email: jensyt@gmail.com
+Γöé  Γö£ΓöÇ url: https://github.com/homebrewing
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\imurmurhash
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\imurmurhash\README.md
+Γö£ΓöÇ inline-style-parser@0.2.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remarkablemark/inline-style-parser
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\inline-style-parser
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\inline-style-parser\LICENSE
+Γö£ΓöÇ is-alphabetical@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/is-alphabetical
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-alphabetical
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-alphabetical\license
+Γö£ΓöÇ is-alphanumerical@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/is-alphanumerical
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-alphanumerical
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-alphanumerical\license
+Γö£ΓöÇ is-arrayish@0.2.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/qix-/node-is-arrayish
+Γöé  Γö£ΓöÇ publisher: Qix
+Γöé  Γö£ΓöÇ url: http://github.com/qix-
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-arrayish
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-arrayish\LICENSE
+Γö£ΓöÇ is-core-module@2.16.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/inspect-js/is-core-module
+Γöé  Γö£ΓöÇ publisher: Jordan Harband
+Γöé  Γö£ΓöÇ email: ljharb@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-core-module
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-core-module\LICENSE
+Γö£ΓöÇ is-decimal@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/is-decimal
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-decimal
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-decimal\license
+Γö£ΓöÇ is-extglob@2.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jonschlinkert/is-extglob
+Γöé  Γö£ΓöÇ publisher: Jon Schlinkert
+Γöé  Γö£ΓöÇ url: https://github.com/jonschlinkert
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-extglob
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-extglob\LICENSE
+Γö£ΓöÇ is-glob@4.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromatch/is-glob
+Γöé  Γö£ΓöÇ publisher: Jon Schlinkert
+Γöé  Γö£ΓöÇ url: https://github.com/jonschlinkert
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-glob
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-glob\LICENSE
+Γö£ΓöÇ is-hexadecimal@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/is-hexadecimal
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-hexadecimal
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-hexadecimal\license
+Γö£ΓöÇ is-plain-obj@4.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/is-plain-obj
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-plain-obj
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-plain-obj\license
+Γö£ΓöÇ is-potential-custom-element-name@1.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/mathiasbynens/is-potential-custom-element-name
+Γöé  Γö£ΓöÇ publisher: Mathias Bynens
+Γöé  Γö£ΓöÇ url: https://mathiasbynens.be/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\is-potential-custom-element-name
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\is-potential-custom-element-name\LICENSE-MIT.txt
+Γö£ΓöÇ isexe@2.0.0
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/isaacs/isexe
+Γöé  Γö£ΓöÇ publisher: Isaac Z. Schlueter
+Γöé  Γö£ΓöÇ email: i@izs.me
+Γöé  Γö£ΓöÇ url: http://blog.izs.me/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\isexe
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\isexe\LICENSE
+Γö£ΓöÇ js-tokens@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/lydell/js-tokens
+Γöé  Γö£ΓöÇ publisher: Simon Lydell
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\js-tokens
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\js-tokens\LICENSE
+Γö£ΓöÇ js-yaml@4.3.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/nodeca/js-yaml
+Γöé  Γö£ΓöÇ publisher: Vladimir Zapparov
+Γöé  Γö£ΓöÇ email: dervus.grim@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\js-yaml
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\js-yaml\LICENSE
+Γö£ΓöÇ jsdom@26.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/jsdom
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\jsdom
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\jsdom\LICENSE.txt
+Γö£ΓöÇ jsesc@3.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/mathiasbynens/jsesc
+Γöé  Γö£ΓöÇ publisher: Mathias Bynens
+Γöé  Γö£ΓöÇ url: https://mathiasbynens.be/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\jsesc
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\jsesc\LICENSE-MIT.txt
+Γö£ΓöÇ json-buffer@3.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/dominictarr/json-buffer
+Γöé  Γö£ΓöÇ publisher: Dominic Tarr
+Γöé  Γö£ΓöÇ email: dominic.tarr@gmail.com
+Γöé  Γö£ΓöÇ url: http://dominictarr.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\json-buffer
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\json-buffer\LICENSE
+Γö£ΓöÇ json-parse-even-better-errors@2.3.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/npm/json-parse-even-better-errors
+Γöé  Γö£ΓöÇ publisher: Kat March├ín
+Γöé  Γö£ΓöÇ email: kzm@zkat.tech
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\json-parse-even-better-errors
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\json-parse-even-better-errors\LICENSE.md
+Γö£ΓöÇ json-schema-traverse@0.4.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/epoberezkin/json-schema-traverse
+Γöé  Γö£ΓöÇ publisher: Evgeny Poberezkin
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\json-schema-traverse
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\json-schema-traverse\LICENSE
+Γö£ΓöÇ json-stable-stringify-without-jsonify@1.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/samn/json-stable-stringify
+Γöé  Γö£ΓöÇ publisher: James Halliday
+Γöé  Γö£ΓöÇ email: mail@substack.net
+Γöé  Γö£ΓöÇ url: http://substack.net
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\json-stable-stringify-without-jsonify
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\json-stable-stringify-without-jsonify\LICENSE
+Γö£ΓöÇ json5@2.2.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/json5/json5
+Γöé  Γö£ΓöÇ publisher: Aseem Kishore
+Γöé  Γö£ΓöÇ email: aseem.kishore@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\json5
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\json5\LICENSE.md
+Γö£ΓöÇ keyv@4.5.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jaredwray/keyv
+Γöé  Γö£ΓöÇ publisher: Jared Wray
+Γöé  Γö£ΓöÇ email: me@jaredwray.com
+Γöé  Γö£ΓöÇ url: http://jaredwray.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\keyv
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\keyv\README.md
+Γö£ΓöÇ levn@0.4.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/gkz/levn
+Γöé  Γö£ΓöÇ publisher: George Zahariev
+Γöé  Γö£ΓöÇ email: z@georgezahariev.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\levn
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\levn\LICENSE
+Γö£ΓöÇ lines-and-columns@1.2.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/eventualbuddha/lines-and-columns
+Γöé  Γö£ΓöÇ publisher: Brian Donovan
+Γöé  Γö£ΓöÇ email: brian@donovans.cc
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\lines-and-columns
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\lines-and-columns\LICENSE
+Γö£ΓöÇ locate-path@6.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/locate-path
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\locate-path
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\locate-path\license
+Γö£ΓöÇ lodash.merge@4.6.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/lodash/lodash
+Γöé  Γö£ΓöÇ publisher: John-David Dalton
+Γöé  Γö£ΓöÇ email: john.david.dalton@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\lodash.merge
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\lodash.merge\LICENSE
+Γö£ΓöÇ longest-streak@3.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/longest-streak
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\longest-streak
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\longest-streak\license
+Γö£ΓöÇ loose-envify@1.4.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/zertosh/loose-envify
+Γöé  Γö£ΓöÇ publisher: Andres Suarez
+Γöé  Γö£ΓöÇ email: zertosh@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\loose-envify
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\loose-envify\LICENSE
+Γö£ΓöÇ lru-cache@10.4.3
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/isaacs/node-lru-cache
+Γöé  Γö£ΓöÇ publisher: Isaac Z. Schlueter
+Γöé  Γö£ΓöÇ email: i@izs.me
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\@asamuzakjp\css-color\node_modules\lru-cache
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\@asamuzakjp\css-color\node_modules\lru-cache\LICENSE
+Γö£ΓöÇ lru-cache@5.1.1
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/isaacs/node-lru-cache
+Γöé  Γö£ΓöÇ publisher: Isaac Z. Schlueter
+Γöé  Γö£ΓöÇ email: i@izs.me
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\lru-cache
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\lru-cache\LICENSE
+Γö£ΓöÇ magic-string@0.30.21
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/Rich-Harris/magic-string
+Γöé  Γö£ΓöÇ publisher: Rich Harris
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\magic-string
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\magic-string\LICENSE
+Γö£ΓöÇ markdown-table@3.0.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/markdown-table
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\markdown-table
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\markdown-table\license
+Γö£ΓöÇ mdast-util-find-and-replace@3.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-find-and-replace
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-find-and-replace
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-find-and-replace\license
+Γö£ΓöÇ mdast-util-from-markdown@2.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-from-markdown
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-from-markdown
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-from-markdown\license
+Γö£ΓöÇ mdast-util-gfm-autolink-literal@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-gfm-autolink-literal
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-autolink-literal
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-autolink-literal\license
+Γö£ΓöÇ mdast-util-gfm-footnote@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-gfm-footnote
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-footnote
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-footnote\license
+Γö£ΓöÇ mdast-util-gfm-strikethrough@2.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-gfm-strikethrough
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-strikethrough
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-strikethrough\license
+Γö£ΓöÇ mdast-util-gfm-table@2.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-gfm-table
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-table
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-table\license
+Γö£ΓöÇ mdast-util-gfm-task-list-item@2.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-gfm-task-list-item
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-task-list-item
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm-task-list-item\license
+Γö£ΓöÇ mdast-util-gfm@3.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-gfm
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-gfm\license
+Γö£ΓöÇ mdast-util-mdx-expression@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-mdx-expression
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-mdx-expression
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-mdx-expression\license
+Γö£ΓöÇ mdast-util-mdx-jsx@3.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-mdx-jsx
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-mdx-jsx
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-mdx-jsx\license
+Γö£ΓöÇ mdast-util-mdxjs-esm@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-mdxjs-esm
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-mdxjs-esm
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-mdxjs-esm\license
+Γö£ΓöÇ mdast-util-phrasing@4.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-phrasing
+Γöé  Γö£ΓöÇ publisher: Victor Felder
+Γöé  Γö£ΓöÇ email: victor@draft.li
+Γöé  Γö£ΓöÇ url: https://draft.li
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-phrasing
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-phrasing\license
+Γö£ΓöÇ mdast-util-to-hast@13.2.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-to-hast
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-to-hast
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-to-hast\license
+Γö£ΓöÇ mdast-util-to-markdown@2.1.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-to-markdown
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-to-markdown
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-to-markdown\license
+Γö£ΓöÇ mdast-util-to-string@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/mdast-util-to-string
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-to-string
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\mdast-util-to-string\license
+Γö£ΓöÇ memoize-one@6.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/alexreardon/memoize-one
+Γöé  Γö£ΓöÇ publisher: Alex Reardon
+Γöé  Γö£ΓöÇ email: alexreardon@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\memoize-one
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\memoize-one\LICENSE
+Γö£ΓöÇ micromark-core-commonmark@2.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-core-commonmark
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-core-commonmark
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-core-commonmark\license
+Γö£ΓöÇ micromark-extension-gfm-autolink-literal@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark-extension-gfm-autolink-literal
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-autolink-literal
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-autolink-literal\license
+Γö£ΓöÇ micromark-extension-gfm-footnote@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark-extension-gfm-footnote
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-footnote
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-footnote\license
+Γö£ΓöÇ micromark-extension-gfm-strikethrough@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark-extension-gfm-strikethrough
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-strikethrough
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-strikethrough\license
+Γö£ΓöÇ micromark-extension-gfm-table@2.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark-extension-gfm-table
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-table
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-table\license
+Γö£ΓöÇ micromark-extension-gfm-tagfilter@2.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark-extension-gfm-tagfilter
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-tagfilter
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-tagfilter\license
+Γö£ΓöÇ micromark-extension-gfm-task-list-item@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark-extension-gfm-task-list-item
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-task-list-item
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm-task-list-item\license
+Γö£ΓöÇ micromark-extension-gfm@3.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark-extension-gfm
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-extension-gfm\license
+Γö£ΓöÇ micromark-factory-destination@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-destination
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-destination
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-destination\license
+Γö£ΓöÇ micromark-factory-label@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-label
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-label
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-label\license
+Γö£ΓöÇ micromark-factory-space@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-space
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-space
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-space\license
+Γö£ΓöÇ micromark-factory-title@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-title
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-title
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-title\license
+Γö£ΓöÇ micromark-factory-whitespace@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-factory-whitespace
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-whitespace
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-factory-whitespace\license
+Γö£ΓöÇ micromark-util-character@2.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-character
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-character
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-character\license
+Γö£ΓöÇ micromark-util-chunked@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-chunked
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-chunked
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-chunked\license
+Γö£ΓöÇ micromark-util-classify-character@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-classify-character
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-classify-character
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-classify-character\license
+Γö£ΓöÇ micromark-util-combine-extensions@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-combine-extensions
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-combine-extensions
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-combine-extensions\license
+Γö£ΓöÇ micromark-util-decode-numeric-character-reference@2.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-decode-numeric-character-reference
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-decode-numeric-character-reference
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-decode-numeric-character-reference\license
+Γö£ΓöÇ micromark-util-decode-string@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-decode-string
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-decode-string
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-decode-string\license
+Γö£ΓöÇ micromark-util-encode@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-encode
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-encode
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-encode\license
+Γö£ΓöÇ micromark-util-html-tag-name@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-html-tag-name
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-html-tag-name
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-html-tag-name\license
+Γö£ΓöÇ micromark-util-normalize-identifier@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-normalize-identifier
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-normalize-identifier
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-normalize-identifier\license
+Γö£ΓöÇ micromark-util-resolve-all@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-resolve-all
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-resolve-all
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-resolve-all\license
+Γö£ΓöÇ micromark-util-sanitize-uri@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-sanitize-uri
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-sanitize-uri
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-sanitize-uri\license
+Γö£ΓöÇ micromark-util-subtokenize@2.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-subtokenize
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-subtokenize
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-subtokenize\license
+Γö£ΓöÇ micromark-util-symbol@2.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-symbol
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-symbol
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-symbol\license
+Γö£ΓöÇ micromark-util-types@2.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark-util-types
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-types
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark-util-types\license
+Γö£ΓöÇ micromark@4.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromark/micromark/tree/main/packages/micromark
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\micromark\license
+Γö£ΓöÇ minimatch@3.1.5
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/isaacs/minimatch
+Γöé  Γö£ΓöÇ publisher: Isaac Z. Schlueter
+Γöé  Γö£ΓöÇ email: i@izs.me
+Γöé  Γö£ΓöÇ url: http://blog.izs.me
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\minimatch
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\minimatch\LICENSE
+Γö£ΓöÇ ms@2.1.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vercel/ms
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\ms
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\ms\license.md
+Γö£ΓöÇ nanoid@3.3.18
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/ai/nanoid
+Γöé  Γö£ΓöÇ publisher: Andrey Sitnik
+Γöé  Γö£ΓöÇ email: andrey@sitnik.ru
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\nanoid
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\nanoid\LICENSE
+Γö£ΓöÇ natural-compare@1.4.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/litejs/natural-compare-lite
+Γöé  Γö£ΓöÇ publisher: Lauri Rooden
+Γöé  Γö£ΓöÇ url: https://github.com/litejs/natural-compare-lite
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\natural-compare
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\natural-compare\README.md
+Γö£ΓöÇ node-releases@2.0.54
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/chicoxyzzy/node-releases
+Γöé  Γö£ΓöÇ publisher: Sergey Rubanov
+Γöé  Γö£ΓöÇ email: chi187@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\node-releases
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\node-releases\LICENSE
+Γö£ΓöÇ nwsapi@2.2.26
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/dperini/nwsapi
+Γöé  Γö£ΓöÇ publisher: Diego Perini
+Γöé  Γö£ΓöÇ email: diego.perini@gmail.com
+Γöé  Γö£ΓöÇ url: https://www.iport.it/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\nwsapi
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\nwsapi\LICENSE
+Γö£ΓöÇ object-assign@4.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/object-assign
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\object-assign
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\object-assign\license
+Γö£ΓöÇ obug@2.1.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sxzz/obug
+Γöé  Γö£ΓöÇ publisher: Kevin Deng
+Γöé  Γö£ΓöÇ email: sxzz@sxzz.moe
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\obug
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\obug\LICENSE
+Γö£ΓöÇ optionator@0.9.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/gkz/optionator
+Γöé  Γö£ΓöÇ publisher: George Zahariev
+Γöé  Γö£ΓöÇ email: z@georgezahariev.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\optionator
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\optionator\LICENSE
+Γö£ΓöÇ p-limit@3.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/p-limit
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\p-limit
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\p-limit\license
+Γö£ΓöÇ p-locate@5.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/p-locate
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\p-locate
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\p-locate\license
+Γö£ΓöÇ parent-module@1.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/parent-module
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\parent-module
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\parent-module\license
+Γö£ΓöÇ parse-entities@4.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/parse-entities
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\parse-entities
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\parse-entities\license
+Γö£ΓöÇ parse-json@5.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/parse-json
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\parse-json
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\parse-json\license
+Γö£ΓöÇ parse5@7.3.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/inikulin/parse5
+Γöé  Γö£ΓöÇ publisher: Ivan Nikulin
+Γöé  Γö£ΓöÇ email: ifaaan@gmail.com
+Γöé  Γö£ΓöÇ url: https://github.com/inikulin
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\parse5
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\parse5\LICENSE
+Γö£ΓöÇ path-exists@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/path-exists
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\path-exists
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\path-exists\license
+Γö£ΓöÇ path-key@3.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/path-key
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\path-key
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\path-key\license
+Γö£ΓöÇ path-parse@1.0.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jbgutierrez/path-parse
+Γöé  Γö£ΓöÇ publisher: Javier Blanco
+Γöé  Γö£ΓöÇ email: http://jbgutierrez.info
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\path-parse
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\path-parse\LICENSE
+Γö£ΓöÇ path-type@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/path-type
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\path-type
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\path-type\license
+Γö£ΓöÇ pathe@2.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/unjs/pathe
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\pathe
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\pathe\LICENSE
+Γö£ΓöÇ picocolors@1.1.1
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/alexeyraspopov/picocolors
+Γöé  Γö£ΓöÇ publisher: Alexey Raspopov
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\picocolors
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\picocolors\LICENSE
+Γö£ΓöÇ picomatch@4.0.7
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/micromatch/picomatch
+Γöé  Γö£ΓöÇ publisher: Jon Schlinkert
+Γöé  Γö£ΓöÇ url: https://github.com/jonschlinkert
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\picomatch
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\picomatch\LICENSE
+Γö£ΓöÇ postcss@8.5.26
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/postcss/postcss
+Γöé  Γö£ΓöÇ publisher: Andrey Sitnik
+Γöé  Γö£ΓöÇ email: andrey@sitnik.es
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\postcss
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\postcss\LICENSE
+Γö£ΓöÇ prelude-ls@1.2.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/gkz/prelude-ls
+Γöé  Γö£ΓöÇ publisher: George Zahariev
+Γöé  Γö£ΓöÇ email: z@georgezahariev.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\prelude-ls
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\prelude-ls\LICENSE
+Γö£ΓöÇ prop-types@15.8.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/prop-types
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\prop-types
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\prop-types\LICENSE
+Γö£ΓöÇ property-information@7.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/property-information
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\property-information
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\property-information\license
+Γö£ΓöÇ punycode@2.3.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/mathiasbynens/punycode.js
+Γöé  Γö£ΓöÇ publisher: Mathias Bynens
+Γöé  Γö£ΓöÇ url: https://mathiasbynens.be/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\punycode
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\punycode\LICENSE-MIT.txt
+Γö£ΓöÇ react-dom@19.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/react
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\react-dom
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\react-dom\LICENSE
+Γö£ΓöÇ react-is@16.13.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/react
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\react-is
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\react-is\LICENSE
+Γö£ΓöÇ react-markdown@10.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remarkjs/react-markdown
+Γöé  Γö£ΓöÇ publisher: Espen Hovlandsdal
+Γöé  Γö£ΓöÇ email: espen@hovlandsdal.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\react-markdown
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\react-markdown\license
+Γö£ΓöÇ react-refresh@0.18.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/react
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\react-refresh
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\react-refresh\LICENSE
+Γö£ΓöÇ react-select@5.10.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/JedWatson/react-select/tree/master/packages/react-select
+Γöé  Γö£ΓöÇ publisher: Jed Watson
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\react-select
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\react-select\LICENSE
+Γö£ΓöÇ react-transition-group@4.4.5
+Γöé  Γö£ΓöÇ licenses: BSD-3-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/reactjs/react-transition-group
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\react-transition-group
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\react-transition-group\LICENSE
+Γö£ΓöÇ react@19.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/react
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\react
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\react\LICENSE
+Γö£ΓöÇ remark-gfm@4.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remarkjs/remark-gfm
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\remark-gfm
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\remark-gfm\license
+Γö£ΓöÇ remark-parse@11.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remarkjs/remark/tree/main/packages/remark-parse
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\remark-parse
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\remark-parse\license
+Γö£ΓöÇ remark-rehype@11.1.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remarkjs/remark-rehype
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\remark-rehype
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\remark-rehype\license
+Γö£ΓöÇ remark-stringify@11.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remarkjs/remark/tree/main/packages/remark-stringify
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\remark-stringify
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\remark-stringify\license
+Γö£ΓöÇ resolve-from@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/resolve-from
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\resolve-from
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\resolve-from\license
+Γö£ΓöÇ resolve@1.22.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/browserify/resolve
+Γöé  Γö£ΓöÇ publisher: James Halliday
+Γöé  Γö£ΓöÇ email: mail@substack.net
+Γöé  Γö£ΓöÇ url: http://substack.net
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\resolve
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\resolve\LICENSE
+Γö£ΓöÇ rollup@4.63.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/rollup/rollup
+Γöé  Γö£ΓöÇ publisher: Rich Harris
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\rollup
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\rollup\LICENSE.md
+Γö£ΓöÇ rrweb-cssom@0.8.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/rrweb-io/CSSOM
+Γöé  Γö£ΓöÇ publisher: Nikita Vasilyev
+Γöé  Γö£ΓöÇ email: me@elv1s.ru
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\rrweb-cssom
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\rrweb-cssom\LICENSE.txt
+Γö£ΓöÇ safer-buffer@2.1.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/ChALkeR/safer-buffer
+Γöé  Γö£ΓöÇ publisher: Nikita Skovoroda
+Γöé  Γö£ΓöÇ email: chalkerx@gmail.com
+Γöé  Γö£ΓöÇ url: https://github.com/ChALkeR
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\safer-buffer
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\safer-buffer\LICENSE
+Γö£ΓöÇ saxes@6.0.0
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/lddubeau/saxes
+Γöé  Γö£ΓöÇ publisher: Louis-Dominique Dubeau
+Γöé  Γö£ΓöÇ email: ldd@lddubeau.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\saxes
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\saxes\README.md
+Γö£ΓöÇ scheduler@0.27.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/facebook/react
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\scheduler
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\scheduler\LICENSE
+Γö£ΓöÇ semver@6.3.1
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/npm/node-semver
+Γöé  Γö£ΓöÇ publisher: GitHub Inc.
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\semver
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\semver\LICENSE
+Γö£ΓöÇ shebang-command@2.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/kevva/shebang-command
+Γöé  Γö£ΓöÇ publisher: Kevin M├Ñrtensson
+Γöé  Γö£ΓöÇ email: kevinmartensson@gmail.com
+Γöé  Γö£ΓöÇ url: github.com/kevva
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\shebang-command
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\shebang-command\license
+Γö£ΓöÇ shebang-regex@3.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/shebang-regex
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\shebang-regex
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\shebang-regex\license
+Γö£ΓöÇ siginfo@2.0.0
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/emilbayes/siginfo
+Γöé  Γö£ΓöÇ publisher: Emil Bay
+Γöé  Γö£ΓöÇ email: github@tixz.dk
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\siginfo
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\siginfo\LICENSE
+Γö£ΓöÇ source-map-js@1.2.1
+Γöé  Γö£ΓöÇ licenses: BSD-3-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/7rulnik/source-map-js
+Γöé  Γö£ΓöÇ publisher: Valentin 7rulnik Semirulnik
+Γöé  Γö£ΓöÇ email: v7rulnik@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\source-map-js
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\source-map-js\LICENSE
+Γö£ΓöÇ source-map@0.5.7
+Γöé  Γö£ΓöÇ licenses: BSD-3-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/mozilla/source-map
+Γöé  Γö£ΓöÇ publisher: Nick Fitzgerald
+Γöé  Γö£ΓöÇ email: nfitzgerald@mozilla.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\source-map
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\source-map\LICENSE
+Γö£ΓöÇ space-separated-tokens@2.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/space-separated-tokens
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\space-separated-tokens
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\space-separated-tokens\license
+Γö£ΓöÇ stackback@0.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/shtylman/node-stackback
+Γöé  Γö£ΓöÇ publisher: Roman Shtylman
+Γöé  Γö£ΓöÇ email: shtylman@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\stackback
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\stackback\README.md
+Γö£ΓöÇ std-env@4.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/unjs/std-env
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\std-env
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\std-env\LICENCE
+Γö£ΓöÇ stringify-entities@4.0.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/stringify-entities
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\stringify-entities
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\stringify-entities\license
+Γö£ΓöÇ strip-json-comments@3.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/strip-json-comments
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\strip-json-comments
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\strip-json-comments\license
+Γö£ΓöÇ style-to-js@1.1.21
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remarkablemark/style-to-js
+Γöé  Γö£ΓöÇ publisher: Mark
+Γöé  Γö£ΓöÇ email: mark@remarkablemark.org
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\style-to-js
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\style-to-js\LICENSE
+Γö£ΓöÇ style-to-object@1.0.14
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remarkablemark/style-to-object
+Γöé  Γö£ΓöÇ publisher: Mark
+Γöé  Γö£ΓöÇ email: mark@remarkablemark.org
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\style-to-object
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\style-to-object\LICENSE
+Γö£ΓöÇ stylis@4.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/thysultan/stylis.js
+Γöé  Γö£ΓöÇ publisher: Sultan Tarimo
+Γöé  Γö£ΓöÇ email: sultantarimo@me.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\stylis
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\stylis\LICENSE
+Γö£ΓöÇ supports-color@7.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/chalk/supports-color
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\supports-color
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\supports-color\license
+Γö£ΓöÇ supports-preserve-symlinks-flag@1.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/inspect-js/node-supports-preserve-symlinks-flag
+Γöé  Γö£ΓöÇ publisher: Jordan Harband
+Γöé  Γö£ΓöÇ email: ljharb@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\supports-preserve-symlinks-flag
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\supports-preserve-symlinks-flag\LICENSE
+Γö£ΓöÇ symbol-tree@3.2.4
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/js-symbol-tree
+Γöé  Γö£ΓöÇ publisher: Joris van der Wel
+Γöé  Γö£ΓöÇ email: joris@jorisvanderwel.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\symbol-tree
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\symbol-tree\LICENSE
+Γö£ΓöÇ the-ai-counsel@0.11.4
+Γöé  Γö£ΓöÇ licenses: UNLICENSED
+Γöé  Γö£ΓöÇ private: true
+Γöé  Γö£ΓöÇ path: .
+Γöé  ΓööΓöÇ licenseFile: README.md
+Γö£ΓöÇ tinybench@2.9.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/tinylibs/tinybench
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\tinybench
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\tinybench\LICENSE
+Γö£ΓöÇ tinyexec@1.3.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/tinylibs/tinyexec
+Γöé  Γö£ΓöÇ publisher: James Garbutt
+Γöé  Γö£ΓöÇ url: https://github.com/43081j
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\tinyexec
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\tinyexec\LICENSE
+Γö£ΓöÇ tinyglobby@0.2.15
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/SuperchupuDev/tinyglobby
+Γöé  Γö£ΓöÇ publisher: Superchupu
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\tinyglobby
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\tinyglobby\LICENSE
+Γö£ΓöÇ tinyrainbow@3.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/tinylibs/tinyrainbow
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\tinyrainbow
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\tinyrainbow\LICENCE
+Γö£ΓöÇ tldts-core@6.1.86
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remusao/tldts
+Γöé  Γö£ΓöÇ publisher: R├⌐mi Berson
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\tldts-core
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\tldts-core\LICENSE
+Γö£ΓöÇ tldts@6.1.86
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/remusao/tldts
+Γöé  Γö£ΓöÇ publisher: R├⌐mi Berson
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\tldts
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\tldts\LICENSE
+Γö£ΓöÇ tough-cookie@5.1.2
+Γöé  Γö£ΓöÇ licenses: BSD-3-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/salesforce/tough-cookie
+Γöé  Γö£ΓöÇ publisher: Jeremy Stashewsky
+Γöé  Γö£ΓöÇ email: jstash@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\tough-cookie
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\tough-cookie\LICENSE
+Γö£ΓöÇ tr46@5.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/tr46
+Γöé  Γö£ΓöÇ publisher: Sebastian Mayr
+Γöé  Γö£ΓöÇ email: npm@smayr.name
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\tr46
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\tr46\LICENSE.md
+Γö£ΓöÇ trim-lines@3.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/trim-lines
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\trim-lines
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\trim-lines\license
+Γö£ΓöÇ trough@2.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/wooorm/trough
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\trough
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\trough\license
+Γö£ΓöÇ type-check@0.4.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/gkz/type-check
+Γöé  Γö£ΓöÇ publisher: George Zahariev
+Γöé  Γö£ΓöÇ email: z@georgezahariev.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\type-check
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\type-check\LICENSE
+Γö£ΓöÇ unified@11.0.5
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/unifiedjs/unified
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\unified
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\unified\license
+Γö£ΓöÇ unist-util-is@6.0.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/unist-util-is
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-is
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-is\license
+Γö£ΓöÇ unist-util-position@5.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/unist-util-position
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-position
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-position\license
+Γö£ΓöÇ unist-util-stringify-position@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/unist-util-stringify-position
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-stringify-position
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-stringify-position\license
+Γö£ΓöÇ unist-util-visit-parents@6.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/unist-util-visit-parents
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-visit-parents
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-visit-parents\license
+Γö£ΓöÇ unist-util-visit@5.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/syntax-tree/unist-util-visit
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-visit
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\unist-util-visit\license
+Γö£ΓöÇ update-browserslist-db@1.3.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/browserslist/update-db
+Γöé  Γö£ΓöÇ publisher: Andrey Sitnik
+Γöé  Γö£ΓöÇ email: andrey@sitnik.es
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\update-browserslist-db
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\update-browserslist-db\LICENSE
+Γö£ΓöÇ uri-js@4.4.1
+Γöé  Γö£ΓöÇ licenses: BSD-2-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/garycourt/uri-js
+Γöé  Γö£ΓöÇ publisher: Gary Court
+Γöé  Γö£ΓöÇ email: gary.court@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\uri-js
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\uri-js\LICENSE
+Γö£ΓöÇ use-isomorphic-layout-effect@1.2.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/Andarist/use-isomorphic-layout-effect
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\use-isomorphic-layout-effect
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\use-isomorphic-layout-effect\LICENSE
+Γö£ΓöÇ vfile-message@4.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vfile/vfile-message
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\vfile-message
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\vfile-message\license
+Γö£ΓöÇ vfile@6.0.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vfile/vfile
+Γöé  Γö£ΓöÇ publisher: Titus Wormer
+Γöé  Γö£ΓöÇ email: tituswormer@gmail.com
+Γöé  Γö£ΓöÇ url: https://wooorm.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\vfile
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\vfile\license
+Γö£ΓöÇ vite@7.3.6
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitejs/vite
+Γöé  Γö£ΓöÇ publisher: Evan You
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\vite
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\vite\LICENSE.md
+Γö£ΓöÇ vitest@4.1.11
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/vitest-dev/vitest
+Γöé  Γö£ΓöÇ publisher: Anthony Fu
+Γöé  Γö£ΓöÇ email: anthonyfu117@hotmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\vitest
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\vitest\LICENSE.md
+Γö£ΓöÇ w3c-xmlserializer@5.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/w3c-xmlserializer
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\w3c-xmlserializer
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\w3c-xmlserializer\LICENSE.md
+Γö£ΓöÇ webidl-conversions@7.0.0
+Γöé  Γö£ΓöÇ licenses: BSD-2-Clause
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/webidl-conversions
+Γöé  Γö£ΓöÇ publisher: Domenic Denicola
+Γöé  Γö£ΓöÇ email: d@domenic.me
+Γöé  Γö£ΓöÇ url: https://domenic.me/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\webidl-conversions
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\webidl-conversions\LICENSE.md
+Γö£ΓöÇ whatwg-encoding@3.1.1
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/whatwg-encoding
+Γöé  Γö£ΓöÇ publisher: Domenic Denicola
+Γöé  Γö£ΓöÇ email: d@domenic.me
+Γöé  Γö£ΓöÇ url: https://domenic.me/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\whatwg-encoding
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\whatwg-encoding\LICENSE.txt
+Γö£ΓöÇ whatwg-mimetype@4.0.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/whatwg-mimetype
+Γöé  Γö£ΓöÇ publisher: Domenic Denicola
+Γöé  Γö£ΓöÇ email: d@domenic.me
+Γöé  Γö£ΓöÇ url: https://domenic.me/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\whatwg-mimetype
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\whatwg-mimetype\LICENSE.txt
+Γö£ΓöÇ whatwg-url@14.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/whatwg-url
+Γöé  Γö£ΓöÇ publisher: Sebastian Mayr
+Γöé  Γö£ΓöÇ email: github@smayr.name
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\whatwg-url
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\whatwg-url\LICENSE.txt
+Γö£ΓöÇ which@2.0.2
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/isaacs/node-which
+Γöé  Γö£ΓöÇ publisher: Isaac Z. Schlueter
+Γöé  Γö£ΓöÇ email: i@izs.me
+Γöé  Γö£ΓöÇ url: http://blog.izs.me
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\which
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\which\LICENSE
+Γö£ΓöÇ why-is-node-running@2.3.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/mafintosh/why-is-node-running
+Γöé  Γö£ΓöÇ publisher: Mathias Buus
+Γöé  Γö£ΓöÇ url: @mafintosh
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\why-is-node-running
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\why-is-node-running\LICENSE
+Γö£ΓöÇ word-wrap@1.2.5
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/jonschlinkert/word-wrap
+Γöé  Γö£ΓöÇ publisher: Jon Schlinkert
+Γöé  Γö£ΓöÇ url: https://github.com/jonschlinkert
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\word-wrap
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\word-wrap\LICENSE
+Γö£ΓöÇ ws@8.21.3
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/websockets/ws
+Γöé  Γö£ΓöÇ publisher: Einar Otto Stangvik
+Γöé  Γö£ΓöÇ email: einaros@gmail.com
+Γöé  Γö£ΓöÇ url: http://2x.io
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\ws
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\ws\LICENSE
+Γö£ΓöÇ xml-name-validator@5.0.0
+Γöé  Γö£ΓöÇ licenses: Apache-2.0
+Γöé  Γö£ΓöÇ repository: https://github.com/jsdom/xml-name-validator
+Γöé  Γö£ΓöÇ publisher: Domenic Denicola
+Γöé  Γö£ΓöÇ email: d@domenic.me
+Γöé  Γö£ΓöÇ url: https://domenic.me/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\xml-name-validator
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\xml-name-validator\LICENSE.txt
+Γö£ΓöÇ xmlchars@2.2.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/lddubeau/xmlchars
+Γöé  Γö£ΓöÇ publisher: Louis-Dominique Dubeau
+Γöé  Γö£ΓöÇ email: ldd@lddubeau.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\xmlchars
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\xmlchars\LICENSE
+Γö£ΓöÇ yallist@3.1.1
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/isaacs/yallist
+Γöé  Γö£ΓöÇ publisher: Isaac Z. Schlueter
+Γöé  Γö£ΓöÇ email: i@izs.me
+Γöé  Γö£ΓöÇ url: http://blog.izs.me/
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\yallist
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\yallist\LICENSE
+Γö£ΓöÇ yaml@1.10.3
+Γöé  Γö£ΓöÇ licenses: ISC
+Γöé  Γö£ΓöÇ repository: https://github.com/eemeli/yaml
+Γöé  Γö£ΓöÇ publisher: Eemeli Aro
+Γöé  Γö£ΓöÇ email: eemeli@gmail.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\cosmiconfig\node_modules\yaml
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\cosmiconfig\node_modules\yaml\LICENSE
+Γö£ΓöÇ yocto-queue@0.1.0
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/sindresorhus/yocto-queue
+Γöé  Γö£ΓöÇ publisher: Sindre Sorhus
+Γöé  Γö£ΓöÇ email: sindresorhus@gmail.com
+Γöé  Γö£ΓöÇ url: https://sindresorhus.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\yocto-queue
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\yocto-queue\license
+Γö£ΓöÇ zod-validation-error@4.0.2
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/causaly/zod-validation-error
+Γöé  Γö£ΓöÇ publisher: Dimitrios C. Michalakos
+Γöé  Γö£ΓöÇ email: dimitris@jmike.gr
+Γöé  Γö£ΓöÇ url: https://github.com/jmike
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\zod-validation-error
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\zod-validation-error\LICENSE
+Γö£ΓöÇ zod@4.1.12
+Γöé  Γö£ΓöÇ licenses: MIT
+Γöé  Γö£ΓöÇ repository: https://github.com/colinhacks/zod
+Γöé  Γö£ΓöÇ publisher: Colin McDonnell
+Γöé  Γö£ΓöÇ email: zod@colinhacks.com
+Γöé  Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\zod
+Γöé  ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\zod\LICENSE
+ΓööΓöÇ zwitch@2.0.4
+   Γö£ΓöÇ licenses: MIT
+   Γö£ΓöÇ repository: https://github.com/wooorm/zwitch
+   Γö£ΓöÇ publisher: Titus Wormer
+   Γö£ΓöÇ email: tituswormer@gmail.com
+   Γö£ΓöÇ url: https://wooorm.com
+   Γö£ΓöÇ path: C:\Users\wpedi\ModelMix\frontend\node_modules\zwitch
+   ΓööΓöÇ licenseFile: C:\Users\wpedi\ModelMix\frontend\node_modules\zwitch\license
+
