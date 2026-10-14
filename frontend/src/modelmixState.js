@@ -245,7 +245,7 @@ export function hydrateModelMixState(document) {
     runId: run.run_id,
     sessionId: document.session.session_id,
     lastSeq: run.latest_seq,
-    overall: run.status,
+    overall: run.status === 'active' ? 'running' : run.status,
     message: `Restored ${run.status} run`,
     models: run.models,
     prompt: run.prompt,

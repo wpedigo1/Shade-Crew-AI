@@ -27,6 +27,7 @@ export function configuredSources(settings) {
     openrouter: !!settings.openrouter_api_key_set && enabled.openrouter !== false,
     ollama: !!settings.ollama_base_url && enabled.ollama !== false,
     direct: hasDirect && enabled.direct !== false,
+    local: (settings.local_endpoints || []).some(endpoint => endpoint.enabled !== false),
     custom: !!settings.custom_endpoint_url && enabled.custom !== false,
     oauth: hasOAuth,
   };
@@ -60,13 +61,14 @@ export async function discoverConfiguredModels(client, settings) {
   const directPromise = sources.direct || sources.oauth
     ? safe(() => client.getDirectModels(), [])
     : Promise.resolve([]);
-  const [openrouter, ollama, direct, custom] = await Promise.all([
+  const [openrouter, ollama, direct, custom, local] = await Promise.all([
     sources.openrouter ? safe(() => client.getModels(), { models: [] }) : { models: [] },
     sources.ollama
       ? safe(() => client.getOllamaModels(settings.ollama_base_url), { models: [] })
       : { models: [] },
     directPromise,
     sources.custom ? safe(() => client.getCustomEndpointModels(), { models: [] }) : { models: [] },
+    sources.local ? safe(() => client.getLocalEndpointModels(), { models: [] }) : { models: [] },
   ]);
   const directModels = Array.isArray(direct) ? direct : (direct.models || []);
   const ollamaModels = (ollama.models || []).map((model) => ({
@@ -80,6 +82,7 @@ export async function discoverConfiguredModels(client, settings) {
     ...ollamaModels,
     ...(sources.direct ? filterDirectModels(directModels, settings) : []),
     ...(custom.models || []),
+    ...(local.models || []),
     ...(sources.oauth ? filterOAuthModels(directModels, settings) : []),
   ];
   const unique = new Map();

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { api } from '../api';
 import { configuredSources, discoverConfiguredModels } from '../configuredModels';
+import LocalEndpoints from './LocalEndpoints';
 import MarkdownContent from './MarkdownContent';
 import SearchableModelSelect from './SearchableModelSelect';
 import { DEFAULT_PANEL_VIEW, getPanelViewClasses, panelLayoutNeedsReset } from '../panelView';
@@ -66,7 +67,7 @@ import './ModelMixObserver.css';
 const reconnectDelay = () => new Promise((resolve) => setTimeout(resolve, 500));
 
 export default function ModelMixObserver() {
-  const [prompt, setPrompt] = useState('Explain why independent answers can improve reliability.');
+  const [prompt, setPrompt] = useState('');
   const savedSeatModels = useMemo(() => loadSavedSeatModels(window.localStorage), []);
   const [workerAModel, setWorkerAModel] = useState(savedSeatModels?.worker_a ?? FALLBACK_SEAT_MODELS.worker_a);
   const [moderatorModel, setModeratorModel] = useState(savedSeatModels?.moderator ?? FALLBACK_SEAT_MODELS.moderator);
@@ -90,11 +91,11 @@ export default function ModelMixObserver() {
   const [mode, setMode] = useState(() => loadSavedMode(window.localStorage));
 
   const updateObserver = useCallback((updater) => {
-    setObserver((current) => {
-      const next = typeof updater === 'function' ? updater(current) : updater;
-      observerRef.current = next;
-      return next;
-    });
+    // SSE EOF can arrive before React renders a queued terminal event.
+    // Advance the stream's authoritative reference synchronously, then render it.
+    const next = typeof updater === 'function' ? updater(observerRef.current) : updater;
+    observerRef.current = next;
+    setObserver(next);
   }, []);
 
   const toggleCollapsed = useCallback((seatKey) => {
@@ -399,7 +400,7 @@ export default function ModelMixObserver() {
   return (
     <main className="modelmix-observer">
       <header className="modelmix-topbar">
-        <h1>ModelMix</h1>
+        <h1>Shade Crew AI</h1>
         <label className="modelmix-mode">
           <span className="modelmix-mode-label">Mode</span>
           <select
@@ -423,7 +424,6 @@ export default function ModelMixObserver() {
           <button type="button" className="new-session" disabled={modelSelectorsDisabled(observer.overall)} onClick={newSession}>New Session</button>
         </div>
         <button type="button" className="modelmix-details-toggle" aria-expanded={detailsOpen} onClick={() => setDetailsOpen((open) => !open)}>Details</button>
-        <a href="/">Back to Council</a>
         <button type="button" className="modelmix-settings-toggle" aria-label="Settings" title="Settings" aria-expanded={settingsOpen} onClick={() => setSettingsOpen((open) => !open)}>⚙</button>
       </header>
 
@@ -462,10 +462,10 @@ export default function ModelMixObserver() {
         <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} aria-label="Prompt" rows="3" required />
         <div className={`modelmix-models${mode === 'compare' ? ' modelmix-models--compare' : ''}`}>
           <label htmlFor="modelmix-worker-a-model">
-            Worker A model
+            Mechanic A model
             <SearchableModelSelect
               inputId="modelmix-worker-a-model"
-              ariaLabel="Worker A model"
+              ariaLabel="Mechanic A model"
               models={models}
               allModels={models}
               value={workerAModel}
@@ -491,10 +491,10 @@ export default function ModelMixObserver() {
           )}
           {!isSolo && (
             <label htmlFor="modelmix-worker-b-model">
-              Worker B model
+              Mechanic B model
               <SearchableModelSelect
                 inputId="modelmix-worker-b-model"
-                ariaLabel="Worker B model"
+                ariaLabel="Mechanic B model"
                 models={models}
                 allModels={models}
                 value={workerBModel}
@@ -529,12 +529,12 @@ export default function ModelMixObserver() {
 
       <section
         className={`modelmix-workers${panelView.maximized || isSolo ? ' modelmix-workers--maximized' : ''}`}
-        aria-label="ModelMix cockpit"
+        aria-label="Shade Crew AI cockpit"
       >
         {[
-          { seatKey: 'worker_a', title: 'Worker A', className: '', emptyText: 'Waiting for visible output…' },
+          { seatKey: 'worker_a', title: 'Mechanic A', className: '', emptyText: 'Waiting for visible output…' },
           { seatKey: 'moderator', title: 'Moderator', className: 'modelmix-moderator', emptyText: 'Waiting for workers…' },
-          { seatKey: 'worker_b', title: 'Worker B', className: '', emptyText: 'Waiting for visible output…' },
+          { seatKey: 'worker_b', title: 'Mechanic B', className: '', emptyText: 'Waiting for visible output…' },
         ].map(({ seatKey, title, className, emptyText }) => {
           const hiddenByMode = (mode === 'compare' && seatKey === 'moderator')
             || (mode === 'solo' && (seatKey === 'moderator' || seatKey === 'worker_b'));
@@ -720,15 +720,15 @@ function AboutSection({ version }) {
   return (
     <div className="modelmix-settings-section">
       <p className="modelmix-settings-line">
-        <strong>ModelMix</strong> — a local-first multi-model app to reduce single-model bias and unsupported conclusions.
+        <strong>Shade Crew AI</strong> — a personal, local-first mechanic and repair console.
       </p>
       <p className="modelmix-settings-line"><strong>Version</strong> {version}</p>
       <p className="modelmix-settings-line"><strong>License</strong> MIT — Copyright (c) 2025 Jacob Ben David.</p>
       <p className="modelmix-settings-line">
-        Origin: ModelMix began as a fork/evolution of The AI Counsel, an open-source multi-model AI project.
+        Origin: Shade Crew AI is derived from ModelMix and The AI Counsel. See PROVENANCE.md for the exact baseline.
       </p>
-      <p className="modelmix-settings-line"><a href="https://github.com/wpedigo1/ModelMix">github.com/wpedigo1/ModelMix</a></p>
-      <p className="modelmix-settings-line"><a href="https://github.com/wpedigo1/ModelMix/blob/main/OPEN_SOURCE_CREDITS.md">OPEN_SOURCE_CREDITS.md — open-source credits and dependency licenses</a></p>
+      <p className="modelmix-settings-line"><a href="https://github.com/wpedigo1/Shade-Crew-AI">github.com/wpedigo1/Shade-Crew-AI</a></p>
+      <p className="modelmix-settings-line"><a href="https://github.com/wpedigo1/Shade-Crew-AI/blob/main/OPEN_SOURCE_CREDITS.md">OPEN_SOURCE_CREDITS.md — open-source credits and dependency licenses</a></p>
     </div>
   );
 }
@@ -1008,6 +1008,7 @@ function ProvidersSection({ settings }) {
       <p className="modelmix-settings-line">
         Enter a credential below to connect a provider from here. Fields are write-only — a saved value is never shown back.
       </p>
+      <LocalEndpoints settings={currentSettings} onSaved={refreshSettings} />
       <ul className="modelmix-provider-list">
         {PROVIDER_ROWS.map(([name, status]) => {
           const connected = status(sources);
@@ -1196,14 +1197,14 @@ function OAuthRow({ provider, settings, entry, onConnect, onDisconnect }) {
 function DefaultsSection({ currentModels, onSave, onClear }) {
   const saved = loadSavedSeatModels(window.localStorage);
   const rows = [
-    ['Worker A', currentModels.worker_a],
+    ['Mechanic A', currentModels.worker_a],
     ['Moderator', currentModels.moderator],
-    ['Worker B', currentModels.worker_b],
+    ['Mechanic B', currentModels.worker_b],
   ];
   return (
     <div className="modelmix-settings-section">
       <p className="modelmix-settings-line">
-        When no defaults are saved, ModelMix starts each session with its built-in default seats.
+        When no defaults are saved, Shade Crew AI starts each session with its built-in default seats.
       </p>
       <ul className="modelmix-provider-list">
         {rows.map(([seat, model]) => (
@@ -1279,7 +1280,7 @@ function GuardrailsSection({ onSave, onClear }) {
         <p className="modelmix-settings-error" role="alert">{validation.error}</p>
       )}
       <p className="modelmix-settings-line">
-        ModelMix's built-in default: warning 20,000 chars and hard cap 40,000 chars. This is a static default value, not a live-fetched server value — requests that omit both thresholds use it.
+        Shade Crew AI's built-in default: warning 20,000 chars and hard cap 40,000 chars. This is a static default value, not a live-fetched server value — requests that omit both thresholds use it.
       </p>
       {saved ? (
         <p className="modelmix-settings-line">Saved override will be sent with each request.</p>

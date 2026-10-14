@@ -1,18 +1,18 @@
-# ModelMix — Project Instructions
+# Shade Crew AI — Project Instructions
 
 ## Project
 
-ModelMix is a local-first multi-model application designed to reduce single-model bias and unsupported conclusions.
+Shade Crew AI is a local-first multi-model application designed to reduce single-model bias and unsupported conclusions.
 
-The default ModelMix workflow is:
+The default Shade Crew AI workflow is:
 
 ```text
-Worker A ──┐
+Mechanic A ──┐
            ├──> Moderator ──> Final answer
-Worker B ──┘
+Mechanic B ──┘
 ```
 
-Worker A and Worker B are independent witnesses.
+Mechanic A and Mechanic B are independent witnesses.
 
 The Moderator is the only participant that receives both worker results and is responsible for evaluating evidence, resolving disagreement, identifying uncertainty, and producing the final synthesis.
 
@@ -20,7 +20,7 @@ Core principle:
 
 **Simple first. Power when requested.**
 
-Do not redesign settled ModelMix architecture unless repository evidence or an explicit task requires reconsideration.
+Do not redesign settled Shade Crew AI architecture unless repository evidence or an explicit task requires reconsideration.
 
 ---
 
@@ -31,7 +31,7 @@ Before changing code:
 1. Read this file.
 2. Inspect the relevant implementation and tests.
 3. Search for an existing working pattern before inventing a new one.
-4. Check applicable ModelMix documentation and current contracts.
+4. Check applicable Shade Crew AI documentation and current contracts.
 5. Prefer observed repository behavior over comments, plans, or previous agent reports.
 6. If repository behavior conflicts with authoritative project documentation, report the conflict instead of silently choosing one.
 
@@ -43,8 +43,8 @@ Do not assume a previous mission report, PASS statement, branch name, commit SHA
 
 Unless an explicit approved change says otherwise:
 
-* Default experience is **Worker A | wider Moderator | Worker B**.
-* Worker A and Worker B execute independently.
+* Default experience is **Mechanic A | wider Moderator | Mechanic B**.
+* Mechanic A and Mechanic B execute independently.
 * Workers must not see each other's output, identity, conclusions, or participation.
 * Workers must not critique, rank, debate, rebut, or wait for one another.
 * Only the Moderator receives worker outputs.
@@ -58,13 +58,13 @@ Unless an explicit approved change says otherwise:
 * Events use durable run identity and monotonic sequence ordering.
 * Reconnect/replay must preserve ordering and prevent duplicates.
 * Moderator output uses the same run/event path rather than a second independent stream.
-* Persistence for alpha is **versioned atomic JSON behind a ModelMix-owned interface**.
+* Persistence for alpha is **versioned atomic JSON behind a Shade Crew AI-owned interface**.
 * Do not introduce SQLite merely because it may be useful later.
 * Browser/React is the alpha application surface.
 * Tauri 2 desktop packaging comes after browser alpha.
 * Android has a separate later UX and is not a literal three-column desktop port.
 * Preserve secure credential references; never move plaintext secrets into frontend payloads, logs, session files, prompts, or repository files.
-* Telemetry must distinguish authoritative provider data from ModelMix-tracked or estimated values.
+* Telemetry must distinguish authoritative provider data from Shade Crew AI-tracked or estimated values.
 * Unknown telemetry remains unknown.
 * Do not fake provider status, usage, cost, latency, messages, credentials, or model responses.
 
@@ -74,27 +74,27 @@ Unless an explicit approved change says otherwise:
 
 For a standard Mix run:
 
-### Worker A may receive
+### Mechanic A may receive
 
 * User prompt.
 * Authorized shared context.
-* Worker A's own permitted seat history/resources.
+* Mechanic A's own permitted seat history/resources.
 
-### Worker A must not receive
+### Mechanic A must not receive
 
-* Worker B output.
-* Worker B identity.
-* Worker B conclusions.
+* Mechanic B output.
+* Mechanic B identity.
+* Mechanic B conclusions.
 * Moderator output.
 * Ranking or comparison information about other workers.
 
-Worker B follows the same rule symmetrically.
+Mechanic B follows the same rule symmetrically.
 
 ### Moderator may receive
 
 * Original user prompt and authorized context.
-* Complete bounded visible Worker A output when available.
-* Complete bounded visible Worker B output when available.
+* Complete bounded visible Mechanic A output when available.
+* Complete bounded visible Mechanic B output when available.
 * Authorized research/files/tools when the product feature explicitly permits them.
 
 Never forward hidden reasoning, credentials, private provider metadata, or unauthorized context.
@@ -105,10 +105,10 @@ Never forward hidden reasoning, credentials, private provider metadata, or unaut
 
 ## Current Alpha UI Contract
 
-The main ModelMix cockpit uses three persistent conversation surfaces:
+The main Shade Crew AI cockpit uses three persistent conversation surfaces:
 
 ```text
-Worker A | Moderator | Worker B
+Mechanic A | Moderator | Mechanic B
 ```
 
 Requirements:
@@ -144,7 +144,7 @@ Never morph Send into Stop at the same cursor position.
 
 ## Run and Event Integrity
 
-Preserve the existing ordered ModelMix run model.
+Preserve the existing ordered Shade Crew AI run model.
 
 Important concepts include:
 
@@ -173,13 +173,13 @@ Terminal state must honestly distinguish relevant outcomes such as:
 * failure;
 * timeout;
 * provider/model termination;
-* ModelMix hard-cap termination.
+* Shade Crew AI hard-cap termination.
 
 ---
 
 ## Persistence
 
-Persistence belongs behind a ModelMix-owned boundary.
+Persistence belongs behind a Shade Crew AI-owned boundary.
 
 For alpha:
 
@@ -198,7 +198,7 @@ Do not let persistence introduce cross-seat context leakage.
 
 ## Providers and Models
 
-ModelMix supports multiple cloud and local providers through normalized provider behavior.
+Shade Crew AI supports multiple cloud and local providers through normalized provider behavior.
 
 Do not hardcode product behavior around one provider unless the task explicitly concerns that provider.
 
@@ -217,12 +217,12 @@ Capability-dependent UI must reflect real capability information.
 
 ## Telemetry and Usage
 
-ModelMix does not bullshit users.
+Shade Crew AI does not bullshit users.
 
 When displaying usage or limits:
 
 * Provider-reported values may be labeled authoritative when they truly are.
-* ModelMix-computed values must be labeled tracked or calculated as appropriate.
+* Shade Crew AI-computed values must be labeled tracked or calculated as appropriate.
 * Estimates must be labeled estimates.
 * Missing data must remain unavailable/unknown.
 * Do not turn rate limits, token counts, billing limits, quotas, and estimates into one fake normalized percentage.
@@ -256,7 +256,7 @@ Do not claim security behavior works merely because the code appears intended to
 ## Repository Change Rules
 
 * Keep changes focused on the requested behavior.
-* Reuse existing ModelMix seams and utilities before creating parallel abstractions.
+* Reuse existing Shade Crew AI seams and utilities before creating parallel abstractions.
 * Follow existing naming, typing, state-management, error-handling, logging, and testing conventions.
 * Do not broadly refactor unrelated code.
 * Do not reformat unrelated files.
@@ -264,9 +264,9 @@ Do not claim security behavior works merely because the code appears intended to
 * Do not modify lockfiles unless dependency changes require it.
 * Do not change public contracts casually.
 * Do not replace working reconnect, replay, streaming, cancellation, credential, or provider paths merely for stylistic consistency.
-* Do not resurrect deprecated Council/Advisor/debate architecture in new ModelMix code.
-* Do not remove inherited code until ModelMix replacements are covered and runtime dependencies are understood.
-* Upstream is a selective reference/fix source, not ModelMix's live product parent.
+* Do not resurrect deprecated Council/Advisor/debate architecture in new Shade Crew AI code.
+* Do not remove inherited code until Shade Crew AI replacements are covered and runtime dependencies are understood.
+* Upstream is a selective reference/fix source, not Shade Crew AI's live product parent.
 
 Prefer the smallest implementation that cleanly satisfies the requested behavior.
 
@@ -323,7 +323,7 @@ Search specifically for existing implementations before creating new ones for:
 * persistence;
 * credential references;
 * telemetry;
-* frontend ModelMix state.
+* frontend Shade Crew AI state.
 
 Do not begin with a broad rewrite.
 
@@ -357,7 +357,7 @@ Changed behavior should have appropriate test coverage.
 
 For bug fixes, add regression coverage when practical.
 
-For new ModelMix contracts or state behavior, test both normal and failure paths where relevant.
+For new Shade Crew AI contracts or state behavior, test both normal and failure paths where relevant.
 
 Validation must use the repository's actual existing commands and tooling. Inspect project configuration instead of inventing command names.
 
@@ -423,7 +423,7 @@ unless the relevant result was actually observed.
 
 ## Task Prompts vs. This File
 
-This file describes permanent ModelMix rules.
+This file describes permanent Shade Crew AI rules.
 
 Individual mission/task prompts should contain only:
 
@@ -438,6 +438,13 @@ Individual mission/task prompts should contain only:
 
 Do not add one-off mission requirements to this file.
 
-Do not dump unrelated ModelMix history into task prompts.
+Do not dump unrelated Shade Crew AI history into task prompts.
 
-**Project instructions describe ModelMix. Mission prompts describe the change.**
+**Project instructions describe Shade Crew AI. Mission prompts describe the change.**
+
+## Retained internal contracts
+
+The product is Shade Crew AI. Existing `modelmix` module/API/storage identifiers,
+`worker_a` / `worker_b` seat IDs, legacy provider interfaces and package names
+remain internal contracts. Do not rename or migrate them just to match branding.
+Historical ModelMix docs and provenance retain their original names.

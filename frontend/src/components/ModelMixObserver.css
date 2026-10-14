@@ -455,3 +455,17 @@
 .modelmix-session-confirm-text {
   font-size: 0.8rem;
 }
+
+.modelmix-local-endpoints { margin-bottom: 18px; }
+.modelmix-local-endpoints fieldset { margin: 12px 0; min-width: 0; }
+.modelmix-local-endpoints label { display: block; margin: 6px 0; }
+.modelmix-local-endpoints input:not([type="checkbox"]) {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 8px;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-glass);
+  border-radius: 4px;
+}
+.modelmix-local-endpoints button { margin: 4px 8px 4px 0; }

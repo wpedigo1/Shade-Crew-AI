@@ -50,6 +50,7 @@ def build_settings_response(settings=None) -> Dict[str, Any]:
         "search_hybrid_mode": settings.search_hybrid_mode,
         "ollama_base_url": settings.ollama_base_url,
         "full_content_results": settings.full_content_results,
+        "local_endpoints": [endpoint.model_dump() for endpoint in settings.local_endpoints],
         "custom_endpoint_name": settings.custom_endpoint_name,
         "custom_endpoint_url": settings.custom_endpoint_url,
         "serper_api_key_set": _key_set("api:serper"),

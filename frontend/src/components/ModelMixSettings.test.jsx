@@ -371,7 +371,7 @@ test('Guardrails section starts empty with Save and Clear disabled and static de
   assert.equal(cap.value, '');
 
   const sectionText = document.querySelector('.modelmix-settings-section').textContent;
-  assert.ok(sectionText.includes('ModelMix\'s built-in default'));
+  assert.ok(sectionText.includes('Shade Crew AI\'s built-in default'));
   assert.ok(sectionText.includes('20,000'));
   assert.ok(sectionText.includes('40,000'));
   assert.ok(sectionText.includes('not a live-fetched server value'));

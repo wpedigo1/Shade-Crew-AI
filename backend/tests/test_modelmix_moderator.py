@@ -505,3 +505,24 @@ async def test_omitted_temperature_never_reaches_any_provider(tmp_path):
         for provider in providers.values():
             assert provider.calls, "provider must have been called"
             assert all("temperature" not in call for call in provider.calls)
+
+
+async def test_moderator_executor_seam_keeps_canonical_events_and_independent_inputs(tmp_path):
+    calls = []
+
+    async def executor(model_id, provider, moderator_input, create_event, **kwargs):
+        calls.append(moderator_input)
+        return await run_moderator(model_id, provider, moderator_input, create_event, **kwargs)
+
+    providers = {'a': StreamingProvider(('A',)), 'b': StreamingProvider(('B',)), 'm': StreamingProvider(('final',))}
+    registry = RunRegistry(persistence=AtomicJsonModelMixPersistence(tmp_path), moderator_runner=executor)
+    run = await registry.start('repair', 'a', 'b', providers.__getitem__, 'm')
+    await run.task
+    assert len(calls) == 1
+    assert 'A' in calls[0].messages[-1]['content'] and 'B' in calls[0].messages[-1]['content']
+    assert providers['a'].messages == [[{'role': 'user', 'content': 'repair'}]]
+    assert providers['b'].messages == [[{'role': 'user', 'content': 'repair'}]]
+    assert any(e['type'] == 'moderator_delta' for e in run._events)
+    assert [e['seq'] for e in run._events] == list(range(1, len(run._events) + 1))
+    saved = await registry.persistence.load_session(run.session_id)
+    assert any(m['seat'] == 'moderator' and m['content'] == 'final' for m in saved['session']['messages'])

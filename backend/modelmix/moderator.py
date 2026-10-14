@@ -14,7 +14,7 @@ from .timeouts import aiter_with_deadline
 
 MAX_VISIBLE_OUTPUT_CHARS = 100_000
 
-MODERATOR_INSTRUCTIONS = """You are the ModelMix Moderator. Produce the best final answer to the
+MODERATOR_INSTRUCTIONS = """You are the Shade Crew AI Moderator. Produce the best final answer to the
 user by evaluating and reconciling the visible witness outputs. Resolve discrepancies using sound
 reasoning. Do not rank, vote, debate, mechanically concatenate, or mention hidden reasoning. A
 missing witness may be noted as unavailable, but do not invent its evidence."""

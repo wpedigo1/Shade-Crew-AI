@@ -985,3 +985,13 @@ test('a seat that warns then completes normally keeps the truthful cost warning 
   assert.equal(state.worker_a.costUsd, 0.25);
   assert.deepEqual(state.worker_a.costWarning, { cost_usd: 0.25, threshold: 0.1 });
 });
+
+
+test('active persisted run restores running controls and locks all model/session changes', () => {
+  const document = persistedDocument(1);
+  document.session.runs[0].status = 'active';
+  const state = hydrateModelMixState(document);
+  assert.equal(state.overall, 'running');
+  assert.deepEqual(controlState(state.overall), {sendDisabled:true, stopDisabled:false});
+  assert.equal(modelSelectorsDisabled(state.overall), true);
+});

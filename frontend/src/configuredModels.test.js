@@ -81,3 +81,20 @@ test('normalizes bare Ollama IDs once and isolates a failed configured source', 
   assert.deepEqual(models.map((model) => model.id), ['ollama:llama3', 'ollama:qwen2.5']);
   assert.equal(models.every((model) => model.provider === 'Ollama'), true);
 });
+
+
+test('named local endpoints discover exact IDs without requiring Ollama', async () => {
+  const calls = [];
+  const models = await discoverConfiguredModels({
+    getLocalEndpointModels: async () => {
+      calls.push('local');
+      return { models: [
+        { id: 'local:fob-a:qwen', name: 'Qwen [FOB A]' },
+        { id: 'local:fob-b:qwen', name: 'Qwen [FOB B]' },
+      ] };
+    },
+    getOllamaModels: async () => { throw new Error('must not probe Ollama'); },
+  }, { local_endpoints: [{ id: 'fob-a', enabled: true }, { id: 'fob-b', enabled: true }] });
+  assert.deepEqual(calls, ['local']);
+  assert.deepEqual(models.map(m => m.id), ['local:fob-a:qwen', 'local:fob-b:qwen']);
+});

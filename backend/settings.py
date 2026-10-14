@@ -3,7 +3,8 @@
 import json
 import logging
 from typing import Optional, List, Dict, Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+from urllib.parse import urlsplit
 from .search import SearchProvider
 from .prompts import (
     STAGE1_PROMPT_DEFAULT,
@@ -86,6 +87,38 @@ DEFAULT_DIRECT_PROVIDER_TOGGLES = {
 }
 
 
+class LocalEndpoint(BaseModel):
+    """Anonymous OpenAI-compatible local server; no secrets in this contract."""
+
+    model_config = {"extra": "forbid"}
+    id: str = Field(pattern=r"^[a-z0-9][a-z0-9_-]{0,63}$")
+    name: str = Field(min_length=1, max_length=80)
+    url: str = Field(min_length=1, max_length=2048)
+    enabled: bool = True
+
+    @field_validator("name")
+    @classmethod
+    def validate_name(cls, value):
+        value = value.strip()
+        if not value:
+            raise ValueError("Endpoint name is required")
+        return value
+
+    @field_validator("url")
+    @classmethod
+    def validate_url(cls, value):
+        value = value.strip().rstrip("/")
+        parsed = urlsplit(value)
+        if (parsed.scheme not in {"http", "https"} or not parsed.hostname
+                or parsed.username or parsed.password or parsed.query or parsed.fragment):
+            raise ValueError("Use an HTTP(S) API base URL without credentials, query or fragment")
+        try:
+            parsed.port
+        except ValueError as exc:
+            raise ValueError("Invalid endpoint port") from exc
+        return value
+
+
 class Settings(BaseModel):
     """Application settings."""
     search_provider: SearchProvider = SearchProvider.DUCKDUCKGO
@@ -110,6 +143,16 @@ class Settings(BaseModel):
 
     # Ollama Settings
     ollama_base_url: str = "http://localhost:11434"
+
+    # Named anonymous local OpenAI-compatible servers (llama.cpp/FOB).
+    local_endpoints: List[LocalEndpoint] = Field(default_factory=list, max_length=20)
+
+    @field_validator("local_endpoints")
+    @classmethod
+    def unique_local_endpoints(cls, endpoints):
+        if len({endpoint.id for endpoint in endpoints}) != len(endpoints):
+            raise ValueError("Local endpoint IDs must be unique")
+        return endpoints
 
     # Custom OpenAI-compatible endpoint
     custom_endpoint_name: Optional[str] = None

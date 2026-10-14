@@ -20,6 +20,7 @@ test('reports every source connected when all credentials are configured', () =>
     openrouter: true,
     ollama: true,
     direct: true,
+    local: false,
     custom: true,
     oauth: true,
   });
@@ -30,6 +31,7 @@ test('reports no sources when nothing is configured', () => {
     openrouter: false,
     ollama: false,
     direct: false,
+    local: false,
     custom: false,
     oauth: false,
   });
@@ -46,6 +48,7 @@ test('a provider explicitly disabled in enabled_providers stays off despite cred
     openrouter: false,
     ollama: false,
     direct: false,
+    local: false,
     custom: false,
     oauth: false,
   });

@@ -58,6 +58,11 @@ async function _consumeSSEStream(body, onEvent) {
 }
 
 export const api = {
+  async getLocalEndpointModels() {
+    const response = await fetch(`${API_BASE}/api/local-endpoints/models`);
+    if (!response.ok) throw new Error('Local endpoint model discovery failed');
+    return response.json();
+  },
   /**
    * List all conversations.
    */

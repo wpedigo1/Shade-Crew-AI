@@ -50,6 +50,14 @@ PROVIDERS = {
 
 def get_provider_for_model(model_id: str) -> Any:
     """Determine the provider for a given model ID."""
+    if model_id.startswith("local:"):
+        from .providers.local_openai import LocalOpenAIProvider
+        parts = model_id.split(":", 2)
+        if len(parts) != 3 or not parts[1] or not parts[2]:
+            raise ValueError("Invalid named local model ID")
+        provider = LocalOpenAIProvider(parts[1])
+        provider._get_config()  # Fail explicitly before dispatch; never fall back to cloud.
+        return provider
     if ":" in model_id:
         provider_name = model_id.split(":", 1)[0]
         if provider_name in PROVIDERS:

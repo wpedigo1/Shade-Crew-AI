@@ -114,7 +114,7 @@ function seatModels() {
   });
 }
 
-test('selecting Solo hides the Moderator and Worker B selectors and keeps all three panels mounted', async () => {
+test('selecting Solo hides the Moderator and Mechanic B selectors and keeps all three panels mounted', async () => {
   await renderObserver();
   const modeSelect = document.querySelector('.modelmix-mode-select');
   assert.equal(modeSelect.value, 'mix');
@@ -258,13 +258,13 @@ test('in Solo mode maximizing a hidden seat is inert and never blanks the cockpi
   setMode(modeSelect, 'solo');
   const articles = document.querySelectorAll('article.modelmix-worker');
   const workerB = articles[2];
-  // Try to maximize the mode-hidden Worker B panel.
-  click(workerB.querySelector('[aria-label="Maximize Worker B"]'));
+  // Try to maximize the mode-hidden Mechanic B panel.
+  click(workerB.querySelector('[aria-label="Maximize Mechanic B"]'));
   const [workerA, moderator, workerBAfter] = document.querySelectorAll('article.modelmix-worker');
   assert.ok(workerA.classList.contains('modelmix-panel-hidden') === false);
   assert.ok(moderator.classList.contains('modelmix-panel-hidden'));
   assert.ok(workerBAfter.classList.contains('modelmix-panel-hidden'));
-  // Worker A remains visible in the single-column layout: the cockpit is not blank.
+  // Mechanic A remains visible in the single-column layout: the cockpit is not blank.
   assert.ok(document.querySelector('.modelmix-workers').classList.contains('modelmix-workers--maximized'));
   assert.ok(workerA.querySelector('.modelmix-transcript'));
 });

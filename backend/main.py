@@ -7,7 +7,7 @@ from fastapi import Depends, FastAPI, File, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Literal, Optional
 import logging
 import os
@@ -28,6 +28,7 @@ from .settings import (
     save_settings,
     update_settings,
     Settings,
+    LocalEndpoint,
     DEFAULT_COUNCIL_MODELS,
     DEFAULT_CHAIRMAN_MODEL,
     PROMPT_DEFAULTS,
@@ -266,7 +267,7 @@ def _save_partial_results(
         conversation=conversation,
     )
 
-app = FastAPI(title="The AI Counsel API")
+app = FastAPI(title="Shade Crew AI API")
 app.include_router(modelmix_router)
 
 # Sensitive settings endpoints (export/import/reset) leak or wipe API keys, so
@@ -356,7 +357,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    expose_headers=["X-ModelMix-Run-ID"],
+    expose_headers=["X-ModelMix-Run-ID", "X-ModelMix-Session-ID"],
 )
 
 
@@ -1554,6 +1555,7 @@ class UpdateSettingsRequest(BaseModel):
     full_content_results: Optional[int] = None
 
     # Custom OpenAI-compatible endpoint
+    local_endpoints: Optional[List[LocalEndpoint]] = Field(default=None, max_length=20)
     custom_endpoint_name: Optional[str] = None
     custom_endpoint_url: Optional[str] = None
     custom_endpoint_api_key: Optional[str] = None
@@ -1745,6 +1747,11 @@ async def update_app_settings(request: UpdateSettingsRequest):
 
     if request.ollama_base_url is not None:
         updates["ollama_base_url"] = request.ollama_base_url
+
+    if request.local_endpoints is not None:
+        if len({endpoint.id for endpoint in request.local_endpoints}) != len(request.local_endpoints):
+            raise HTTPException(status_code=422, detail="Local endpoint IDs must be unique")
+        updates["local_endpoints"] = [endpoint.model_dump() for endpoint in request.local_endpoints]
 
     # Custom endpoint
     if request.custom_endpoint_name is not None:
@@ -2326,6 +2333,24 @@ async def test_custom_endpoint(request: TestCustomEndpointRequest):
     provider = CustomOpenAIProvider()
     api_key = resolve_api_key("custom_endpoint", request.api_key)
     return await provider.validate_connection(request.url, api_key)
+
+
+@app.get("/api/local-endpoints/models", dependencies=[Depends(_require_admin)])
+async def get_local_endpoint_models():
+    """Discover enabled named servers independently; preserve per-endpoint failures."""
+    from .providers.local_openai import LocalOpenAIProvider
+
+    async def discover(endpoint):
+        provider = LocalOpenAIProvider(endpoint.id)
+        status = await provider.validate_connection(endpoint.url)
+        if not status["success"]:
+            return [], {"id": endpoint.id, "message": status["message"]}
+        models = await provider.get_models()
+        return models, None if models else {"id": endpoint.id, "message": "No chat models discovered"}
+
+    results = await asyncio.gather(*(discover(endpoint) for endpoint in get_settings().local_endpoints if endpoint.enabled))
+    return {"models": [model for models, _ in results for model in models],
+            "errors": [error for _, error in results if error]}
 
 
 @app.get("/api/custom-endpoint/models", dependencies=[Depends(_require_admin)])

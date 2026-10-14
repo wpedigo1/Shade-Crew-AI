@@ -34,6 +34,7 @@ class RunRegistry:
         persistence: ModelMixPersistence = modelmix_persistence,
         seat_timeout: Optional[float] = None,
         run_timeout: Optional[float] = None,
+        moderator_runner=run_moderator,
     ) -> None:
         self.max_events_per_run = max_events_per_run
         self.max_terminal_runs = max_terminal_runs
@@ -41,6 +42,9 @@ class RunRegistry:
         self.persistence = persistence
         self.seat_timeout = seat_timeout
         self.run_timeout = run_timeout
+        # Executor seam: future verification must use this bounded visible input
+        # and canonical event factory. Registry retains lifecycle/persistence ownership.
+        self.moderator_runner = moderator_runner
         self._runs: Dict[str, RunEventJournal] = {}
         self._lock = asyncio.Lock()
 
@@ -319,7 +323,7 @@ class RunRegistry:
                 await run.mark_status("failed")
                 return
             moderator_task = asyncio.create_task(
-                run_moderator(
+                self.moderator_runner(
                     moderator_model,
                     moderator_provider,
                     moderator_input,

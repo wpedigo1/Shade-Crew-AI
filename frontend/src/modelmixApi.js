@@ -14,7 +14,7 @@ export class ModelMixHttpError extends Error {
 async function checkedFetch(url, options) {
   const response = await fetch(url, options);
   if (!response.ok) {
-    let message = `ModelMix request failed (${response.status})`;
+    let message = `Shade Crew AI request failed (${response.status})`;
     try {
       const body = await response.json();
       if (body.detail) message = body.detail;

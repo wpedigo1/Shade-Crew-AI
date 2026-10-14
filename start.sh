@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# The AI Counsel - Start script
+# Shade Crew AI - Start script
 
 FRONTEND_URL="http://localhost:5173"
 
@@ -15,12 +15,12 @@ open_browser() {
   fi
 }
 
-echo "Starting The AI Counsel..."
+echo "Starting Shade Crew AI..."
 echo ""
 
 # Start backend
 echo "Starting backend on http://localhost:8001..."
-LLM_COUNCIL_BIND_HOST="${LLM_COUNCIL_BIND_HOST:-0.0.0.0}" uv run python -m backend.main &
+LLM_COUNCIL_BIND_HOST="${LLM_COUNCIL_BIND_HOST:-127.0.0.1}" uv run python -m backend.main &
 BACKEND_PID=$!
 
 # Wait a bit for backend to start
@@ -29,7 +29,7 @@ sleep 2
 # Start frontend
 echo "Starting frontend on http://localhost:5173..."
 cd frontend
-npm run dev -- --host &
+npm run dev -- --host 127.0.0.1 &
 FRONTEND_PID=$!
 
 # Wait for frontend to become ready, then open the default browser
@@ -44,7 +44,7 @@ for _ in $(seq 1 30); do
 done
 
 echo ""
-echo "✓ The AI Counsel is running!"
+echo "✓ Shade Crew AI is running!"
 echo "  Backend:  http://localhost:8001"
 echo "  Frontend: $FRONTEND_URL"
 echo ""

@@ -1,3 +1,8 @@
+# Shade Crew AI
+
+Follow AGENTS.md and README.md for the current product. The inherited notes below
+are historical references; they do not authorize restoring Council/Advisor UI.
+
 # Claude Code — ModelMix
 
 @AGENTS.md
