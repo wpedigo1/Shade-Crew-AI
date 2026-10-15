@@ -20,7 +20,11 @@ class CustomOpenAIProvider(LLMProvider):
         return name, url, api_key
 
     async def query(self, model_id: str, messages: List[Dict[str, str]], timeout: float = 120.0, temperature: float = 0.7) -> Dict[str, Any]:
-        name, base_url, api_key = self._get_config()
+        return await self._query_with_config(model_id, messages, timeout, temperature, self._get_config())
+
+    async def _query_with_config(self, model_id, messages, timeout, temperature, config):
+        """Use one submitted configuration throughout an in-flight request."""
+        name, base_url, api_key = config
 
         if not base_url:
             return {"error": True, "error_message": f"{name} endpoint URL not configured"}

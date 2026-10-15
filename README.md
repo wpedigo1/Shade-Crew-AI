@@ -70,8 +70,8 @@ rediscover/reselect it rather than assuming an old selection is still valid.
 The local adapter sends streaming `/chat/completions` requests, forwards visible
 content, reported usage and finish reasons, and excludes `reasoning_content`.
 It closes its HTTP stream on cancellation. No model-specific chat template is
-installed or overridden. Compatibility is covered with deterministic
-OpenAI-compatible fixtures; live FOB models are the next integration mission.
+installed or overridden. The FOB live integration uses the native one-model router documented below.
+Other OpenAI-compatible variants retain deterministic fixture coverage.
 
 ## Preserved behavior
 
@@ -116,3 +116,36 @@ Bootstrapped from ModelMix commit `8050e61e6bb0e550260ccdb3f6323c55bf0145ad`.
 Shade Crew baseline: `d7adbb8246678302adfb6457b75272e348b88766`.
 See [PROVENANCE.md](PROVENANCE.md), [LICENSE](LICENSE) and
 [OPEN_SOURCE_CREDITS.md](OPEN_SOURCE_CREDITS.md). Those records are preserved.
+
+## FOB live inference profile
+
+The verified FOB configuration uses llama.cpp's native router, **one model
+resident at a time**. Simultaneous Qwen3.8 + Qwen3.6 residency loaded, but failed
+at generation with GPU command-submission memory exhaustion/device loss.
+
+```bash
+# Terminal 1 — existing GGUFs, pinned Vulkan b11228 runtime
+./scripts/start-fob-models.sh
+
+# Terminal 2 — local queue/load/generation needs a longer bounded deadline
+SHADE_CREW_SEAT_TIMEOUT_SECONDS=600 SHADE_CREW_RUN_TIMEOUT_SECONDS=1200 ./start.sh
+```
+
+Configure one enabled local endpoint with ID `fob`, name `FOB llama.cpp`, URL
+`http://127.0.0.1:18081/v1`. Pick `qwen38-uncensored-27b` for Mechanic A,
+`qwen36-heretic-35b` for Mechanic B and Moderator. The router unloads A before
+loading B; Moderator then reuses B. No separate manager or background service.
+
+Local requests sharing a URL now serialize across the complete HTTP stream.
+Different URLs still run independently. This resource queue does not transmit
+answers between workers. A queued request keeps the endpoint configuration it
+was submitted with; use Stop before reconfiguring an in-flight run. Serialization
+is process-local: use the normal single backend process, not multiple backend
+workers or separate clients issuing model switches during a run.
+
+Deadlines include queueing, loading and generation. Default direct backend bounds
+remain 300 seconds per seat / 600 per run. The explicit FOB launch settings above
+are finite; values outside 1–3600 seconds or non-numbers fail startup. Cancellation
+grace remains five seconds. The native model preset caps output at 1536 tokens;
+this is a ceiling, not a completion guarantee. See `docs/fob-live-inference.md`
+for observed load/speed/memory evidence and real limitations.

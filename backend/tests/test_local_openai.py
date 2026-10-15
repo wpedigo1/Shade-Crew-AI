@@ -208,3 +208,142 @@ def test_browser_cors_exposes_run_and_session_identity(local_api):
     exposed = response.headers.get('access-control-expose-headers', '').lower()
     assert 'x-modelmix-run-id' in exposed
     assert 'x-modelmix-session-id' in exposed
+
+
+@respx.mock
+async def test_same_endpoint_serializes_full_streams_and_cancellation_releases_waiter(local_settings):
+    import asyncio
+    started = asyncio.Event()
+    active = 0
+    peak = 0
+    calls = 0
+
+    class Blocking(httpx.AsyncByteStream):
+        async def __aiter__(self):
+            nonlocal active, peak, calls
+            active += 1
+            peak = max(peak, active)
+            calls += 1
+            started.set()
+            try:
+                yield b'data: {"choices":[{"delta":{"content":"visible"}}]}\n\n'
+                await asyncio.Event().wait()
+            finally:
+                active -= 1
+
+    respx.post('http://127.0.0.1:18081/v1/chat/completions').mock(side_effect=lambda _: httpx.Response(200, stream=Blocking()))
+    async def consume():
+        return [e async for e in LocalOpenAIProvider('fob-a').stream_query('local:fob-a:qwen', [])]
+
+    first = asyncio.create_task(consume())
+    await asyncio.wait_for(started.wait(), 1)
+    started.clear()
+    waiting = asyncio.create_task(consume())
+    await asyncio.sleep(0.05)
+    assert calls == 1
+    first.cancel()
+    with pytest.raises(asyncio.CancelledError):
+        await first
+    await asyncio.wait_for(started.wait(), 1)
+    waiting.cancel()
+    with pytest.raises(asyncio.CancelledError):
+        await waiting
+    assert peak == 1
+    assert active == 0
+
+
+@respx.mock
+async def test_response_model_mismatch_is_visible_failure_before_content(local_settings):
+    body = 'data: {"model":"wrong-model","choices":[{"delta":{"content":"wrong output"}}]}\n\n'
+    respx.post('http://127.0.0.1:18081/v1/chat/completions').mock(return_value=httpx.Response(200,text=body))
+    events = [e async for e in LocalOpenAIProvider('fob-a').stream_query('local:fob-a:qwen', [])]
+    assert len(events) == 1
+    assert events[0].type == 'error'
+    assert 'model identity mismatch' in events[0].error_message.lower()
+    assert 'wrong output' not in str(events)
+
+
+@respx.mock
+async def test_different_local_endpoints_do_not_wait_for_each_other(local_settings):
+    import asyncio
+    arrived = []
+    ready = asyncio.Event()
+
+    class Blocking(httpx.AsyncByteStream):
+        async def __aiter__(self):
+            arrived.append(1)
+            if len(arrived) == 2:
+                ready.set()
+            await ready.wait()
+            yield b'data: [DONE]\n\n'
+
+    for port in [18081, 18082]:
+        respx.post(f'http://127.0.0.1:{port}/v1/chat/completions').mock(side_effect=lambda _: httpx.Response(200,stream=Blocking()))
+    async def consume(endpoint_id):
+        return [e async for e in LocalOpenAIProvider(endpoint_id).stream_query(f'local:{endpoint_id}:qwen', [])]
+    results = await asyncio.wait_for(asyncio.gather(consume('fob-a'),consume('fob-b')),1)
+    assert all(events[-1].type == 'completed' for events in results)
+
+
+@respx.mock
+async def test_cancel_waiting_local_request_does_not_switch_or_block_active_model(local_settings):
+    import asyncio
+    ready = asyncio.Event()
+    finish = asyncio.Event()
+    calls = 0
+
+    class Blocking(httpx.AsyncByteStream):
+        async def __aiter__(self):
+            ready.set()
+            await finish.wait()
+            yield b'data: [DONE]\n\n'
+
+    def reply(_):
+        nonlocal calls
+        calls += 1
+        return httpx.Response(200,stream=Blocking())
+    respx.post('http://127.0.0.1:18081/v1/chat/completions').mock(side_effect=reply)
+    async def consume():
+        return [e async for e in LocalOpenAIProvider('fob-a').stream_query('local:fob-a:qwen', [])]
+    active = asyncio.create_task(consume())
+    await asyncio.wait_for(ready.wait(),1)
+    waiting = asyncio.create_task(consume())
+    await asyncio.sleep(0.01)
+    waiting.cancel()
+    with pytest.raises(asyncio.CancelledError):
+        await waiting
+    assert calls == 1
+    finish.set()
+    assert (await active)[-1].type == 'completed'
+    assert (await consume())[-1].type == 'completed'
+
+
+@respx.mock
+@pytest.mark.parametrize('streaming', [True, False])
+async def test_queued_request_keeps_submitted_endpoint_snapshot(local_settings, streaming):
+    import asyncio
+    entered = asyncio.Event()
+    release = asyncio.Event()
+
+    class Waiting(httpx.AsyncByteStream):
+        async def __aiter__(self):
+            entered.set()
+            await release.wait()
+            yield (b'data: [DONE]\n\n' if streaming else b'{"choices":[{"message":{"content":"ok"}}]}')
+
+    old = respx.post('http://127.0.0.1:18081/v1/chat/completions').mock(side_effect=lambda _: httpx.Response(200,stream=Waiting()))
+    new = respx.post('http://127.0.0.1:18082/v1/chat/completions').mock(return_value=httpx.Response(200,text='data: [DONE]\n\n'))
+    async def consume():
+        provider = LocalOpenAIProvider('fob-a')
+        if streaming:
+            return [e async for e in provider.stream_query('local:fob-a:qwen', [])]
+        return await provider.query('local:fob-a:qwen', [])
+    active = asyncio.create_task(consume())
+    await asyncio.wait_for(entered.wait(),1)
+    queued = asyncio.create_task(consume())
+    await asyncio.sleep(0.01)
+    local_settings.local_endpoints[0].url = 'http://127.0.0.1:18082/v1'
+    release.set()
+    await asyncio.gather(active,queued)
+    assert old.call_count == 2
+    assert new.call_count == 0

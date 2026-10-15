@@ -5,12 +5,27 @@ credential store. Local endpoint settings never contain or borrow API keys.
 """
 import asyncio
 import json
+from weakref import WeakValueDictionary
 
 import httpx
 
 from .base import ProviderStreamEvent
 from .custom_openai import CustomOpenAIProvider
 from ..settings import get_settings
+
+
+# Hold one local server's model resident until its request finishes. Different
+# endpoints remain independent. Weak values avoid retaining finished event loops.
+_endpoint_locks = WeakValueDictionary()
+
+
+def _endpoint_lock(url):
+    key = (asyncio.get_running_loop(), url)
+    lock = _endpoint_locks.get(key)
+    if lock is None:
+        lock = asyncio.Lock()
+        _endpoint_locks[key] = lock
+    return lock
 
 
 class LocalOpenAIProvider(CustomOpenAIProvider):
@@ -31,7 +46,9 @@ class LocalOpenAIProvider(CustomOpenAIProvider):
         return model_id[len(prefix):]
 
     async def query(self, model_id, messages, timeout=120.0, temperature=0.7):
-        return await super().query(f"custom:{self._model(model_id)}", messages, timeout, temperature)
+        config = self._get_config()
+        async with _endpoint_lock(config[1]):
+            return await self._query_with_config(f"custom:{self._model(model_id)}", messages, timeout, temperature, config)
 
     async def get_models(self):
         models = await super().get_models()
@@ -44,8 +61,18 @@ class LocalOpenAIProvider(CustomOpenAIProvider):
         return True
 
     async def stream_query(self, model_id, messages, timeout=120.0, temperature=0.7):
+        config = self._get_config()
+        async with _endpoint_lock(config[1]):
+            stream = self._stream_query(model_id, messages, timeout, temperature, config)
+            try:
+                async for event in stream:
+                    yield event
+            finally:
+                await stream.aclose()
+
+    async def _stream_query(self, model_id, messages, timeout, temperature, config):
         model = self._model(model_id)
-        name, base_url, _ = self._get_config()
+        name, base_url, _ = config
         usage = None
         finish_reason = None
         finished = False
@@ -69,6 +96,10 @@ class LocalOpenAIProvider(CustomOpenAIProvider):
                         if not data:
                             continue
                         chunk = json.loads(data)
+                        reported_model = chunk.get('model')
+                        if reported_model is not None and reported_model != model:
+                            yield ProviderStreamEvent(type='error', error_message=f'{name} model identity mismatch: requested {model!r}, received {reported_model!r}')
+                            return
                         if chunk.get('error'):
                             yield ProviderStreamEvent(type='error', error_message=f'{name} stream reported an error')
                             return

@@ -3,10 +3,23 @@
 from __future__ import annotations
 
 import asyncio
+import math
+import os
 from typing import AsyncIterator, Iterable, TypeVar
 
-SEAT_TIMEOUT_SECONDS = 300
-RUN_TIMEOUT_SECONDS = 600
+def configured_timeout(name: str, default: float) -> float:
+    """Explicit launch-time bounds for slow local inference; never unbounded."""
+    try:
+        value = float(os.environ.get(name, str(default)))
+    except ValueError as exc:
+        raise ValueError(f"{name} must be a finite number between 1 and 3600") from exc
+    if not math.isfinite(value) or not 1 <= value <= 3600:
+        raise ValueError(f"{name} must be a finite number between 1 and 3600")
+    return value
+
+
+SEAT_TIMEOUT_SECONDS = configured_timeout("SHADE_CREW_SEAT_TIMEOUT_SECONDS", 300)
+RUN_TIMEOUT_SECONDS = configured_timeout("SHADE_CREW_RUN_TIMEOUT_SECONDS", 600)
 CANCEL_GRACE_SECONDS = 5.0
 
 _T = TypeVar("_T")

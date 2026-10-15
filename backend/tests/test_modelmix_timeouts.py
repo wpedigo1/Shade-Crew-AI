@@ -1,6 +1,7 @@
 """Mission 013 run and seat wall-clock timeout coverage."""
 
 import asyncio
+import pytest
 import json
 
 from backend.modelmix.moderator import ModeratorInput, run_moderator
@@ -364,3 +365,14 @@ async def test_moderator_timeout_emits_moderator_failed_with_reason_timeout():
     assert failed[0]["reason"] == "timeout"
     assert "timed out" in failed[0]["error"]
     assert hung.cancelled
+
+def test_explicit_local_runtime_deadlines_keep_defaults_and_reject_invalid_values(monkeypatch):
+    from backend.modelmix.timeouts import configured_timeout
+    monkeypatch.delenv('SHADE_CREW_SEAT_TIMEOUT_SECONDS', raising=False)
+    assert configured_timeout('SHADE_CREW_SEAT_TIMEOUT_SECONDS', 300) == 300
+    monkeypatch.setenv('SHADE_CREW_SEAT_TIMEOUT_SECONDS', '600')
+    assert configured_timeout('SHADE_CREW_SEAT_TIMEOUT_SECONDS', 300) == 600
+    for value in ['0', '-1', 'nan', 'inf', 'garbage', '3601']:
+        monkeypatch.setenv('SHADE_CREW_SEAT_TIMEOUT_SECONDS', value)
+        with pytest.raises(ValueError):
+            configured_timeout('SHADE_CREW_SEAT_TIMEOUT_SECONDS', 300)
