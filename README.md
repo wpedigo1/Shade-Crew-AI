@@ -107,7 +107,7 @@ broader allowance. Tools: free public Bing search, frozen Case read, authorized
 text-resource read, and work read. There is no normal three-search limit.
 
 Defaults: each mechanic 600 seconds / 64,000 generated characters; Crew Chief
-900 seconds / 96,000 characters; whole run 1,200 seconds. Reported-token thresholds
+900 seconds / 96,000 characters; whole run 2,400 seconds. Reported-token thresholds
 and prompt-size budgets also apply; 75% of seat time/output is reserved for
 research, leaving room for the final answer. Emergency action ceilings 128/256
 are failsafes. Model usage adds cost for existing cloud providers; local use needs
@@ -170,7 +170,7 @@ is process-local: use the normal single backend process, not multiple backend
 workers or separate clients issuing model switches during a run.
 
 Deadlines include queueing, loading and generation. Default direct backend bounds
-remain 300 seconds per seat / 600 per run for the legacy executor. Case runs use the documented 600/900/1,200-second research budgets. The explicit FOB launch settings above
+remain 300 seconds per seat / 600 per run for the legacy executor. Case runs use the documented 600/900/2,400-second research budgets. The explicit FOB launch settings above
 are finite; values outside 1–3600 seconds or non-numbers fail startup. Cancellation
 grace remains five seconds. The native model preset caps output at 1536 tokens;
 this is a ceiling, not a completion guarantee. See `docs/fob-live-inference.md`

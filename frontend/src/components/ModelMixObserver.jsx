@@ -1458,7 +1458,7 @@ function BehaviorSection({ onSave, onClear, onSaveSpendLimit, onClearSpendLimit 
   return (
     <div className="modelmix-settings-section">
       <p className="modelmix-settings-line">
-        All three seats may research through public Bing search. Generated queries can leave this device; secret exclusion is best effort. Default time budgets are 600 seconds per mechanic, 900 seconds for Crew Chief, and 1,200 seconds overall per Case run. Output budgets also apply, with room reserved for final answers. Research and evidence assessment use each selected seat model and may add provider cost. Optionally set per-run model behavior. Each value is independent — set one, the other, or neither. Saved values are sent with every request and the server validates them again.
+        All three seats may research through public Bing search. Generated queries can leave this device; secret exclusion is best effort. Default time budgets are 600 seconds per mechanic, 900 seconds for Crew Chief, and 2,400 seconds overall per Case run. Output budgets also apply, with room reserved for final answers. Research and evidence assessment use each selected seat model and may add provider cost. Optionally set per-run model behavior. Each value is independent — set one, the other, or neither. Saved values are sent with every request and the server validates them again.
       </p>
       <label className="modelmix-settings-line" htmlFor="modelmix-behavior-temperature">
         Temperature (0.0–2.0)

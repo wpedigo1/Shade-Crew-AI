@@ -123,7 +123,7 @@ Public queries can leave this device; privacy exclusion remains partly model-dep
 | Model prompt projection characters | 12,000 | 18,000 |
 | Emergency action ceiling | 128 | 256 |
 
-Whole Case run: **1,200 seconds**, which takes precedence over remaining seat time.
+Whole Case run: **2,400 seconds**, which takes precedence over remaining seat time.
 Research uses at most 75% of the seat's time/generated-output allocation, reserving
 room for the final answer. There is no normal one-round/three-search/three-model-call
 limit. The emergency ceiling is a runaway failsafe. Search/read tools have a

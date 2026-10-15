@@ -220,6 +220,18 @@ def test_default_budgets_broader_for_chief_and_configurable(monkeypatch):
         case_budgets()
 
 
+def test_case_run_ceiling_allows_sequential_seat_budgets_and_override(monkeypatch):
+    from backend.modelmix.budgets import case_budgets
+    monkeypatch.delenv('SHADE_CREW_CASE_RUN_SECONDS', raising=False)
+    config = case_budgets()
+    assert config['mechanic']['seconds'] == 600
+    assert config['chief']['seconds'] == 900
+    assert config['run_seconds'] == 2400
+    assert config['run_seconds'] >= 2 * config['mechanic']['seconds'] + config['chief']['seconds']
+    monkeypatch.setenv('SHADE_CREW_CASE_RUN_SECONDS', '2700')
+    assert case_budgets()['run_seconds'] == 2700
+
+
 @pytest.mark.parametrize('status,allowed', [('verified', False), ('measured', False), ('crew_chief_accepted', False), ('unresolved', True), ('disputed', True), ('hypothesis', True)])
 async def test_unresolved_information_cannot_be_laundered_into_fact(tmp_path, status, allowed):
     from backend.modelmix.registry import RunRegistry

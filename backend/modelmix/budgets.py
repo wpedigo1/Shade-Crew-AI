@@ -48,4 +48,4 @@ def case_budgets():
             tool_result_chars=_number('SHADE_CREW_TOOL_RESULT_CHARS', 16000))
     return {'mechanic': asdict(seat('MECHANIC', 600, 64_000, 50_000, 12_000, 128)),
             'chief': asdict(seat('CHIEF', 900, 96_000, 80_000, 18_000, 256)),
-            'run_seconds': _number('SHADE_CREW_CASE_RUN_SECONDS', 1200, float, 3600)}
+            'run_seconds': _number('SHADE_CREW_CASE_RUN_SECONDS', 2400, float, 3600)}
