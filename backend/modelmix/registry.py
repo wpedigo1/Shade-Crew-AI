@@ -3,12 +3,18 @@
 from __future__ import annotations
 
 import asyncio
+import json
+import os
 import time
 import uuid
 from contextlib import aclosing
+from copy import deepcopy
 from typing import Dict, List, Optional
 
 from . import timeouts
+from .budgets import case_budgets, ResearchBudget
+from .cases import CasePersistence
+from .research import run_research_seat
 from .history import build_seat_history
 from .journal import (
     MAX_EVENTS_PER_RUN,
@@ -36,6 +42,8 @@ class RunRegistry:
         seat_timeout: Optional[float] = None,
         run_timeout: Optional[float] = None,
         moderator_runner=run_crew_chief,
+        research_adapter=None,
+        research_budgets=None,
     ) -> None:
         self.max_events_per_run = max_events_per_run
         self.max_terminal_runs = max_terminal_runs
@@ -46,6 +54,8 @@ class RunRegistry:
         # Executor seam: verification uses this bounded visible input
         # and canonical event factory. Registry retains lifecycle/persistence ownership.
         self.moderator_runner = moderator_runner
+        self.research_adapter = research_adapter
+        self.research_budgets = research_budgets
         self._runs: Dict[str, RunEventJournal] = {}
         self._lock = asyncio.Lock()
 
@@ -90,6 +100,15 @@ class RunRegistry:
         models = {"worker_a": worker_a_model, "moderator": moderator_model}
         if worker_b_model is not None:
             models["worker_b"] = worker_b_model
+        execution_budgets = None
+        if isinstance(self.persistence, CasePersistence):
+            execution_budgets = deepcopy(self.research_budgets or case_budgets())
+            if self.run_timeout is not None:
+                execution_budgets['run_seconds'] = self.run_timeout
+            if self.seat_timeout is not None:
+                execution_budgets = {**execution_budgets,
+                                     'mechanic': {**execution_budgets['mechanic'], 'seconds': self.seat_timeout},
+                                     'chief': {**execution_budgets['chief'], 'seconds': self.seat_timeout}}
         await self.persistence.create_run(session_id, {
             "run_id": run.run_id,
             "prompt": prompt,
@@ -97,7 +116,18 @@ class RunRegistry:
             "status": "created",
             "latest_seq": 0,
             "events": [],
+            **({"execution_budgets": execution_budgets, 'seat_histories': seat_histories,
+                'input_contract': 'case-research-v1',
+                'controls': {'temperature': temperature, 'moderator_guidance': moderator_guidance,
+                             'warning_threshold_chars': warning_threshold_chars, 'hard_cap_chars': hard_cap_chars}}
+               if execution_budgets else {}),
         })
+        if execution_budgets:
+            persisted = await self.persistence.load_session(session_id)
+            current = next(item for item in persisted['session']['runs'] if item['run_id'] == run.run_id)
+            run.case_snapshot = current['case_snapshot']
+            run.execution_budgets = execution_budgets
+            prompt = prompt + '\n\nFrozen shared Case context:\n' + json.dumps(run.case_snapshot)
         run.persist_event = lambda event, status: self.persistence.append_event(
             session_id, run.run_id, event, status
         )
@@ -129,6 +159,18 @@ class RunRegistry:
             return None
         session_id = session["session"]["session_id"]
         if snapshot["status"] not in TERMINAL_STATUSES:
+            if isinstance(self.persistence, CasePersistence):
+                for message in session['session']['messages']:
+                    if message['run_id'] != run_id:
+                        continue
+                    for record in message.get('research', []):
+                        if record['status'] == 'running':
+                            snapshot['latest_seq'] += 1
+                            await self.persistence.append_event(session_id, run_id, {
+                                'run_id': run_id, 'seq': snapshot['latest_seq'], 'ts': time.time(),
+                                'type': 'tool_completed', 'seat_id': message['seat'], 'model': record.get('model'),
+                                'tool': {**record, 'status': 'interrupted', 'completed_at': time.time(),
+                                         'error': 'Backend restarted; result unresolved', 'completion_origin': 'backend_restart'}}, 'active')
             await self.persistence.append_event(session_id, run_id, {
                 "run_id": run_id,
                 "seq": snapshot["latest_seq"] + 1,
@@ -186,6 +228,25 @@ class RunRegistry:
             run.task.cancel()
         return run
 
+    async def _settle_research(self, run, status):
+        """Journal pending tool interruption before the terminal run event.
+
+        Worker cleanup queues can be abandoned during cancellation; this records
+        lifecycle interruption honestly without claiming the tool actually stopped.
+        """
+        if not hasattr(run, 'case_snapshot'):
+            return
+        doc = await self.persistence.load_session(run.session_id)
+        for message in doc['session']['messages']:
+            if message['run_id'] != run.run_id:
+                continue
+            for record in message.get('research', []):
+                if record['status'] == 'running':
+                    await run.append('tool_completed', seat_id=message['seat'], actor=message['seat'],
+                                     model=record.get('model'), tool={**record, 'status': status,
+                                     'error': 'Run interrupted; tool result unresolved', 'completed_at': time.time(),
+                                     'completion_origin': 'run_lifecycle'})
+
     async def _run(
         self,
         run: RunEventJournal,
@@ -200,7 +261,8 @@ class RunRegistry:
         temperature: Optional[float] = None,
         moderator_guidance: Optional[str] = None,
     ) -> None:
-        bound = timeouts.RUN_TIMEOUT_SECONDS if self.run_timeout is None else self.run_timeout
+        case_run_bound = getattr(run, 'execution_budgets', {}).get('run_seconds', timeouts.RUN_TIMEOUT_SECONDS)
+        bound = case_run_bound if self.run_timeout is None else self.run_timeout
         try:
             await run.mark_status("active")
             await asyncio.wait_for(
@@ -220,6 +282,7 @@ class RunRegistry:
                 timeout=bound,
             )
         except asyncio.TimeoutError:
+            await self._settle_research(run, 'timeout')
             await run.append(
                 "run_failed",
                 error=f"Run timed out after {bound:g} seconds",
@@ -227,9 +290,11 @@ class RunRegistry:
             )
             await run.mark_status("failed")
         except asyncio.CancelledError:
+            await self._settle_research(run, 'cancelled')
             await run.append("run_cancelled")
             await run.mark_status("cancelled")
         except Exception as exc:
+            await self._settle_research(run, 'failed')
             await run.append("run_failed", error=str(exc))
             await run.mark_status("failed")
         finally:
@@ -258,6 +323,12 @@ class RunRegistry:
         worker_seat_histories = {"worker_a": seat_histories["worker_a"]}
         if worker_b_model is not None:
             worker_seat_histories["worker_b"] = seat_histories["worker_b"]
+        is_case = hasattr(run, 'case_snapshot')
+        worker_work = {seat: [] for seat in worker_outputs}
+        async def research_worker(seat, model, provider, messages, create, **kwargs):
+            budget = ResearchBudget(**run.execution_budgets['mechanic'])
+            return await run_research_seat(seat, model, provider, messages, create, snapshot=run.case_snapshot,
+                                           resources=self.persistence, budget=budget, adapter=self.research_adapter, **kwargs)
         worker_stream = multiplex_workers(
             prompt,
             worker_a_model,
@@ -271,10 +342,14 @@ class RunRegistry:
             hard_cap_chars=hard_cap_chars,
             temperature=temperature,
             seat_histories=worker_seat_histories,
+            seat_runner=research_worker if is_case else None,
         )
         async with aclosing(worker_stream):
             async for source_event in worker_stream:
                 seat_id = source_event.get("seat_id")
+                if source_event['type'] == 'tool_completed' and seat_id in worker_work:
+                    worker_work[seat_id].append({**source_event['tool'], 'seat_id': seat_id,
+                                                'model': source_event.get('model'), 'run_id': run.run_id})
                 if source_event["type"] == "seat_delta" and seat_id in worker_outputs:
                     worker_outputs[seat_id] += str(source_event.get("delta") or "")
                 elif source_event["type"] == "seat_failed" and seat_id:
@@ -294,7 +369,10 @@ class RunRegistry:
                 for seat_id, output in worker_outputs.items()
                 if seat_id not in worker_failures
             }
-            if not successful_outputs:
+            if is_case:
+                # Failed/limited work can contain useful evidence; Chief may salvage it.
+                successful_outputs = {seat: text for seat, text in worker_outputs.items() if text}
+            if not successful_outputs and not (is_case and any(worker_work.values())):
                 await run.append(
                     "moderator_failed",
                     actor="moderator",
@@ -323,8 +401,19 @@ class RunRegistry:
                 await run.append("run_failed", error="Crew Chief provider resolution failed")
                 await run.mark_status("failed")
                 return
+            if is_case:
+                async def case_chief(model, provider, handoff, create, **kwargs):
+                    kwargs.pop('seat_timeout', None)
+                    extra = {'role': 'user', 'content': 'Mechanic terminal conditions: ' + json.dumps(worker_failures)}
+                    return await run_research_seat('moderator', model, provider, [*handoff.messages, extra], create,
+                                                   snapshot=run.case_snapshot, resources=self.persistence,
+                                                   budget=ResearchBudget(**run.execution_budgets['chief']),
+                                                   peer_work=worker_work, peer_answers=worker_outputs, adapter=self.research_adapter, **kwargs)
+                chief_runner = case_chief
+            else:
+                chief_runner = self.moderator_runner
             moderator_task = asyncio.create_task(
-                self.moderator_runner(
+                chief_runner(
                     moderator_model,
                     moderator_provider,
                     moderator_input,
@@ -343,6 +432,12 @@ class RunRegistry:
                 await timeouts.await_cancellation_grace((moderator_task,))
                 raise
             if not moderator_ok:
+                if is_case:
+                    saved = await self.persistence.load_session(run.session_id)
+                    if any(m.get('run_id') == run.run_id and m.get('seat') == 'moderator' and m.get('content') for m in saved['session']['messages']):
+                        await run.append('run_completed', status='partial')
+                        await run.mark_status('partial')
+                        return
                 await run.append("run_failed", error="Crew Chief failed")
                 await run.mark_status("failed")
                 return
@@ -374,4 +469,6 @@ class RunRegistry:
                 self._runs.pop(run.run_id, None)
 
 
-run_registry = RunRegistry()
+case_persistence = CasePersistence(os.environ.get('SHADE_CREW_CASES_DIR', modelmix_persistence.root.parent / 'cases'),
+                                   legacy=modelmix_persistence)
+run_registry = RunRegistry(persistence=case_persistence)

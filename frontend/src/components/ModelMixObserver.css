@@ -469,3 +469,12 @@
   border-radius: 4px;
 }
 .modelmix-local-endpoints button { margin: 4px 8px 4px 0; }
+
+.modelmix-case { flex: 0 0 auto; border-bottom: 1px solid #354050; padding: 6px 12px; font-size: 0.8rem; }
+.modelmix-case-row { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.modelmix-case input, .modelmix-case select, .modelmix-case button { max-width: 220px; padding: 4px 7px; color: inherit; background: #17202d; border: 1px solid #4a5568; border-radius: 4px; }
+.modelmix-case button:disabled { opacity: .5; }
+.modelmix-case details { position: relative; }
+.modelmix-case-details { position: absolute; z-index: 5; top: 24px; right: 0; width: min(440px, 90vw); max-height: 55vh; overflow-y: auto; padding: 12px; background: #17202d; border: 1px solid #4a5568; border-radius: 5px; box-shadow: 0 8px 24px #0008; }
+.modelmix-case-details input, .modelmix-case-details select { display: block; width: 100%; max-width: none; margin-bottom: 7px; box-sizing: border-box; }
+.modelmix-evidence pre { white-space: pre-wrap; overflow-wrap: anywhere; }

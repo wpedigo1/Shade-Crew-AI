@@ -4,8 +4,9 @@ A personal, local-first multi-model mechanic and repair console.
 
 **Gearhead | Crew Chief | Grease Monkey** — independent answers, then a wider
 center seat synthesizes the two visible outputs. Workers never see each other.
-The Crew Chief reviews important factual claims, can consult free public search,
-retains source evidence, then gives the final answer. Agreement is not proof.
+All three seats can research a durable named Case with read-only tools. Crew Chief
+receives both mechanic answers and work trails, can independently check them, and
+gives the final ruling. Agreement is not proof.
 Search snippets and model assessments have limits; exact-machine evidence may remain unresolved.
 
 ## Run the browser console
@@ -87,31 +88,40 @@ Other OpenAI-compatible variants retain deterministic fixture coverage.
 - Shared legacy backend/provider code is retained where the cockpit depends on
   it. Historical design docs under `docs/modelmix/` remain reference material.
 
-## Crew Chief verification (Pass 1)
+## Cases and crew research
 
-The default executor reviews the user request and visible mechanic outputs,
-identifies at most three important claims, searches when needed, assesses returned
-excerpts, and streams the final answer through the existing SSE feed. Workers
-remain independent. The Crew Chief can reject either or both answers.
+Use the Case strip to create a named repair Case, reopen one, rename it, or
+explicitly import a legacy session. Case details accept facts/measurements with
+status and provenance. New runs freeze the Case context; later edits do not
+rewrite history. Existing session files stay readable and untouched.
 
-One review round, at most three sequential public Bing searches through the
-existing DDGS dependency, up to three snippets each; no paid search or fallback.
-Only generated focused queries go to search, not full transcripts. Do not put
-secrets or personal details into research requests. Review/assessment use the
-selected model and add up to two model calls before final synthesis, so cloud
-provider charges can increase. Additional usage/cost stays separate in evidence
-metadata and known costs count toward the existing prior-run spend gate.
+Each Case lives in `data/modelmix/cases/<id>/case.json`, using the existing atomic
+JSON persistence. It contains records, snapshots, conversations, model identities,
+research/evidence and final rulings. Attachments are hash-addressed shared objects;
+only authorized plain-text resources can be read in this pass.
 
-Malformed review, missing/invalid citation, failed search, timeout, incomplete
-assessment or ambiguous evidence stays unresolved. Source identity plus exact
-quote binding is enforced for verified/contradicted findings; relevance and
-applicability remain model judgments. Search excerpts are not authenticated
-service specifications. Evidence is expandable under the Crew Chief answer and
-persists with the session; there is no hidden chain-of-thought storage.
+Gearhead and Grease Monkey independently choose read-only research actions while
+finite time/output budgets remain. Crew Chief gets both work trails, can salvage
+sources without accepting conclusions, and can re-check independently with a
+broader allowance. Tools: free public Bing search, frozen Case read, authorized
+text-resource read, and work read. There is no normal three-search limit.
 
-See [Crew Chief verification](docs/crew-chief-verification.md) for schema,
-bounds, failure behavior and limitations. `RunRegistry(moderator_runner=...)`
-retains the executor seam; `run_moderator` remains the final streaming stage.
+Defaults: each mechanic 600 seconds / 64,000 generated characters; Crew Chief
+900 seconds / 96,000 characters; whole run 1,200 seconds. Reported-token thresholds
+and prompt-size budgets also apply; 75% of seat time/output is reserved for
+research, leaving room for the final answer. Emergency action ceilings 128/256
+are failsafes. Model usage adds cost for existing cloud providers; local use needs
+no paid API. Queries can leave the device; avoid private data in public research.
+
+Research records and source findings stay in expandable seat details. Malformed
+control output, failed research and ambiguous findings remain unresolved/partial.
+Only an explicit acceptance of a completed Chief's structured proposal updates
+Case records. Measurements and official verification cannot be invented through
+promotion; unsupported conclusions never become verified facts automatically.
+
+See [Cases and research](docs/cases-and-research.md) for schema, APIs, budgets,
+compatibility and limits. [Pass 1 verification](docs/crew-chief-verification.md)
+records the earlier framework. Internal `session_id` remains the Case transport ID.
 
 ## Validation
 
@@ -160,7 +170,7 @@ is process-local: use the normal single backend process, not multiple backend
 workers or separate clients issuing model switches during a run.
 
 Deadlines include queueing, loading and generation. Default direct backend bounds
-remain 300 seconds per seat / 600 per run. The explicit FOB launch settings above
+remain 300 seconds per seat / 600 per run for the legacy executor. Case runs use the documented 600/900/1,200-second research budgets. The explicit FOB launch settings above
 are finite; values outside 1–3600 seconds or non-numbers fail startup. Cancellation
 grace remains five seconds. The native model preset caps output at 1536 tokens;
 this is a ceiling, not a completion guarantee. See `docs/fob-live-inference.md`

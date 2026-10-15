@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { api } from '../api';
 import { configuredSources, discoverConfiguredModels } from '../configuredModels';
+import CasePanel from './CasePanel';
+import { acceptCasePromotion } from '../casesApi';
 import LocalEndpoints from './LocalEndpoints';
 import MarkdownContent from './MarkdownContent';
 import SearchableModelSelect from './SearchableModelSelect';
@@ -147,6 +149,22 @@ export default function ModelMixObserver() {
     };
   }, []);
 
+  const updateCaseMetadata = useCallback((document) => {
+    updateObserver((current) => current.sessionId === document.case?.case_id ? { ...current, case: document.case } : current);
+  }, [updateObserver]);
+  const [legacyReadOnly, setLegacyReadOnly] = useState(false);
+  const [promotionError, setPromotionError] = useState('');
+  const [promotionBusy, setPromotionBusy] = useState(false);
+  const acceptPromotion = async (candidate, runId) => {
+    if (!observerRef.current.case || modelSelectorsDisabled(observerRef.current.overall)) return;
+    setPromotionBusy(true); setPromotionError('');
+    try {
+      const doc = await acceptCasePromotion(observerRef.current.case.case_id, runId, candidate.candidate_id);
+      updateCaseMetadata(doc);
+    } catch (error) { setPromotionError(error.message); }
+    finally { setPromotionBusy(false); }
+  };
+
   const handleEvent = useCallback((event) => {
     updateObserver((current) => applyModelMixEvent(current, event));
   }, [updateObserver]);
@@ -195,6 +213,29 @@ export default function ModelMixObserver() {
     }
   }, [handleEvent, showConnectionError, updateObserver]);
 
+  const selectCase = useCallback(async (document) => {
+    connectionRef.current?.abort();
+    const hydrated = hydrateModelMixState(document);
+    setLegacyReadOnly(!document.case);
+    updateObserver(hydrated);
+    window.localStorage?.setItem('modelmix.sessionId', hydrated.sessionId);
+    setPrompt(hydrated.prompt || '');
+    if (hydrated.models) {
+      const ids = Object.values(hydrated.models).filter(Boolean);
+      historicalModelsRef.current = new Set(ids);
+      setModels((current) => [...current, ...ids.filter((id) => !current.some((model) => model.id === id)).map((id) => ({ id, name: `${id} (historical)`, provider: 'Historical' }))]);
+      setWorkerAModel(hydrated.models.worker_a || '');
+      setModeratorModel(hydrated.models.moderator || '');
+      setWorkerBModel(hydrated.models.worker_b || '');
+    }
+    if (hydrated.runId && !isTerminalOverall(hydrated.overall)) {
+      const controller = new AbortController();
+      connectionRef.current = controller;
+      try { await observe(await replayModelMixRun(hydrated.runId, hydrated.lastSeq, controller.signal), controller); }
+      catch (error) { if (!controller.signal.aborted) showConnectionError(error); }
+    }
+  }, [observe, showConnectionError, updateObserver]);
+
   useEffect(() => {
     const controller = new AbortController();
     connectionRef.current = controller;
@@ -202,6 +243,7 @@ export default function ModelMixObserver() {
     hydrateModelMixSession(sessionId, controller.signal)
       .then(async (document) => {
         const hydrated = hydrateModelMixState(document);
+        setLegacyReadOnly(!document.case);
         updateObserver(hydrated);
         window.localStorage?.setItem('modelmix.sessionId', hydrated.sessionId);
         if (hydrated.prompt) setPrompt(hydrated.prompt);
@@ -218,7 +260,7 @@ export default function ModelMixObserver() {
           setModeratorModel(hydrated.models.moderator || '');
           setWorkerBModel(hydrated.models.worker_b || '');
         }
-        if (!isTerminalOverall(hydrated.overall)) {
+        if (hydrated.runId && !isTerminalOverall(hydrated.overall)) {
           const response = await replayModelMixRun(hydrated.runId, hydrated.lastSeq, controller.signal);
           await observe(response, controller);
         }
@@ -334,12 +376,19 @@ export default function ModelMixObserver() {
 
   const newSession = () => {
     if (modelSelectorsDisabled(observerRef.current.overall)) return;
+    if (observerRef.current.case) {
+      updateObserver((current) => ({ ...archiveCurrentRun(current), models: current.models }));
+      setPrompt('');
+      return;
+    }
     window.localStorage?.removeItem('modelmix.sessionId');
+    setLegacyReadOnly(false);
     updateObserver((current) => startNewSession(current));
   };
 
   const resetToFreshSession = useCallback(() => {
     window.localStorage?.removeItem('modelmix.sessionId');
+    setLegacyReadOnly(false);
     updateObserver((current) => startNewSession(current));
   }, [updateObserver]);
 
@@ -392,6 +441,7 @@ export default function ModelMixObserver() {
   const isSolo = mode === 'solo';
   const sendDisabled = controls.sendDisabled
     || modelsLoading
+    || legacyReadOnly
     || !prompt.trim()
     || !workerAModel
     || (!isSolo && !workerBModel)
@@ -421,11 +471,14 @@ export default function ModelMixObserver() {
         </label>
         <div className="modelmix-session">
           <span className="modelmix-session-status" data-status={observer.overall}>{observer.overall}</span>
-          <button type="button" className="new-session" disabled={modelSelectorsDisabled(observer.overall)} onClick={newSession}>New Session</button>
+          <button type="button" className="new-session" disabled={modelSelectorsDisabled(observer.overall)} onClick={newSession}>{observer.case ? 'New turn' : 'New Session'}</button>
         </div>
         <button type="button" className="modelmix-details-toggle" aria-expanded={detailsOpen} onClick={() => setDetailsOpen((open) => !open)}>Details</button>
         <button type="button" className="modelmix-settings-toggle" aria-label="Settings" title="Settings" aria-expanded={settingsOpen} onClick={() => setSettingsOpen((open) => !open)}>⚙</button>
       </header>
+
+      <CasePanel sessionId={observer.sessionId} caseData={observer.case} onSelect={selectCase} onMetadata={updateCaseMetadata} busy={controls.sendDisabled} />
+      {promotionError && <p role="alert">{promotionError}</p>}
 
       <div className="modelmix-run-meta" data-open={detailsOpen} aria-hidden={!detailsOpen}>
         <span>Run: {observer.runId || '—'}</span><span>Last sequence: {observer.lastSeq}</span>
@@ -460,6 +513,8 @@ export default function ModelMixObserver() {
 
       <form className="modelmix-composer" onSubmit={send}>
         <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} aria-label="Prompt" rows="3" required />
+        <small className="modelmix-research-notice">Research sends focused queries to public Bing. Secret exclusion is best effort; research model calls may add cost.</small>
+        {legacyReadOnly && <p className="modelmix-model-error">This legacy session is read-only. Import it as a Case to continue.</p>}
         <div className={`modelmix-models${mode === 'compare' ? ' modelmix-models--compare' : ''}`}>
           <label htmlFor="modelmix-worker-a-model">
             Gearhead model
@@ -550,12 +605,15 @@ export default function ModelMixObserver() {
               title={title}
               seatKey={seatKey}
               participant={observer[seatKey]}
+              acceptedPromotions={observer.case?.accepted_promotions}
               history={observer.history}
               emptyText={emptyText}
               className={viewClasses}
               statusOverride={seatKey === 'moderator' && observer.overall === 'reconnecting' ? 'reconnecting' : null}
               collapsed={panelView.collapsed.includes(seatKey)}
               maximized={panelView.maximized === seatKey}
+              onAcceptPromotion={seatKey === 'moderator' && observer.case && !controls.sendDisabled && !promotionBusy ? acceptPromotion : null}
+              runId={observer.runId}
               onToggleCollapse={() => toggleCollapsed(seatKey)}
               onToggleMaximize={() => toggleMaximize(seatKey)}
             />
@@ -578,9 +636,12 @@ function TranscriptPane({
   maximized = false,
   onToggleCollapse,
   onToggleMaximize,
+  onAcceptPromotion,
+  runId,
+  acceptedPromotions = [],
 }) {
   const status = statusOverride || participant.status;
-  const priorTurns = history.filter((entry) => entry[seatKey]?.text);
+  const priorTurns = history.filter((entry) => entry[seatKey]?.text || entry[seatKey]?.research?.length || entry[seatKey]?.evidence?.length || entry[seatKey]?.promotions?.length);
   const collapseLabel = `${collapsed ? 'Expand' : 'Collapse'} ${title}`;
   const maximizeLabel = `${maximized ? 'Restore' : 'Maximize'} ${title}`;
   const telemetry = buildSeatTelemetry(participant);
@@ -601,12 +662,14 @@ function TranscriptPane({
           <div key={entry.runId} className="modelmix-prior-turn">
             {entry.prompt ? <p className="modelmix-prior-prompt">{entry.prompt}</p> : null}
             <MarkdownContent>{entry[seatKey].text}</MarkdownContent>
+            <ResearchDetails participant={entry[seatKey]} acceptedPromotions={acceptedPromotions} onAcceptPromotion={entry[seatKey].status === 'completed' ? onAcceptPromotion : null} runId={entry.runId} />
             <EvidenceDetails evidence={entry[seatKey].evidence} usage={entry[seatKey].verificationUsage} cost={entry[seatKey].verificationCostUsd} />
             {entry[seatKey].error && <p className="modelmix-worker-error">{entry[seatKey].error}</p>}
           </div>
         ))}
         {participant.text ? <MarkdownContent>{participant.text}</MarkdownContent>
           : priorTurns.length === 0 ? <p className="modelmix-empty">{emptyText}</p> : null}
+        <ResearchDetails participant={participant} acceptedPromotions={acceptedPromotions} onAcceptPromotion={['completed', 'partial'].includes(participant.status) ? onAcceptPromotion : null} runId={runId} />
         <EvidenceDetails evidence={participant.evidence} usage={participant.verificationUsage} cost={participant.verificationCostUsd} />
         {participant.error && <p className="modelmix-worker-error">{participant.error}</p>}
         {telemetry.length > 0 && (
@@ -624,11 +687,35 @@ function TranscriptPane({
   );
 }
 
+function ResearchDetails({ participant, onAcceptPromotion, runId, acceptedPromotions = [] }) {
+  const tools = participant.research || [];
+  const promotions = participant.promotions || [];
+  if (!tools.length && !participant.researchActive && !participant.researchLimited && !promotions.length) return null;
+  return <details className="modelmix-evidence">
+    <summary>Research ({tools.length}){participant.researchActive ? ' · active' : ''}</summary>
+    {participant.researchLimited && <p>{participant.researchLimited}</p>}
+    {tools.map((tool) => <section key={tool.tool_id}>
+      <strong>{tool.name}</strong> · {tool.status || 'unknown'}{tool.model ? ` · ${tool.model}` : ''}
+      <pre>{JSON.stringify(tool.arguments, null, 2)}</pre>
+      {tool.result != null && <pre>{typeof tool.result === 'string' ? tool.result : JSON.stringify(tool.result, null, 2)}</pre>}
+      {(Array.isArray(tool.result?.sources) ? tool.result.sources : []).map((source, index) => <p key={source.source_id || index}>{/^https?:\/\//i.test(source.url) ? <a href={source.url} target="_blank" rel="noreferrer">{source.title || source.url}</a> : source.title}{source.excerpt ? ` · ${source.excerpt}` : ''}</p>)}
+      {tool.error && <p>{typeof tool.error === 'string' ? tool.error : JSON.stringify(tool.error)}</p>}
+    </section>)}
+    {participant.researchUsage?.length > 0 && <p>Additional research model calls: {participant.researchUsage.length}{participant.researchCostUsd != null ? ` · Calculated cost $${participant.researchCostUsd.toFixed(4)}` : ' · Cost unavailable'}</p>}
+    {promotions.map((candidate) => <section key={candidate.candidate_id}>
+      <strong>Proposed Case fact: {candidate.subject}</strong>
+      <p>{typeof candidate.value === 'string' ? candidate.value : JSON.stringify(candidate.value)}</p>
+      {candidate.provenance && <p>Provenance: {JSON.stringify(candidate.provenance)}</p>}
+      {acceptedPromotions.some((item) => item.candidate_id === candidate.candidate_id && item.run_id === runId) ? <p>Accepted into Case</p> : onAcceptPromotion && <button type="button" onClick={() => onAcceptPromotion(candidate, runId)}>Accept into Case</button>}
+    </section>)}
+  </details>;
+}
+
 function EvidenceDetails({ evidence = [], usage = [], cost = null }) {
   if (!evidence.length && !usage.length) return null;
   return <details className="modelmix-evidence">
     <summary>Evidence & provenance ({evidence.length})</summary>
-    <p>Source findings assessed by Crew Chief. Search excerpts may be incomplete.</p>
+    <p>Source findings assessed by this seat. Search excerpts may be incomplete.</p>
     {evidence.map((item) => <section key={item.claim_id}>
       <strong>{item.claim}</strong> — {item.result}
       <p>{item.summary}</p>
@@ -1371,7 +1458,7 @@ function BehaviorSection({ onSave, onClear, onSaveSpendLimit, onClearSpendLimit 
   return (
     <div className="modelmix-settings-section">
       <p className="modelmix-settings-line">
-        Crew Chief may send up to three focused queries to free public Bing search. Only generated queries are submitted, not full transcripts. Review and evidence assessment use the selected Crew Chief model and may add provider cost. Optionally set per-run model behavior. Each value is independent — set one, the other, or neither. Saved values are sent with every request and the server validates them again.
+        All three seats may research through public Bing search. Generated queries can leave this device; secret exclusion is best effort. Default time budgets are 600 seconds per mechanic, 900 seconds for Crew Chief, and 1,200 seconds overall per Case run. Output budgets also apply, with room reserved for final answers. Research and evidence assessment use each selected seat model and may add provider cost. Optionally set per-run model behavior. Each value is independent — set one, the other, or neither. Saved values are sent with every request and the server validates them again.
       </p>
       <label className="modelmix-settings-line" htmlFor="modelmix-behavior-temperature">
         Temperature (0.0–2.0)

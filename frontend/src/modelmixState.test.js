@@ -341,7 +341,7 @@ test('hydrating a single run leaves history empty and fills the live slots', () 
 
 test('hydrating an empty session returns the fresh initialState', () => {
   const document = { schema_version: 1, session: { session_id: 'session-1', runs: [], messages: [] } };
-  assert.deepEqual(hydrateModelMixState(document), createModelMixState());
+  assert.deepEqual(hydrateModelMixState(document), { ...createModelMixState(), sessionId: 'session-1' });
 });
 
 test('archiveCurrentRun appends the outgoing run, resets live slots, and keeps sessionId', () => {
@@ -1018,4 +1018,81 @@ test('cancelled Crew Chief no longer displays active verification', () => {
   assert.equal(verifying.moderator.status, 'verifying');
   const cancelled = applyModelMixEvent(verifying, { run_id: 'r', seq: 2, type: 'run_cancelled' });
   assert.equal(cancelled.moderator.status, 'cancelled');
+});
+
+test('empty named Case retains identity through archive', () => {
+  const doc = { schema_version: 1, case: { case_id: 'case-1', name: 'Truck' }, session: { session_id: 'case-1', runs: [], messages: [] } };
+  const state = hydrateModelMixState(doc);
+  assert.equal(state.sessionId, 'case-1');
+  assert.equal(state.case.name, 'Truck');
+  assert.equal(archiveCurrentRun(state).case.case_id, 'case-1');
+});
+
+test('all seats project research tools once and retain metadata on archive', () => {
+  for (const seat_id of ['worker_a', 'moderator', 'worker_b']) {
+    let state = createModelMixState();
+    const event = (seq, type, fields = {}) => ({ run_id: 'r', seq, type, seat_id, ts: seq, model: 'exact:model', ...fields });
+    state = applyModelMixEvent(state, event(1, 'research_started'));
+    state = applyModelMixEvent(state, event(2, 'tool_started', { tool: { tool_id: 't', name: 'search', arguments: { query: '12 V' }, status: 'running' } }));
+    state = applyModelMixEvent(state, event(3, 'tool_completed', { tool: { tool_id: 't', name: 'search', result: { sources: [] }, status: 'completed' } }));
+    state = applyModelMixEvent(state, event(4, 'research_usage', { usage: { total_tokens: 3 }, cost_usd: 0.01 }));
+    state = applyModelMixEvent(state, event(5, 'research_completed'));
+    assert.equal(state[seat_id].research.length, 1);
+    assert.equal(state[seat_id].research[0].arguments.query, '12 V');
+    assert.equal(state[seat_id].researchActive, false);
+    assert.equal(state[seat_id].researchCostUsd, 0.01);
+    state[seat_id].text = 'kept';
+    assert.equal(archiveCurrentRun(state).history[0][seat_id].research.length, 1);
+    const hydrated = hydrateModelMixState({ schema_version: 1, session: { session_id: 'c', runs: [{ run_id: 'r', status: 'completed', latest_seq: 5 }], messages: [{ run_id: 'r', seat: seat_id, research: state[seat_id].research, research_usage: [{ total_tokens: 3 }], research_cost_usd: 0.01 }] } });
+    assert.equal(hydrated[seat_id].research.length, 1);
+  }
+});
+
+test('Chief promotion proposals are deduplicated by candidate ID', () => {
+  let state = createModelMixState();
+  for (let seq = 1; seq <= 2; seq++) state = applyModelMixEvent(state, { run_id: 'r', seq, type: 'moderator_promotion_proposed', candidate: { candidate_id: 'p', subject: 'Voltage', value: '12 V' } });
+  assert.equal(state.moderator.promotions.length, 1);
+});
+
+test('research-only failed turns survive archive before any answer text', () => {
+  const state = { ...createModelMixState(), runId: 'r', overall: 'failed' };
+  state.worker_a.research = [{ tool_id: 't', name: 'search', status: 'failed', error: 'timeout' }];
+  const archived = archiveCurrentRun(state);
+  assert.equal(archived.history[0].worker_a.research[0].error, 'timeout');
+});
+
+test('each worker evidence is visible live, updated once, and survives archive and reload', () => {
+  for (const seat_id of ['worker_a', 'worker_b']) {
+    const other = seat_id === 'worker_a' ? 'worker_b' : 'worker_a';
+    const event = { run_id: 'r', seq: 1, ts: 10, type: 'seat_evidence', seat_id, evidence: { claim_id: 'c', claim: 'Voltage', result: 'unresolved', sources: [] } };
+    let state = applyModelMixEvent(createModelMixState(), event);
+    assert.equal(state[seat_id].evidence[0].result, 'unresolved');
+    assert.equal(state[other].evidence, undefined);
+    assert.equal(state.moderator.evidence, undefined);
+    state = applyModelMixEvent(state, event);
+    assert.equal(state[seat_id].evidence.length, 1);
+    state = applyModelMixEvent(state, { ...event, seq: 2, evidence: { ...event.evidence, result: 'supported' } });
+    assert.equal(state[seat_id].evidence.length, 1);
+    assert.equal(state[seat_id].evidence[0].result, 'supported');
+    const archived = archiveCurrentRun(state);
+    assert.deepEqual(archived.history[0][seat_id].evidence, state[seat_id].evidence);
+    const restored = hydrateModelMixState({ schema_version: 1, session: { session_id: 's', runs: [{ run_id: 'r', latest_seq: 2, status: 'completed' }], messages: [{ run_id: 'r', seat: seat_id, evidence: state[seat_id].evidence }] } });
+    assert.deepEqual(restored[seat_id].evidence, state[seat_id].evidence);
+  }
+});
+
+test('resource-limited failed seats retain reported usage cost and finish reason', () => {
+  for (const seat_id of ['worker_a', 'worker_b', 'moderator']) {
+    const event = { run_id: 'r', seq: 1, seat_id, type: seat_id === 'moderator' ? 'moderator_failed' : 'seat_failed', usage: { total_tokens: 37 }, cost_usd: 0.12, finish_reason: 'resource_limit', error: 'time budget exhausted' };
+    const state = applyModelMixEvent(createModelMixState(), event);
+    assert.equal(state[seat_id].status, 'failed');
+    assert.deepEqual(state[seat_id].usage, { total_tokens: 37 });
+    assert.equal(state[seat_id].costUsd, 0.12);
+    assert.equal(state[seat_id].finishReason, 'resource_limit');
+  }
+});
+
+test('terminal hydration clears stale research_active across all seats', () => {
+  const state = hydrateModelMixState({ schema_version: 1, session: { session_id: 's', runs: [{ run_id: 'r', latest_seq: 1, status: 'failed' }], messages: ['worker_a', 'worker_b', 'moderator'].map((seat) => ({ run_id: 'r', seat, status: 'failed', research_active: true })) } });
+  for (const seat of ['worker_a', 'worker_b', 'moderator']) assert.equal(state[seat].researchActive, false);
 });

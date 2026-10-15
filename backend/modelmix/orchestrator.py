@@ -31,6 +31,7 @@ async def multiplex_workers(
     warning_threshold_chars: Optional[int] = None,
     hard_cap_chars: Optional[int] = None,
     temperature: Optional[float] = None,
+    seat_runner=None,
 ) -> AsyncIterator[Dict[str, Any]]:
     """Run one or two isolated model calls and multiplex their visible output."""
     run_id = run_id or str(uuid.uuid4())
@@ -70,6 +71,14 @@ async def multiplex_workers(
             provider_kwargs["temperature"] = temperature
         try:
             provider = provider_resolver(model_id)
+            if seat_runner is not None:
+                async def seat_event(kind, **payload):
+                    payload.pop('seat_id', None)
+                    await queue.put((seat_id, kind, payload))
+                    return {"type": kind, "seat_id": seat_id, **payload}
+                await seat_runner(seat_id, model_id, provider, messages, seat_event,
+                                  warning_threshold_chars=warning_limit, hard_cap_chars=cap, temperature=temperature)
+                return
             if provider.supports_streaming:
                 usage = None
                 finish_reason = None

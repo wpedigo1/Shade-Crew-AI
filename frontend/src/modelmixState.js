@@ -59,6 +59,9 @@ export function applyModelMixEvent(state, event) {
       seat.status = 'running';
       seat.startedAt = event.ts ?? null;
     }
+    if (event.type === 'seat_evidence' && event.evidence?.claim_id) {
+      seat.evidence = [...(seat.evidence || []).filter((item) => item.claim_id !== event.evidence.claim_id), { ...event.evidence, updated_at: event.ts }];
+    }
     if (event.type === 'seat_delta') seat.text += String(event.delta || '');
     if (event.type === 'seat_output_warning') {
       seat.outputWarning = { chars: event.chars, threshold: event.threshold };
@@ -76,6 +79,9 @@ export function applyModelMixEvent(state, event) {
     if (event.type === 'seat_failed') {
       seat.status = 'failed';
       seat.error = event.error || 'Worker failed';
+      seat.finishReason = event.finish_reason ?? seat.finishReason;
+      seat.usage = event.usage ?? seat.usage;
+      seat.costUsd = event.cost_usd ?? seat.costUsd;
       seat.completedAt = event.ts ?? null;
     }
     if (event.type === 'seat_cancelled') {
@@ -87,7 +93,9 @@ export function applyModelMixEvent(state, event) {
 
   if (event.type?.startsWith('moderator_')) {
     const moderator = { ...state.moderator };
-    if (event.type === 'moderator_evidence') {
+    if (event.type === 'moderator_promotion_proposed' && event.candidate?.candidate_id) {
+      moderator.promotions = [...(moderator.promotions || []).filter((item) => item.candidate_id !== event.candidate.candidate_id), event.candidate];
+    } else if (event.type === 'moderator_evidence') {
       moderator.evidence = [...(moderator.evidence || []).filter((item) => item.claim_id !== event.evidence.claim_id), { ...event.evidence, updated_at: event.ts }];
     } else if (event.type === 'moderator_verification_started') {
       moderator.status = 'verifying';
@@ -118,9 +126,30 @@ export function applyModelMixEvent(state, event) {
     } else if (event.type === 'moderator_failed') {
       moderator.status = 'failed';
       moderator.error = event.error || 'Crew Chief failed';
+      moderator.finishReason = event.finish_reason ?? moderator.finishReason;
+      moderator.usage = event.usage ?? moderator.usage;
+      moderator.costUsd = event.cost_usd ?? moderator.costUsd;
       moderator.completedAt = event.ts ?? null;
     }
     next.moderator = moderator;
+  }
+
+  if (['worker_a', 'moderator', 'worker_b'].includes(seatId) &&
+      ['research_started', 'tool_started', 'tool_completed', 'research_usage', 'research_completed', 'research_limited'].includes(event.type)) {
+    const seat = { ...next[seatId] };
+    if (event.type === 'research_started') seat.researchActive = true;
+    if (['research_completed', 'research_limited'].includes(event.type)) seat.researchActive = false;
+    if (event.type === 'research_limited') seat.researchLimited = event.reason || event.error || 'Research limit reached';
+    if (event.tool?.tool_id) {
+      const previous = (seat.research || []).find((item) => item.tool_id === event.tool.tool_id);
+      const tool = { ...previous, ...event.tool, model: event.model, run_id: event.run_id, updated_at: event.ts };
+      seat.research = previous ? seat.research.map((item) => item.tool_id === tool.tool_id ? tool : item) : [...(seat.research || []), tool];
+    }
+    if (event.type === 'research_usage') {
+      seat.researchUsage = [...(seat.researchUsage || []), event.usage ?? null];
+      if (event.cost_usd != null) seat.researchCostUsd = (seat.researchCostUsd ?? 0) + event.cost_usd;
+    }
+    next[seatId] = seat;
   }
 
   if (event.type === 'run_started') {
@@ -148,6 +177,11 @@ export function applyModelMixEvent(state, event) {
       next.moderator = { ...next.moderator, status: 'partial' };
     }
   }
+  if (['run_cancelled', 'run_failed', 'run_completed'].includes(event.type)) {
+    for (const id of ['worker_a', 'moderator', 'worker_b']) {
+      if (next[id].researchActive) next[id] = { ...next[id], researchActive: false };
+    }
+  }
   if (['run_cancelled', 'run_failed'].includes(event.type) && next.moderator.status === 'verifying') {
     next.moderator = { ...next.moderator, status: event.type === 'run_cancelled' ? 'cancelled' : 'failed' };
   }
@@ -156,6 +190,16 @@ export function applyModelMixEvent(state, event) {
 
 export function describeUsage(usage) {
   return usage !== null && typeof usage === 'object' ? 'authoritative' : 'unavailable';
+}
+
+function researchMetadata(message) {
+  return {
+    ...(message.research ? { research: message.research } : {}),
+    ...(message.research_usage ? { researchUsage: message.research_usage } : {}),
+    ...(message.research_cost_usd != null ? { researchCostUsd: message.research_cost_usd } : {}),
+    ...(message.research_active != null ? { researchActive: message.research_active } : {}),
+    ...(message.promotions ? { promotions: message.promotions } : {}),
+  };
 }
 
 function buildHistoryEntry(run, messages) {
@@ -181,6 +225,8 @@ function buildHistoryEntry(run, messages) {
     if (message.run_id !== run.run_id || !['worker_a', 'worker_b', 'moderator'].includes(message.seat)) continue;
     entry[message.seat] = {
       ...entry[message.seat],
+      ...researchMetadata(message),
+      ...(message.research_active != null && isTerminalOverall(run.status) ? { researchActive: false } : {}),
       ...(message.evidence ? { evidence: message.evidence } : {}),
       ...(message.verification_usage ? { verificationUsage: message.verification_usage } : {}),
       ...(message.verification_cost_usd != null ? { verificationCostUsd: message.verification_cost_usd } : {}),
@@ -204,6 +250,8 @@ export function archiveCurrentRun(state) {
     models: state.models,
     status: state.overall,
     worker_a: {
+      ...researchMetadata({ research: state.worker_a.research, research_usage: state.worker_a.researchUsage, research_cost_usd: state.worker_a.researchCostUsd, promotions: state.worker_a.promotions }),
+      ...(state.worker_a.evidence ? { evidence: state.worker_a.evidence } : {}),
       text: state.worker_a.text,
       status: state.worker_a.status,
       error: state.worker_a.error,
@@ -214,6 +262,7 @@ export function archiveCurrentRun(state) {
       completedAt: state.worker_a.completedAt ?? null,
     },
     moderator: {
+      ...researchMetadata({ research: state.moderator.research, research_usage: state.moderator.researchUsage, research_cost_usd: state.moderator.researchCostUsd, promotions: state.moderator.promotions }),
       ...(state.moderator.evidence ? { evidence: state.moderator.evidence } : {}),
       ...(state.moderator.verificationUsage ? { verificationUsage: state.moderator.verificationUsage } : {}),
       ...(state.moderator.verificationCostUsd != null ? { verificationCostUsd: state.moderator.verificationCostUsd } : {}),
@@ -227,6 +276,8 @@ export function archiveCurrentRun(state) {
       completedAt: state.moderator.completedAt ?? null,
     },
     worker_b: {
+      ...researchMetadata({ research: state.worker_b.research, research_usage: state.worker_b.researchUsage, research_cost_usd: state.worker_b.researchCostUsd, promotions: state.worker_b.promotions }),
+      ...(state.worker_b.evidence ? { evidence: state.worker_b.evidence } : {}),
       text: state.worker_b.text,
       status: state.worker_b.status,
       error: state.worker_b.error,
@@ -237,11 +288,12 @@ export function archiveCurrentRun(state) {
       completedAt: state.worker_b.completedAt ?? null,
     },
   };
-  const hasSeatContent = [outgoing.worker_a, outgoing.moderator, outgoing.worker_b].some((seat) => Boolean(seat.text));
+  const hasSeatContent = [outgoing.worker_a, outgoing.moderator, outgoing.worker_b].some((seat) => Boolean(seat.text || seat.research?.length || seat.promotions?.length || seat.evidence?.length));
   const history = hasSeatContent ? [...state.history, outgoing] : [...state.history];
   return {
     ...createModelMixState(),
     sessionId: state.sessionId,
+    ...(state.case ? { case: state.case } : {}),
     history,
   };
 }
@@ -258,11 +310,12 @@ export function hydrateModelMixState(document) {
     throw new Error('Unsupported or malformed ModelMix session');
   }
   const run = document.session.runs.at(-1);
-  if (!run) return createModelMixState();
+  if (!run) return { ...createModelMixState(), sessionId: document.session.session_id, ...(document.case ? { case: document.case } : {}) };
   const state = {
     ...createModelMixState(),
     runId: run.run_id,
     sessionId: document.session.session_id,
+    ...(document.case ? { case: document.case } : {}),
     lastSeq: run.latest_seq,
     overall: run.status === 'active' ? 'running' : run.status,
     message: `Restored ${run.status} run`,
@@ -276,6 +329,8 @@ export function hydrateModelMixState(document) {
     if (message.run_id !== run.run_id || !['worker_a', 'worker_b', 'moderator'].includes(message.seat)) continue;
     state[message.seat] = {
       ...state[message.seat],
+      ...researchMetadata(message),
+      ...(message.research_active != null && isTerminalOverall(run.status) ? { researchActive: false } : {}),
       ...(message.evidence ? { evidence: message.evidence } : {}),
       ...(message.verification_usage ? { verificationUsage: message.verification_usage } : {}),
       ...(message.verification_cost_usd != null ? { verificationCostUsd: message.verification_cost_usd } : {}),

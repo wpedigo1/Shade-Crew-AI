@@ -3,12 +3,13 @@
 import json
 from typing import Optional
 
-from fastapi import APIRouter, Header, HTTPException, Query
+from fastapi import APIRouter, Header, HTTPException, Query, UploadFile, File
 from fastapi.responses import Response, StreamingResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 from ..council import get_provider_for_model
 from . import guardrails
+from .cases import CasePersistence, RecordInput, MAX_ATTACHMENT_BYTES
 from .journal import ReplayUnavailableError, RunEventJournal
 from .persistence import PersistenceError
 from .registry import run_registry
@@ -22,6 +23,7 @@ class TwoWorkerRequest(BaseModel):
     worker_b_model: Optional[str] = Field(default=None, min_length=1)
     moderator_model: Optional[str] = Field(default=None, min_length=1)
     session_id: Optional[str] = Field(default=None, min_length=1)
+    case_id: Optional[str] = Field(default=None, min_length=1)
     warning_threshold_chars: Optional[int] = Field(default=None, gt=0)
     hard_cap_chars: Optional[int] = Field(default=None, gt=0)
     temperature: Optional[float] = Field(default=None, ge=0.0, le=2.0)
@@ -99,7 +101,7 @@ async def _over_budget_rejection(
     for message in session.get("messages") or []:
         if message.get("run_id") != last_run_id:
             continue
-        costs = [message.get("cost_usd"), message.get("verification_cost_usd")]
+        costs = [message.get("cost_usd"), message.get("verification_cost_usd"), message.get("research_cost_usd")]
         known_costs = [cost for cost in costs if isinstance(cost, (int, float))]
         cost = sum(known_costs) if known_costs else None
         if cost is None:
@@ -131,12 +133,28 @@ async def stream_two_workers(body: TwoWorkerRequest) -> StreamingResponse:
             detail="Crew Chief requires a second worker (worker_b_model); "
             "Solo mode runs worker_a only",
         )
+    session_id = body.case_id or body.session_id
+    if body.case_id and body.session_id and body.case_id != body.session_id:
+        raise HTTPException(status_code=422, detail='Case/session identity mismatch')
+    if isinstance(run_registry.persistence, CasePersistence):
+        try:
+            if session_id:
+                document = await run_registry.persistence.load_session(session_id)
+                if document is None:
+                    raise HTTPException(status_code=404, detail='Case not found')
+                if 'case' not in document:
+                    raise HTTPException(status_code=422, detail='Legacy sessions are read-only; import into a Case first')
+            else:
+                document = await run_registry.persistence.create_case(body.prompt.strip().splitlines()[0][:80] or 'Repair case')
+                session_id = document['case']['case_id']
+        except (PersistenceError, ValueError) as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
     if (
         body.spend_limit_usd is not None
-        and body.session_id is not None
+        and session_id is not None
         and not body.confirm_over_budget
     ):
-        rejection = await _over_budget_rejection(body.session_id, body.spend_limit_usd)
+        rejection = await _over_budget_rejection(session_id, body.spend_limit_usd)
         if rejection is not None:
             raise HTTPException(status_code=402, detail=rejection)
     try:
@@ -146,7 +164,7 @@ async def stream_two_workers(body: TwoWorkerRequest) -> StreamingResponse:
             body.worker_b_model,
             get_provider_for_model,
             body.moderator_model,
-            body.session_id,
+            session_id,
             warning_threshold_chars=warning_threshold_chars,
             hard_cap_chars=hard_cap_chars,
             temperature=body.temperature,
@@ -280,3 +298,79 @@ def _stream_run(run: RunEventJournal, after_seq: int) -> StreamingResponse:
             "X-ModelMix-Session-ID": run.session_id or "",
         },
     )
+
+
+class CaseCreate(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    name: str = Field(min_length=1, max_length=160)
+
+
+class CaseUpdate(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    name: str | None = Field(default=None, min_length=1, max_length=160)
+    machine: dict[str, str] | None = None
+
+
+class PromotionAccept(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    run_id: str = Field(min_length=1, max_length=128)
+    candidate_id: str = Field(min_length=1, max_length=128)
+
+
+def _cases():
+    if not isinstance(run_registry.persistence, CasePersistence):
+        raise HTTPException(status_code=503, detail='Case persistence is unavailable')
+    return run_registry.persistence
+
+
+async def _case_action(action):
+    try:
+        return await action
+    except (PersistenceError, ValueError, UnicodeError, OSError) as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@router.get('/cases')
+async def list_cases():
+    return await _case_action(_cases().list_cases())
+
+
+@router.post('/cases')
+async def create_case(body: CaseCreate):
+    return await _case_action(_cases().create_case(body.name))
+
+
+@router.post('/cases/import/{session_id}')
+async def import_case(session_id: str):
+    return await _case_action(_cases().import_legacy(session_id))
+
+
+@router.get('/cases/{case_id}')
+async def get_case(case_id: str):
+    doc = await _case_action(_cases().load_session(case_id))
+    if doc is None or 'case' not in doc:
+        raise HTTPException(status_code=404, detail='Case not found')
+    return doc
+
+
+@router.patch('/cases/{case_id}')
+async def update_case(case_id: str, body: CaseUpdate):
+    return await _case_action(_cases().update_case(case_id, **body.model_dump(exclude_unset=True)))
+
+
+@router.post('/cases/{case_id}/facts')
+async def add_case_record(case_id: str, body: RecordInput):
+    # Only this explicit user action or accepted saved Chief proposals can write facts.
+    return await _case_action(_cases().add_record(case_id, body.model_dump()))
+
+
+@router.post('/cases/{case_id}/promotions')
+async def accept_case_promotion(case_id: str, body: PromotionAccept):
+    return await _case_action(_cases().accept_promotion(case_id, body.run_id, body.candidate_id))
+
+
+@router.post('/cases/{case_id}/attachments')
+async def add_case_attachment(case_id: str, file: UploadFile = File(...)):
+    content = await file.read(MAX_ATTACHMENT_BYTES + 1)
+    await file.close()
+    return await _case_action(_cases().add_attachment(case_id, file.filename or 'attachment', content, file.content_type or 'application/octet-stream'))

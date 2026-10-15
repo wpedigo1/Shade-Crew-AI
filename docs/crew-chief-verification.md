@@ -1,3 +1,5 @@
+> Historical Pass 1 at `19e1b50`. Current Case runs use [crew-wide resource-budgeted research](cases-and-research.md); the tiny fixed limits below remain only in the legacy executor.
+
 # Crew Chief verification — Pass 1
 
 Product seats: **Gearhead | wider Crew Chief | Grease Monkey**.

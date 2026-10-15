@@ -209,6 +209,7 @@ class AtomicJsonModelMixPersistence(ModelMixPersistence):
                     if message.get("run_id") == run_id and message.get("role") == "assistant" and message.get("status") in {"waiting", "running"}:
                         message["status"] = terminal
                         message["verification_active"] = False
+                        message["research_active"] = False
             document["session"]["updated_at"] = time.time()
             self._write_atomic(path, document)
 
@@ -239,7 +240,26 @@ class AtomicJsonModelMixPersistence(ModelMixPersistence):
                 "completed_at": None,
             }
             messages.append(message)
-        if event_type == "moderator_evidence":
+        if event_type == 'research_started':
+            message['research_active'] = True
+            message['status'] = 'running'
+            message['research_budget'] = event.get('budget')
+        elif event_type in {'tool_started', 'tool_completed'}:
+            trail = message.setdefault('research', [])
+            record = {**deepcopy(event['tool']), 'model': event.get('model'), 'seat_id': seat, 'run_id': run['run_id']}
+            trail[:] = [item for item in trail if item['tool_id'] != record['tool_id']]
+            trail.append(record)
+        elif event_type == 'research_usage':
+            message.setdefault('research_usage', []).append(event.get('usage'))
+            if event.get('cost_usd') is not None:
+                message['research_cost_usd'] = message.get('research_cost_usd', 0) + event['cost_usd']
+        elif event_type == 'research_completed':
+            message['research_active'] = False
+        elif event_type == 'research_limited':
+            message['research_limit'] = event.get('message')
+        elif event_type == 'moderator_promotion_proposed':
+            message.setdefault('promotions', []).append(deepcopy(event['candidate']))
+        elif event_type in {'moderator_evidence', 'seat_evidence'}:
             evidence = message.setdefault("evidence", [])
             item = deepcopy(event["evidence"])
             item["updated_at"] = event["ts"]
@@ -270,6 +290,10 @@ class AtomicJsonModelMixPersistence(ModelMixPersistence):
             if event.get("cost_usd") is not None:
                 message["cost_usd"] = event["cost_usd"]
         elif event_type in {"seat_failed", "moderator_failed"}:
+            for key in ('usage', 'cost_usd', 'finish_reason'):
+                if event.get(key) is not None:
+                    message[key] = event[key]
+            message['research_active'] = False
             message["status"] = "failed"
             message["error"] = str(event.get("error") or "Participant failed")
             message["completed_at"] = event["ts"]
@@ -288,9 +312,13 @@ class AtomicJsonModelMixPersistence(ModelMixPersistence):
         except (OSError, json.JSONDecodeError) as exc:
             raise PersistenceError(f"Unable to read ModelMix session: {exc}") from exc
         self._validate(value)
-        if value["session"]["session_id"] != path.stem:
+        if value["session"]["session_id"] != self._session_id_for_path(path):
             raise PersistenceError("ModelMix session identity does not match its canonical file")
         return value
+
+    @staticmethod
+    def _session_id_for_path(path: Path) -> str:
+        return path.stem
 
     @staticmethod
     def _validate(value: Any) -> None:
