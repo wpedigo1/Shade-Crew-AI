@@ -347,3 +347,36 @@ async def test_queued_request_keeps_submitted_endpoint_snapshot(local_settings, 
     await asyncio.gather(active,queued)
     assert old.call_count == 2
     assert new.call_count == 0
+
+
+@respx.mock
+@pytest.mark.parametrize('streaming', [False, True])
+async def test_unset_local_temperature_preserves_server_profile(local_settings, streaming):
+    route = respx.post('http://127.0.0.1:18081/v1/chat/completions')
+    if streaming:
+        body = 'data: {"choices":[{"delta":{"content":"answer"},"finish_reason":"stop"}]}\n\ndata: [DONE]\n\n'
+        route.mock(return_value=httpx.Response(200, text=body))
+        events = [e async for e in LocalOpenAIProvider('fob-a').stream_query('local:fob-a:qwen', [])]
+        assert events[-1].type == 'completed'
+    else:
+        route.mock(return_value=httpx.Response(200, json={'choices': [{'message': {'content': 'answer'}}]}))
+        assert (await LocalOpenAIProvider('fob-a').query('local:fob-a:qwen', []))['content'] == 'answer'
+    payload = json.loads(route.calls[0].request.content)
+    for field in ['temperature', 'top_p', 'top_k', 'min_p', 'presence_penalty', 'max_tokens', 'chat_template_kwargs']:
+        assert field not in payload
+
+
+def test_fob_presets_preserve_saved_thinking_profiles():
+    import configparser
+    from pathlib import Path
+    config = configparser.ConfigParser()
+    text = (Path(__file__).parents[2] / 'config/fob-models.ini').read_text()
+    config.read_string(text[text.index('[*]'):])
+    common = config['*']
+    for key, value in {'ctx-size': '65536', 'predict': '32768', 'cache-type-k': 'q8_0',
+                       'cache-type-v': 'q8_0', 'flash-attn': 'on', 'reasoning': 'on',
+                       'gpu-layers': '999'}.items():
+        assert common[key] == value
+    assert 'temp' not in common
+    assert config['qwen36-heretic-35b']['temp'] == '0.6'
+    assert config['qwen38-uncensored-27b']['temp'] == '1.0'

@@ -172,6 +172,7 @@ workers or separate clients issuing model switches during a run.
 Deadlines include queueing, loading and generation. Default direct backend bounds
 remain 300 seconds per seat / 600 per run for the legacy executor. Case runs use the documented 600/900/2,400-second research budgets. The explicit FOB launch settings above
 are finite; values outside 1–3600 seconds or non-numbers fail startup. Cancellation
-grace remains five seconds. The native model preset caps output at 1536 tokens;
+grace remains five seconds. The restored FOB presets enable reasoning with 65,536 context, Q8 K/V and
+Flash Attention, and cap output at 32,768 tokens;
 this is a ceiling, not a completion guarantee. See `docs/fob-live-inference.md`
-for observed load/speed/memory evidence and real limitations.
+for profile selection, historical load/speed/memory evidence and its limitations.

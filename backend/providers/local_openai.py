@@ -45,7 +45,7 @@ class LocalOpenAIProvider(CustomOpenAIProvider):
             raise ValueError("Model ID does not belong to this local endpoint")
         return model_id[len(prefix):]
 
-    async def query(self, model_id, messages, timeout=120.0, temperature=0.7):
+    async def query(self, model_id, messages, timeout=120.0, temperature=None):
         config = self._get_config()
         async with _endpoint_lock(config[1]):
             return await self._query_with_config(f"custom:{self._model(model_id)}", messages, timeout, temperature, config)
@@ -60,7 +60,7 @@ class LocalOpenAIProvider(CustomOpenAIProvider):
     def supports_streaming(self):
         return True
 
-    async def stream_query(self, model_id, messages, timeout=120.0, temperature=0.7):
+    async def stream_query(self, model_id, messages, timeout=120.0, temperature=None):
         config = self._get_config()
         async with _endpoint_lock(config[1]):
             stream = self._stream_query(model_id, messages, timeout, temperature, config)
@@ -80,7 +80,8 @@ class LocalOpenAIProvider(CustomOpenAIProvider):
             async with httpx.AsyncClient(timeout=timeout) as client:
                 async with client.stream(
                     'POST', f'{base_url}/chat/completions',
-                    json={'model': model, 'messages': messages, 'temperature': temperature,
+                    json={'model': model, 'messages': messages,
+                          **({'temperature': temperature} if temperature is not None else {}),
                           'stream': True, 'stream_options': {'include_usage': True}},
                 ) as response:
                     if response.status_code != 200:

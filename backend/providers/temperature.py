@@ -79,10 +79,10 @@ def add_temperature_if_supported(
     payload: dict[str, Any],
     model_id: str,
     provider: str,
-    temperature: float,
+    temperature: float | None,
 ) -> dict[str, Any]:
     """Mutate and return payload with temperature only when the model accepts it."""
 
-    if not should_omit_temperature(model_id, provider):
+    if temperature is not None and not should_omit_temperature(model_id, provider):
         payload["temperature"] = temperature
     return payload

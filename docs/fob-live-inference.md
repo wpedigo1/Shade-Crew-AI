@@ -76,11 +76,24 @@ Save/discover, reload, and explicitly select:
 - Grease Monkey: `local:fob:qwen36-heretic-35b`
 - Crew Chief: `local:fob:qwen36-heretic-35b`
 
-Set Behavior temperature to `0.3`, leave Crew Chief guidance empty, and save seat
-defaults if desired. The native server presets use 8192 context, one slot,
-1536 output ceiling, F16 K/V, seed42, top-p0.95/top-k20/min-p0, repetition1 and
-presence/frequency0. The browser's saved temperature takes precedence over the
-server default. These are a practical integration profile, not measured winners.
+Clear saved Behavior temperature overrides to inherit each model's saved FOB profile.
+The native presets use 65,536 context, one slot, 32,768 output ceiling, Q8 K/V,
+Flash Attention on, reasoning on, seed 42, top-p 0.95/top-k 20/min-p 0,
+repetition 1 and presence/frequency 0. Qwen3.6 uses its saved locally verified
+sampling temperature 0.6; Qwen3.8 uses its saved thinking-profile temperature 1.0.
+These settings are taken from `/home/wes/models/MODEL_RUNTIME_PROFILES.json`.
+An explicit browser temperature still overrides both seats; leave it unset for
+model-specific defaults. The local provider does not inject a shared temperature.
+
+The 32,768-token ceiling includes hidden reasoning and visible output; hidden
+reasoning is not forwarded or persisted by Shade Crew. Case wall-clock rails
+remain separate. For the bounded restored-profile diagnostic rerun, configurable
+mechanic/Chief rails are 1,800 seconds each and the overall Case rail is 3,600;
+this gives thinking models room without disabling emergency limits.
+
+Historical timing and memory figures below describe the earlier reduced profile;
+they do not validate the restored profile. Do not use those earlier runs to
+justify replacing models whose saved profiles were not preserved.
 
 ## Resource and privacy boundary
 
