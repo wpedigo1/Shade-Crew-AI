@@ -1,19 +1,19 @@
 """Punch Board item 27 (backend half) — Solo (single-worker) mode.
 
 Mission 030 makes ``worker_b_model`` optional end to end so a run can consist of
-Worker A alone. Verified through the REAL HTTP surface, using the same harness
+Gearhead alone. Verified through the REAL HTTP surface, using the same harness
 as ``test_modelmix_compare_mode_backend.py`` (bare ``FastAPI()`` + router,
 ``run_registry`` / ``get_provider_for_model`` monkeypatched to deterministic
 fakes, isolated ``tmp_path`` persistence, SSE parsed by stripping ``data: ``).
 
 Acceptance criteria exercised here:
-  8.  a full Solo run streams Worker A deltas only, with zero worker_b /
+  8.  a full Solo run streams Gearhead deltas only, with zero worker_b /
       moderator events and a ``run_completed`` / ``completed`` terminal;
   9.  a Solo worker failure honestly reaches ``run_completed`` / ``failed``;
   10. the route rejects (422) the hybrid ``worker_b``-absent + ``moderator``
       combination BEFORE any provider resolver call;
   11. multi-turn isolation holds across a Solo-then-Mix sequence (worker_b never
-      sees the Solo turn's Worker A output; persisted models encode the shape);
+      sees the Solo turn's Gearhead output; persisted models encode the shape);
   12. per-worker guardrails and mid-stream cancellation still apply to the Solo
       worker.
 """
@@ -148,7 +148,7 @@ async def active_run_id_via_session_route(client):
 
 
 # ---------------------------------------------------------------------------
-# Criterion 8 — a full Solo run streams Worker A only, no worker_b/moderator
+# Criterion 8 — a full Solo run streams Gearhead only, no worker_b/moderator
 # events, and ends run_completed / completed.
 # ---------------------------------------------------------------------------
 
@@ -281,8 +281,8 @@ def test_moderator_without_worker_b_rejected_422_before_resolver(monkeypatch, tm
 
 
 # ---------------------------------------------------------------------------
-# Criterion 11 — multi-turn isolation: a Solo turn then a Mix turn. Worker B in
-# the Mix turn must never see the Solo turn's Worker A output.
+# Criterion 11 — multi-turn isolation: a Solo turn then a Mix turn. Grease Monkey in
+# the Mix turn must never see the Solo turn's Gearhead output.
 # ---------------------------------------------------------------------------
 
 
@@ -328,8 +328,8 @@ def test_solo_then_mix_turn_isolation_holds(monkeypatch, tmp_path):
         assert second.status_code == 200
         assert parse_sse(second)[-1]["status"] == "completed"
 
-    # Worker B in the Mix turn gets a blank history -- the Solo turn produced no
-    # worker_b message, so nothing about Worker A's Solo output can leak.
+    # Grease Monkey in the Mix turn gets a blank history -- the Solo turn produced no
+    # worker_b message, so nothing about Gearhead's Solo output can leak.
     worker_b_history = providers["model-b"].messages[0]
     assert worker_b_history == [{"role": "user", "content": prompt_mix}]
     assert worker_a_solo not in json.dumps(worker_b_history)
@@ -337,11 +337,11 @@ def test_solo_then_mix_turn_isolation_holds(monkeypatch, tmp_path):
     assert worker_b_mix not in json.dumps(worker_b_history)
 
     worker_a_mix_provider = providers["model-a"]
-    assert worker_a_mix_provider.messages  # Worker A did run during the Mix turn
+    assert worker_a_mix_provider.messages  # Gearhead did run during the Mix turn
     worker_a_history = worker_a_mix_provider.messages[0]
-    # Worker A's own prior Solo output is its permitted history...
+    # Gearhead's own prior Solo output is its permitted history...
     assert worker_a_solo in json.dumps(worker_a_history)
-    # ...but Worker B's output never appears in Worker A's view (full isolation).
+    # ...but Grease Monkey's output never appears in Gearhead's view (full isolation).
     assert "WORKER_B" not in json.dumps(worker_a_history)
 
 

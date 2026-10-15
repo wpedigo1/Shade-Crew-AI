@@ -2,10 +2,11 @@
 
 A personal, local-first multi-model mechanic and repair console.
 
-**Mechanic A | Moderator | Mechanic B** — independent answers, then a wider
+**Gearhead | Crew Chief | Grease Monkey** — independent answers, then a wider
 center seat synthesizes the two visible outputs. Workers never see each other.
-The Moderator currently makes one model call. Tool/search/manual/VIN verification
-is future work; current answers are not independently verified by this app.
+The Crew Chief reviews important factual claims, can consult free public search,
+retains source evidence, then gives the final answer. Agreement is not proof.
+Search snippets and model assessments have limits; exact-machine evidence may remain unresolved.
 
 ## Run the browser console
 
@@ -46,7 +47,7 @@ existing llama.cpp servers separately using your established runtime and models.
 The console does not manage their processes or choose which models to run.
 
 1. Settings → Providers → **Local servers (llama.cpp / FOB)**.
-2. Add a stable ID (for example `fob-a`), display name (`FOB Mechanic A`) and
+2. Add a stable ID (for example `fob-a`), display name (`FOB Gearhead`) and
    API base URL including `/v1` (`http://127.0.0.1:8080/v1`). The URL is relative
    to the backend host, not the browser machine. Use FOB's reachable address
    when the backend runs elsewhere. This example does not assert a live port.
@@ -75,7 +76,7 @@ Other OpenAI-compatible variants retain deterministic fixture coverage.
 
 ## Preserved behavior
 
-- Mix uses two independent workers and one Moderator; existing Compare/Solo
+- Mix uses two independent workers and one Crew Chief; existing Compare/Solo
   modes remain secondary choices. No five-worker cockpit.
 - Each seat keeps its own history across model changes.
 - Ordered multiplexed SSE, replay/reconnect, separate Send/Stop controls,
@@ -86,16 +87,31 @@ Other OpenAI-compatible variants retain deterministic fixture coverage.
 - Shared legacy backend/provider code is retained where the cockpit depends on
   it. Historical design docs under `docs/modelmix/` remain reference material.
 
-## Future Moderator boundary
+## Crew Chief verification (Pass 1)
 
-`RunRegistry(moderator_runner=...)` in `backend/modelmix/registry.py` accepts a
-replacement executor with the current `run_moderator` signature. It receives
-bounded visible worker input, the chosen provider, and the canonical event
-factory. Registry ownership of timeouts, cancellation, event sequencing and
-persistence stays intact. The default executor is still `run_moderator`.
+The default executor reviews the user request and visible mechanic outputs,
+identifies at most three important claims, searches when needed, assesses returned
+excerpts, and streams the final answer through the existing SSE feed. Workers
+remain independent. The Crew Chief can reject either or both answers.
 
-Do not implement tool authority by putting worker outputs into worker histories
-or creating a second competing stream. See `docs/shade-crew-first-pass.md`.
+One review round, at most three sequential public Bing searches through the
+existing DDGS dependency, up to three snippets each; no paid search or fallback.
+Only generated focused queries go to search, not full transcripts. Do not put
+secrets or personal details into research requests. Review/assessment use the
+selected model and add up to two model calls before final synthesis, so cloud
+provider charges can increase. Additional usage/cost stays separate in evidence
+metadata and known costs count toward the existing prior-run spend gate.
+
+Malformed review, missing/invalid citation, failed search, timeout, incomplete
+assessment or ambiguous evidence stays unresolved. Source identity plus exact
+quote binding is enforced for verified/contradicted findings; relevance and
+applicability remain model judgments. Search excerpts are not authenticated
+service specifications. Evidence is expandable under the Crew Chief answer and
+persists with the session; there is no hidden chain-of-thought storage.
+
+See [Crew Chief verification](docs/crew-chief-verification.md) for schema,
+bounds, failure behavior and limitations. `RunRegistry(moderator_runner=...)`
+retains the executor seam; `run_moderator` remains the final streaming stage.
 
 ## Validation
 
@@ -132,9 +148,9 @@ SHADE_CREW_SEAT_TIMEOUT_SECONDS=600 SHADE_CREW_RUN_TIMEOUT_SECONDS=1200 ./start.
 ```
 
 Configure one enabled local endpoint with ID `fob`, name `FOB llama.cpp`, URL
-`http://127.0.0.1:18081/v1`. Pick `qwen38-uncensored-27b` for Mechanic A,
-`qwen36-heretic-35b` for Mechanic B and Moderator. The router unloads A before
-loading B; Moderator then reuses B. No separate manager or background service.
+`http://127.0.0.1:18081/v1`. Pick `qwen38-uncensored-27b` for Gearhead,
+`qwen36-heretic-35b` for Grease Monkey and Crew Chief. The router unloads A before
+loading B; Crew Chief then reuses B. No separate manager or background service.
 
 Local requests sharing a URL now serialize across the complete HTTP stream.
 Different URLs still run independently. This resource queue does not transmit

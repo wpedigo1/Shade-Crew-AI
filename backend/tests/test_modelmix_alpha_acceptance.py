@@ -305,9 +305,9 @@ def test_scenario_3_worker_failure_survives_with_partial_moderation(monkeypatch,
     assert events[-1]["type"] == "run_completed"
     assert events[-1]["status"] == "partial"
 
-    handoff = providers["model-m"].messages[0][-1]["content"]
-    assert "Worker A status:\nUnavailable because the worker failed." in handoff
-    assert "Worker B visible output:\nusable B" in handoff
+    handoff = providers["model-m"].messages[0][-2]["content"]
+    assert "Gearhead status:\nUnavailable because the worker failed." in handoff
+    assert "Grease Monkey visible output:\nusable B" in handoff
     assert "partial alpha" not in handoff
     assert seat_deltas(events, "moderator_delta") == ["synthesis"]
 
@@ -432,7 +432,7 @@ def test_scenario_5_multi_turn_isolation_via_real_route(monkeypatch, tmp_path):
         {"role": "user", "content": prompt_1},
         {"role": "assistant", "content": moderator_1},
     ]
-    handoff = moderator_history[-1]["content"]
+    handoff = moderator_history[-2]["content"]
     assert prompt_2 in handoff
     assert worker_a_2 in handoff
     assert worker_b_2 in handoff

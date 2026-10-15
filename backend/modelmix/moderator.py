@@ -14,7 +14,7 @@ from .timeouts import aiter_with_deadline
 
 MAX_VISIBLE_OUTPUT_CHARS = 100_000
 
-MODERATOR_INSTRUCTIONS = """You are the Shade Crew AI Moderator. Produce the best final answer to the
+MODERATOR_INSTRUCTIONS = """You are the Shade Crew AI Crew Chief. Produce the best final answer to the
 user by evaluating and reconciling the visible witness outputs. Resolve discrepancies using sound
 reasoning. Do not rank, vote, debate, mechanically concatenate, or mention hidden reasoning. A
 missing witness may be noted as unavailable, but do not invent its evidence."""
@@ -60,7 +60,7 @@ def assemble_moderator_input(
         )
     sections = [f"Original user prompt:\n{prompt}"]
     truncation: Dict[str, bool] = {}
-    for seat_id, label in (("worker_a", "Worker A"), ("worker_b", "Worker B")):
+    for seat_id, label in (("worker_a", "Gearhead"), ("worker_b", "Grease Monkey")):
         if seat_id in worker_outputs:
             visible, truncated = _bounded_visible_text(worker_outputs[seat_id])
             truncation[seat_id] = truncated
@@ -96,7 +96,7 @@ async def run_moderator(
     """Stream or query one Moderator and publish through the canonical event factory."""
     limits = output_limits or ModeratorOutputLimits()
     if limits.hard_cap_tokens is not None:
-        raise ValueError("Moderator hard output caps are not supported by the provider contract")
+        raise ValueError("Crew Chief hard output caps are not supported by the provider contract")
     bound = timeouts.SEAT_TIMEOUT_SECONDS if seat_timeout is None else seat_timeout
     warning_limit = (
         guardrails.WARNING_OUTPUT_THRESHOLD_CHARS
@@ -153,13 +153,13 @@ async def run_moderator(
                     usage = item.usage or (item.result or {}).get("usage")
                     finish_reason = item.finish_reason
                 elif item.type == "error":
-                    raise RuntimeError(item.error_message or "Moderator stream failed")
+                    raise RuntimeError(item.error_message or "Crew Chief stream failed")
         else:
             result = await asyncio.wait_for(
                 provider.query(model_id, moderator_input.messages, **provider_kwargs), timeout=bound
             )
             if result.get("error"):
-                raise RuntimeError(result.get("error_message") or "Moderator query failed")
+                raise RuntimeError(result.get("error_message") or "Crew Chief query failed")
             content = str(result.get("content") or "")
             capped = len(content) > cap
             if capped:
@@ -193,7 +193,7 @@ async def run_moderator(
         await create_event(
             "moderator_failed",
             actor="moderator",
-            error=f"Moderator timed out after {bound:g} seconds",
+            error=f"Crew Chief timed out after {bound:g} seconds",
             reason="timeout",
         )
         return False

@@ -18,7 +18,8 @@ from .journal import (
     RunEventJournal,
 )
 from .orchestrator import ProviderResolver, multiplex_workers
-from .moderator import assemble_moderator_input, run_moderator
+from .moderator import assemble_moderator_input
+from .verification import run_crew_chief
 from .persistence import ModelMixPersistence, modelmix_persistence
 
 
@@ -34,7 +35,7 @@ class RunRegistry:
         persistence: ModelMixPersistence = modelmix_persistence,
         seat_timeout: Optional[float] = None,
         run_timeout: Optional[float] = None,
-        moderator_runner=run_moderator,
+        moderator_runner=run_crew_chief,
     ) -> None:
         self.max_events_per_run = max_events_per_run
         self.max_terminal_runs = max_terminal_runs
@@ -42,7 +43,7 @@ class RunRegistry:
         self.persistence = persistence
         self.seat_timeout = seat_timeout
         self.run_timeout = run_timeout
-        # Executor seam: future verification must use this bounded visible input
+        # Executor seam: verification uses this bounded visible input
         # and canonical event factory. Registry retains lifecycle/persistence ownership.
         self.moderator_runner = moderator_runner
         self._runs: Dict[str, RunEventJournal] = {}
@@ -319,7 +320,7 @@ class RunRegistry:
                     actor="moderator",
                     error=str(exc),
                 )
-                await run.append("run_failed", error="Moderator provider resolution failed")
+                await run.append("run_failed", error="Crew Chief provider resolution failed")
                 await run.mark_status("failed")
                 return
             moderator_task = asyncio.create_task(
@@ -342,7 +343,7 @@ class RunRegistry:
                 await timeouts.await_cancellation_grace((moderator_task,))
                 raise
             if not moderator_ok:
-                await run.append("run_failed", error="Moderator failed")
+                await run.append("run_failed", error="Crew Chief failed")
                 await run.mark_status("failed")
                 return
             final_status = "partial" if worker_failures else "completed"

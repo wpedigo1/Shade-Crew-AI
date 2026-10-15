@@ -462,10 +462,10 @@ export default function ModelMixObserver() {
         <textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} aria-label="Prompt" rows="3" required />
         <div className={`modelmix-models${mode === 'compare' ? ' modelmix-models--compare' : ''}`}>
           <label htmlFor="modelmix-worker-a-model">
-            Mechanic A model
+            Gearhead model
             <SearchableModelSelect
               inputId="modelmix-worker-a-model"
-              ariaLabel="Mechanic A model"
+              ariaLabel="Gearhead model"
               models={models}
               allModels={models}
               value={workerAModel}
@@ -476,10 +476,10 @@ export default function ModelMixObserver() {
           </label>
           {mode === 'mix' && (
             <label htmlFor="modelmix-moderator-model">
-              Moderator model
+              Crew Chief model
               <SearchableModelSelect
                 inputId="modelmix-moderator-model"
-                ariaLabel="Moderator model"
+                ariaLabel="Crew Chief model"
                 models={models}
                 allModels={models}
                 value={moderatorModel}
@@ -491,10 +491,10 @@ export default function ModelMixObserver() {
           )}
           {!isSolo && (
             <label htmlFor="modelmix-worker-b-model">
-              Mechanic B model
+              Grease Monkey model
               <SearchableModelSelect
                 inputId="modelmix-worker-b-model"
-                ariaLabel="Mechanic B model"
+                ariaLabel="Grease Monkey model"
                 models={models}
                 allModels={models}
                 value={workerBModel}
@@ -532,9 +532,9 @@ export default function ModelMixObserver() {
         aria-label="Shade Crew AI cockpit"
       >
         {[
-          { seatKey: 'worker_a', title: 'Mechanic A', className: '', emptyText: 'Waiting for visible output…' },
-          { seatKey: 'moderator', title: 'Moderator', className: 'modelmix-moderator', emptyText: 'Waiting for workers…' },
-          { seatKey: 'worker_b', title: 'Mechanic B', className: '', emptyText: 'Waiting for visible output…' },
+          { seatKey: 'worker_a', title: 'Gearhead', className: '', emptyText: 'Waiting for visible output…' },
+          { seatKey: 'moderator', title: 'Crew Chief', className: 'modelmix-moderator', emptyText: 'Waiting for workers…' },
+          { seatKey: 'worker_b', title: 'Grease Monkey', className: '', emptyText: 'Waiting for visible output…' },
         ].map(({ seatKey, title, className, emptyText }) => {
           const hiddenByMode = (mode === 'compare' && seatKey === 'moderator')
             || (mode === 'solo' && (seatKey === 'moderator' || seatKey === 'worker_b'));
@@ -589,7 +589,7 @@ function TranscriptPane({
       <header>
         <h2>{title}</h2>
         <div className="modelmix-panel-head">
-          <span data-status={status}>{status}</span>
+          <span data-status={status}>{status === 'verifying' ? 'Verifying…' : status}</span>
           <div className="modelmix-panel-controls">
             <button type="button" className="modelmix-panel-control" aria-label={collapseLabel} aria-expanded={!collapsed} title={collapseLabel} onClick={onToggleCollapse}>{collapsed ? 'Expand' : 'Collapse'}</button>
             <button type="button" className="modelmix-panel-control" aria-label={maximizeLabel} aria-pressed={maximized} title={maximizeLabel} onClick={onToggleMaximize}>{maximized ? 'Restore' : 'Maximize'}</button>
@@ -601,11 +601,13 @@ function TranscriptPane({
           <div key={entry.runId} className="modelmix-prior-turn">
             {entry.prompt ? <p className="modelmix-prior-prompt">{entry.prompt}</p> : null}
             <MarkdownContent>{entry[seatKey].text}</MarkdownContent>
+            <EvidenceDetails evidence={entry[seatKey].evidence} usage={entry[seatKey].verificationUsage} cost={entry[seatKey].verificationCostUsd} />
             {entry[seatKey].error && <p className="modelmix-worker-error">{entry[seatKey].error}</p>}
           </div>
         ))}
         {participant.text ? <MarkdownContent>{participant.text}</MarkdownContent>
           : priorTurns.length === 0 ? <p className="modelmix-empty">{emptyText}</p> : null}
+        <EvidenceDetails evidence={participant.evidence} usage={participant.verificationUsage} cost={participant.verificationCostUsd} />
         {participant.error && <p className="modelmix-worker-error">{participant.error}</p>}
         {telemetry.length > 0 && (
           <footer className="modelmix-telemetry" aria-label="Seat telemetry">
@@ -620,6 +622,25 @@ function TranscriptPane({
       </div>
     </article>
   );
+}
+
+function EvidenceDetails({ evidence = [], usage = [], cost = null }) {
+  if (!evidence.length && !usage.length) return null;
+  return <details className="modelmix-evidence">
+    <summary>Evidence & provenance ({evidence.length})</summary>
+    <p>Source findings assessed by Crew Chief. Search excerpts may be incomplete.</p>
+    {evidence.map((item) => <section key={item.claim_id}>
+      <strong>{item.claim}</strong> — {item.result}
+      <p>{item.summary}</p>
+      {item.error && <p>{item.error}</p>}
+      {item.quote && <blockquote>{item.quote}</blockquote>}
+      {(item.sources || []).map((source) => <p key={source.source_id}>
+        {/^https?:\/\//i.test(source.url) ? <a href={source.url} target="_blank" rel="noreferrer">{source.title}</a> : source.title}
+        {' · '}{source.kind}<br />{source.excerpt}
+      </p>)}
+    </section>)}
+    {usage.length > 0 && <p>Additional Crew Chief review/assessment calls: {usage.length}. Reported usage: {usage.every((item) => Number.isFinite(item?.total_tokens)) ? `${usage.reduce((sum, item) => sum + item.total_tokens, 0)} tokens` : 'unavailable'}{cost != null ? ` · Calculated review/assessment cost: $${cost.toFixed(4)}` : ''}</p>}
+  </details>;
 }
 
 const SETTINGS_SECTIONS = [
@@ -1197,9 +1218,9 @@ function OAuthRow({ provider, settings, entry, onConnect, onDisconnect }) {
 function DefaultsSection({ currentModels, onSave, onClear }) {
   const saved = loadSavedSeatModels(window.localStorage);
   const rows = [
-    ['Mechanic A', currentModels.worker_a],
-    ['Moderator', currentModels.moderator],
-    ['Mechanic B', currentModels.worker_b],
+    ['Gearhead', currentModels.worker_a],
+    ['Crew Chief', currentModels.moderator],
+    ['Grease Monkey', currentModels.worker_b],
   ];
   return (
     <div className="modelmix-settings-section">
@@ -1350,7 +1371,7 @@ function BehaviorSection({ onSave, onClear, onSaveSpendLimit, onClearSpendLimit 
   return (
     <div className="modelmix-settings-section">
       <p className="modelmix-settings-line">
-        Optionally set per-run model behavior. Each value is independent — set one, the other, or neither. Saved values are sent with every request and the server validates them again.
+        Crew Chief may send up to three focused queries to free public Bing search. Only generated queries are submitted, not full transcripts. Review and evidence assessment use the selected Crew Chief model and may add provider cost. Optionally set per-run model behavior. Each value is independent — set one, the other, or neither. Saved values are sent with every request and the server validates them again.
       </p>
       <label className="modelmix-settings-line" htmlFor="modelmix-behavior-temperature">
         Temperature (0.0–2.0)
@@ -1367,7 +1388,7 @@ function BehaviorSection({ onSave, onClear, onSaveSpendLimit, onClearSpendLimit 
         aria-label="Temperature"
       />
       <label className="modelmix-settings-line" htmlFor="modelmix-behavior-guidance">
-        Moderator guidance (how the Moderator should synthesize)
+        Crew Chief guidance (how the Crew Chief should synthesize)
       </label>
       <textarea
         id="modelmix-behavior-guidance"
@@ -1376,10 +1397,10 @@ function BehaviorSection({ onSave, onClear, onSaveSpendLimit, onClearSpendLimit 
         maxLength={MAX_MODERATOR_GUIDANCE_LENGTH}
         value={guidance}
         onChange={(event) => setGuidance(event.target.value)}
-        aria-label="Moderator guidance"
+        aria-label="Crew Chief guidance"
       />
       <p className="modelmix-settings-line">
-        {guidanceRemaining} characters remaining (limit {MAX_MODERATOR_GUIDANCE_LENGTH}). Guidance is appended to the Moderator's instructions, never replacing them.
+        {guidanceRemaining} characters remaining (limit {MAX_MODERATOR_GUIDANCE_LENGTH}). Guidance is appended to the Crew Chief's instructions, never replacing them.
       </p>
       {!validation.valid && edited && (
         <p className="modelmix-settings-error" role="alert">

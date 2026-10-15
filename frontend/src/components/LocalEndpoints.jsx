@@ -40,7 +40,7 @@ export default function LocalEndpoints({ settings, onSaved }) {
         <fieldset key={index} disabled={busy} className="modelmix-credential-row">
           <legend>Local server {index + 1}</legend>
           <label>Stable ID <input aria-label={`Local server ${index + 1} ID`} value={endpoint.id} onChange={e => change(index, 'id', e.target.value)} placeholder="fob-a" /></label>
-          <label>Name <input aria-label={`Local server ${index + 1} name`} value={endpoint.name} onChange={e => change(index, 'name', e.target.value)} placeholder="FOB Mechanic A" /></label>
+          <label>Name <input aria-label={`Local server ${index + 1} name`} value={endpoint.name} onChange={e => change(index, 'name', e.target.value)} placeholder="FOB Gearhead" /></label>
           <label>API base URL <input aria-label={`Local server ${index + 1} URL`} value={endpoint.url} onChange={e => change(index, 'url', e.target.value)} placeholder="http://127.0.0.1:8080/v1" /></label>
           <label><input type="checkbox" checked={endpoint.enabled !== false} onChange={e => change(index, 'enabled', e.target.checked)} /> Enabled</label>
           <button type="button" onClick={() => setEndpoints(current => current.filter((_, i) => i !== index))}>Remove server {index + 1}</button>

@@ -87,7 +87,17 @@ export function applyModelMixEvent(state, event) {
 
   if (event.type?.startsWith('moderator_')) {
     const moderator = { ...state.moderator };
-    if (event.type === 'moderator_started') {
+    if (event.type === 'moderator_evidence') {
+      moderator.evidence = [...(moderator.evidence || []).filter((item) => item.claim_id !== event.evidence.claim_id), { ...event.evidence, updated_at: event.ts }];
+    } else if (event.type === 'moderator_verification_started') {
+      moderator.status = 'verifying';
+      moderator.started = true;
+    } else if (event.type === 'moderator_verification_completed') {
+      moderator.status = 'running';
+    } else if (event.type === 'moderator_verification_usage') {
+      moderator.verificationUsage = [...(moderator.verificationUsage || []), event.usage ?? null];
+      if (event.cost_usd != null) moderator.verificationCostUsd = (moderator.verificationCostUsd ?? 0) + event.cost_usd;
+    } else if (event.type === 'moderator_started') {
       moderator.started = true;
       moderator.status = 'running';
       moderator.error = null;
@@ -107,7 +117,7 @@ export function applyModelMixEvent(state, event) {
       moderator.completedAt = event.ts ?? null;
     } else if (event.type === 'moderator_failed') {
       moderator.status = 'failed';
-      moderator.error = event.error || 'Moderator failed';
+      moderator.error = event.error || 'Crew Chief failed';
       moderator.completedAt = event.ts ?? null;
     }
     next.moderator = moderator;
@@ -137,6 +147,9 @@ export function applyModelMixEvent(state, event) {
     if (event.status === 'partial' && next.moderator.status === 'completed') {
       next.moderator = { ...next.moderator, status: 'partial' };
     }
+  }
+  if (['run_cancelled', 'run_failed'].includes(event.type) && next.moderator.status === 'verifying') {
+    next.moderator = { ...next.moderator, status: event.type === 'run_cancelled' ? 'cancelled' : 'failed' };
   }
   return next;
 }
@@ -168,6 +181,9 @@ function buildHistoryEntry(run, messages) {
     if (message.run_id !== run.run_id || !['worker_a', 'worker_b', 'moderator'].includes(message.seat)) continue;
     entry[message.seat] = {
       ...entry[message.seat],
+      ...(message.evidence ? { evidence: message.evidence } : {}),
+      ...(message.verification_usage ? { verificationUsage: message.verification_usage } : {}),
+      ...(message.verification_cost_usd != null ? { verificationCostUsd: message.verification_cost_usd } : {}),
       text: String(message.content || ''),
       status: message.status || entry[message.seat].status,
       error: message.error || null,
@@ -198,6 +214,9 @@ export function archiveCurrentRun(state) {
       completedAt: state.worker_a.completedAt ?? null,
     },
     moderator: {
+      ...(state.moderator.evidence ? { evidence: state.moderator.evidence } : {}),
+      ...(state.moderator.verificationUsage ? { verificationUsage: state.moderator.verificationUsage } : {}),
+      ...(state.moderator.verificationCostUsd != null ? { verificationCostUsd: state.moderator.verificationCostUsd } : {}),
       text: state.moderator.text,
       status: state.moderator.status,
       error: state.moderator.error,
@@ -257,8 +276,11 @@ export function hydrateModelMixState(document) {
     if (message.run_id !== run.run_id || !['worker_a', 'worker_b', 'moderator'].includes(message.seat)) continue;
     state[message.seat] = {
       ...state[message.seat],
+      ...(message.evidence ? { evidence: message.evidence } : {}),
+      ...(message.verification_usage ? { verificationUsage: message.verification_usage } : {}),
+      ...(message.verification_cost_usd != null ? { verificationCostUsd: message.verification_cost_usd } : {}),
       text: String(message.content || ''),
-      status: message.status || state[message.seat].status,
+      status: message.verification_active && !isTerminalOverall(run.status) ? 'verifying' : message.status || state[message.seat].status,
       error: message.error || null,
       finishReason: message.finish_reason || null,
       usage: message.usage ?? null,

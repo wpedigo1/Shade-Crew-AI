@@ -372,3 +372,22 @@ def test_confirm_over_budget_bypasses_when_multiple_seats_over(monkeypatch, tmp_
         })
 
     assert response.status_code == 200
+
+
+def test_review_cost_counts_toward_same_crew_chief_seat_limit(monkeypatch, tmp_path):
+    import json
+    session_id = 'review-cost-session'
+    app, _ = build_app(monkeypatch, tmp_path, BlowUpProvider())
+    seed_session_with_costs(tmp_path, session_id, {'moderator': 0.10})
+    path = tmp_path / f'{session_id}.json'
+    document = json.loads(path.read_text())
+    chief = next(m for m in document['session']['messages'] if m['seat'] == 'moderator')
+    chief['verification_cost_usd'] = 0.15
+    path.write_text(json.dumps(document))
+    with TestClient(app) as client:
+        response = stream_post(client, {
+            'prompt': 'next', 'worker_a_model': 'model-a', 'worker_b_model': 'model-b',
+            'moderator_model': 'model-m', 'session_id': session_id, 'spend_limit_usd': 0.20,
+        })
+    assert response.status_code == 402
+    assert '$0.25' in response.json()['detail']

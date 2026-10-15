@@ -86,7 +86,7 @@ test('late events from another run cannot contaminate hydrated state', () => {
   assert.equal(unchanged.worker_a.text, 'kept');
 });
 
-test('Moderator waits, starts, streams once, and completes with finish reason', () => {
+test('Crew Chief waits, starts, streams once, and completes with finish reason', () => {
   let state = createModelMixState();
   assert.equal(state.moderator.status, 'waiting');
   assert.equal(state.moderator.started, false);
@@ -107,7 +107,7 @@ test('Moderator waits, starts, streams once, and completes with finish reason', 
   assert.equal(state.worker_b.text, '');
 });
 
-test('Worker events never contaminate Moderator or peer panels', () => {
+test('Worker events never contaminate Crew Chief or peer panels', () => {
   let state = createModelMixState();
   state = applyModelMixEvent(state, {
     run_id: 'run', seq: 1, type: 'seat_delta', seat_id: 'worker_a', delta: 'only A',
@@ -123,7 +123,7 @@ test('Worker events never contaminate Moderator or peer panels', () => {
   assert.equal(state.moderator.text, '');
 });
 
-test('Moderator failure preserves both worker transcripts', () => {
+test('Crew Chief failure preserves both worker transcripts', () => {
   let state = createModelMixState();
   state = applyModelMixEvent(state, {
     run_id: 'run', seq: 1, type: 'seat_delta', seat_id: 'worker_a', delta: 'A evidence',
@@ -141,7 +141,7 @@ test('Moderator failure preserves both worker transcripts', () => {
   assert.equal(state.worker_b.text, 'B evidence');
 });
 
-test('Worker failure plus Moderator completion remains honestly partial', () => {
+test('Worker failure plus Crew Chief completion remains honestly partial', () => {
   let state = createModelMixState();
   state = applyModelMixEvent(state, {
     run_id: 'run', seq: 1, type: 'seat_failed', seat_id: 'worker_a', error: 'A failed',
@@ -164,7 +164,7 @@ test('Worker failure plus Moderator completion remains honestly partial', () => 
   assert.equal(state.moderator.status, 'partial');
 });
 
-test('Cancellation during Moderator is terminal and resets controls', () => {
+test('Cancellation during Crew Chief is terminal and resets controls', () => {
   let state = createModelMixState();
   state = applyModelMixEvent(state, { run_id: 'run', seq: 1, type: 'moderator_started' });
   state = applyModelMixEvent(state, { run_id: 'run', seq: 2, type: 'run_cancel_requested' });
@@ -192,7 +192,7 @@ test('Starting a new run intentionally resets all three transcripts', () => {
   assert.equal(state.lastSeq, 0);
 });
 
-test('Moderator-phase reconnect uses the last global sequence', async () => {
+test('Crew Chief-phase reconnect uses the last global sequence', async () => {
   let state = createModelMixState();
   state = applyModelMixEvent(state, { run_id: 'moderated-run', seq: 41, type: 'moderator_started' });
   state = applyModelMixEvent(state, {
@@ -238,7 +238,7 @@ test('replay request uses the run ID and last processed sequence', async () => {
   assert.equal(requestedUrl, 'http://localhost:8001/api/modelmix/runs/run%2Fid/events?after_seq=17');
 });
 
-test('run creation sends the explicit Moderator model unchanged', async () => {
+test('run creation sends the explicit Crew Chief model unchanged', async () => {
   let requestBody = null;
   globalThis.fetch = async (_url, options) => {
     requestBody = JSON.parse(options.body);
@@ -994,4 +994,28 @@ test('active persisted run restores running controls and locks all model/session
   assert.equal(state.overall, 'running');
   assert.deepEqual(controlState(state.overall), {sendDisabled:true, stopDisabled:false});
   assert.equal(modelSelectorsDisabled(state.overall), true);
+});
+
+test('Crew Chief evidence replays once and survives reload/history without leaking to workers', () => {
+  const event = { run_id: 'r-evidence', seq: 1, type: 'moderator_evidence', ts: 123,
+    evidence: { claim_id: 'c1', claim: 'Voltage', result: 'unresolved', sources: [] } };
+  let state = applyModelMixEvent(createModelMixState(), event);
+  assert.equal(state.moderator.evidence.length, 1);
+  state = applyModelMixEvent(state, event);
+  assert.equal(state.moderator.evidence.length, 1);
+  state = applyModelMixEvent(state, { ...event, seq: 2, evidence: { ...event.evidence, result: 'contradicted' } });
+  assert.equal(state.moderator.evidence[0].result, 'contradicted');
+  assert.equal(state.worker_a.evidence, undefined);
+  const restored = hydrateModelMixState({ schema_version: 1, session: { session_id: 's',
+    runs: [{ run_id: 'r-evidence', latest_seq: 2, status: 'completed', events: [] }],
+    messages: [{ run_id: 'r-evidence', seat: 'moderator', content: 'Corrected', status: 'completed', evidence: state.moderator.evidence }] } });
+  assert.equal(restored.moderator.evidence[0].result, 'contradicted');
+  assert.equal(archiveCurrentRun(restored).history[0].moderator.evidence.length, 1);
+});
+
+test('cancelled Crew Chief no longer displays active verification', () => {
+  const verifying = applyModelMixEvent(createModelMixState(), { run_id: 'r', seq: 1, type: 'moderator_verification_started' });
+  assert.equal(verifying.moderator.status, 'verifying');
+  const cancelled = applyModelMixEvent(verifying, { run_id: 'r', seq: 2, type: 'run_cancelled' });
+  assert.equal(cancelled.moderator.status, 'cancelled');
 });

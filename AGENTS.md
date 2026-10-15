@@ -7,14 +7,14 @@ Shade Crew AI is a local-first multi-model application designed to reduce single
 The default Shade Crew AI workflow is:
 
 ```text
-Mechanic A ──┐
-           ├──> Moderator ──> Final answer
-Mechanic B ──┘
+Gearhead      ──┐
+                ├──> Crew Chief ──> Final answer
+Grease Monkey ──┘
 ```
 
-Mechanic A and Mechanic B are independent witnesses.
+Gearhead and Grease Monkey are independent witnesses.
 
-The Moderator is the only participant that receives both worker results and is responsible for evaluating evidence, resolving disagreement, identifying uncertainty, and producing the final synthesis.
+The Crew Chief is the only participant that receives both worker results and is responsible for evaluating evidence, resolving disagreement, identifying uncertainty, and producing the final synthesis.
 
 Core principle:
 
@@ -43,12 +43,12 @@ Do not assume a previous mission report, PASS statement, branch name, commit SHA
 
 Unless an explicit approved change says otherwise:
 
-* Default experience is **Mechanic A | wider Moderator | Mechanic B**.
-* Mechanic A and Mechanic B execute independently.
+* Default experience is **Gearhead | wider Crew Chief | Grease Monkey**.
+* Gearhead and Grease Monkey execute independently.
 * Workers must not see each other's output, identity, conclusions, or participation.
 * Workers must not critique, rank, debate, rebut, or wait for one another.
-* Only the Moderator receives worker outputs.
-* The Moderator evaluates evidence and disagreement; it does not majority-vote or mechanically concatenate answers.
+* Only the Crew Chief receives worker outputs.
+* The Crew Chief evaluates evidence and disagreement; it does not majority-vote or mechanically concatenate answers.
 * No hidden chain-of-thought is required or exposed.
 * Context is seat-scoped, not one shared transcript.
 * Seat history belongs to the seat rather than the currently selected model.
@@ -57,7 +57,7 @@ Unless an explicit approved change says otherwise:
 * Streaming uses one multiplexed ordered run feed.
 * Events use durable run identity and monotonic sequence ordering.
 * Reconnect/replay must preserve ordering and prevent duplicates.
-* Moderator output uses the same run/event path rather than a second independent stream.
+* Crew Chief output uses the same run/event path rather than a second independent stream.
 * Persistence for alpha is **versioned atomic JSON behind a Shade Crew AI-owned interface**.
 * Do not introduce SQLite merely because it may be useful later.
 * Browser/React is the alpha application surface.
@@ -74,32 +74,32 @@ Unless an explicit approved change says otherwise:
 
 For a standard Mix run:
 
-### Mechanic A may receive
+### Gearhead may receive
 
 * User prompt.
 * Authorized shared context.
-* Mechanic A's own permitted seat history/resources.
+* Gearhead's own permitted seat history/resources.
 
-### Mechanic A must not receive
+### Gearhead must not receive
 
-* Mechanic B output.
-* Mechanic B identity.
-* Mechanic B conclusions.
-* Moderator output.
+* Grease Monkey output.
+* Grease Monkey identity.
+* Grease Monkey conclusions.
+* Crew Chief output.
 * Ranking or comparison information about other workers.
 
-Mechanic B follows the same rule symmetrically.
+Grease Monkey follows the same rule symmetrically.
 
-### Moderator may receive
+### Crew Chief may receive
 
 * Original user prompt and authorized context.
-* Complete bounded visible Mechanic A output when available.
-* Complete bounded visible Mechanic B output when available.
+* Complete bounded visible Gearhead output when available.
+* Complete bounded visible Grease Monkey output when available.
 * Authorized research/files/tools when the product feature explicitly permits them.
 
 Never forward hidden reasoning, credentials, private provider metadata, or unauthorized context.
 
-**The side models are independent witnesses. The Moderator is the only one who knows the full picture.**
+**The side models are independent witnesses. The Crew Chief is the only one who knows the full picture.**
 
 ---
 
@@ -108,12 +108,12 @@ Never forward hidden reasoning, credentials, private provider metadata, or unaut
 The main Shade Crew AI cockpit uses three persistent conversation surfaces:
 
 ```text
-Mechanic A | Moderator | Mechanic B
+Gearhead | Crew Chief | Grease Monkey
 ```
 
 Requirements:
 
-* Moderator center panel is wider.
+* Crew Chief center panel is wider.
 * Panels use essentially the full available vertical workspace.
 * Each panel scrolls independently.
 * Keep permanent chrome sparse.
@@ -318,7 +318,7 @@ Search specifically for existing implementations before creating new ones for:
 * cancellation;
 * provider resolution;
 * model discovery;
-* Moderator fan-in;
+* Crew Chief fan-in;
 * seat routing;
 * persistence;
 * credential references;

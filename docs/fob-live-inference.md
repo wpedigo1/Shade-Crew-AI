@@ -72,11 +72,11 @@ Settings → Providers → Local servers: configure one enabled endpoint:
 
 Save/discover, reload, and explicitly select:
 
-- Mechanic A: `local:fob:qwen38-uncensored-27b`
-- Mechanic B: `local:fob:qwen36-heretic-35b`
-- Moderator: `local:fob:qwen36-heretic-35b`
+- Gearhead: `local:fob:qwen38-uncensored-27b`
+- Grease Monkey: `local:fob:qwen36-heretic-35b`
+- Crew Chief: `local:fob:qwen36-heretic-35b`
 
-Set Behavior temperature to `0.3`, leave Moderator guidance empty, and save seat
+Set Behavior temperature to `0.3`, leave Crew Chief guidance empty, and save seat
 defaults if desired. The native server presets use 8192 context, one slot,
 1536 output ceiling, F16 K/V, seed42, top-p0.95/top-k20/min-p0, repetition1 and
 presence/frequency0. The browser's saved temperature takes precedence over the
@@ -87,7 +87,7 @@ server default. These are a practical integration profile, not measured winners.
 Local requests to the same normalized configured URL share one in-process lock
 through HTTP completion/closure. B can be scheduled without seeing A's answer:
 its HTTP request waits until A's stream closes, then the router unloads A and
-loads B. Moderator starts only after both worker outcomes exist and reuses B.
+loads B. Crew Chief starts only after both worker outcomes exist and reuses B.
 Different endpoint URLs still execute independently.
 
 A submitted request snapshots endpoint configuration. A settings edit affects
@@ -139,18 +139,18 @@ exact user-supplied no-crank prompt. No response was manually changed.
 
 | Seat | Actual alias | Native load to ready | Generated tokens | Native generation speed | Finish |
 |---|---|---:|---:|---:|---|
-| Mechanic A | `qwen38-uncensored-27b` | 15.24s | 972 | 3.83 tok/s | stop |
-| Mechanic B | `qwen36-heretic-35b` | 17.80s | 450 | 21.97 tok/s | stop |
-| Moderator | `qwen36-heretic-35b` | Reused B | 621 | 21.56 tok/s | stop |
+| Gearhead | `qwen38-uncensored-27b` | 15.24s | 972 | 3.83 tok/s | stop |
+| Grease Monkey | `qwen36-heretic-35b` | 17.80s | 450 | 21.97 tok/s | stop |
+| Crew Chief | `qwen36-heretic-35b` | Reused B | 621 | 21.56 tok/s | stop |
 
 Load durations are native child process clocks to model-ready, including warmup,
 not a promise for later cold loads. Generation rates exclude loading and prompt
 processing. A's seat elapsed about270.5s; B's elapsed about309.6s includes waiting
-behind A. Moderator elapsed about33.7s including prompt processing. These are
+behind A. Crew Chief elapsed about33.7s including prompt processing. These are
 observations from one integration run, not a model ranking.
 
 The two actual worker HTTP payloads each contained exactly the original prompt
-as a single user message. Moderator's actual payload contained both complete,
+as a single user message. Crew Chief's actual payload contained both complete,
 unchanged visible answers, after both workers completed. Three exact requested
 model aliases reached the one native router. No cloud provider was called.
 All 2048 persisted event sequence numbers were contiguous; all seats emitted

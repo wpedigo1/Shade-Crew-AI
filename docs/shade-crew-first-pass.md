@@ -1,3 +1,5 @@
+> Historical first-surgery snapshot. Current seat names and verification behavior are documented in [Crew Chief verification](crew-chief-verification.md).
+
 # First Shade Crew AI surgery
 
 Product: **Shade Crew AI**. Three active seats: **Mechanic A | wider Moderator |

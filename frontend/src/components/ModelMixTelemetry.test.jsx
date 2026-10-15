@@ -150,7 +150,7 @@ test('completed seats render authoritative provider-reported usage, finish reaso
 
   assert.equal(document.querySelectorAll('.modelmix-telemetry').length, 3);
 
-  const workerAFooter = panelFooter('Mechanic A');
+  const workerAFooter = panelFooter('Gearhead');
   assert.ok(workerAFooter.textContent.includes('Usage'));
   assert.ok(workerAFooter.textContent.includes('authoritative (provider-reported)'));
   assert.ok(workerAFooter.textContent.includes('46 tokens'));
@@ -158,12 +158,12 @@ test('completed seats render authoritative provider-reported usage, finish reaso
   assert.ok(workerAFooter.textContent.includes('(calculated)'));
   assert.ok(workerAFooter.textContent.includes('→'));
 
-  const moderatorFooter = panelFooter('Moderator');
+  const moderatorFooter = panelFooter('Crew Chief');
   assert.ok(moderatorFooter.textContent.includes('Finish'));
   assert.ok(moderatorFooter.textContent.includes('stop'));
   assert.ok(moderatorFooter.textContent.includes('99 tokens'));
 
-  const workerBFooter = panelFooter('Mechanic B');
+  const workerBFooter = panelFooter('Grease Monkey');
   assert.ok(workerBFooter.textContent.includes('unavailable'));
 });
 
@@ -208,10 +208,10 @@ test('prior-turn archives keep their telemetry hidden while live seats still ren
   assert.equal(document.querySelectorAll('.modelmix-telemetry').length, 3);
   assert.ok(document.body.textContent.includes('Prior A evidence'));
 
-  const workerAFooter = panelFooter('Mechanic A');
+  const workerAFooter = panelFooter('Gearhead');
   assert.ok(workerAFooter.textContent.includes('unavailable'));
   assert.ok(!workerAFooter.textContent.includes('total_tokens'));
 
-  const moderatorFooter = panelFooter('Moderator');
+  const moderatorFooter = panelFooter('Crew Chief');
   assert.ok(moderatorFooter.textContent.includes('not reported'));
 });

@@ -205,9 +205,9 @@ async def test_timed_out_seat_reaches_moderator_with_survivor_and_persists_parti
     assert run.status == "partial"
 
     handoff = moderator.messages[0][1]["content"]
-    assert "Worker A status:\nUnavailable because the worker failed." in handoff
+    assert "Gearhead status:\nUnavailable because the worker failed." in handoff
     assert "partial alpha" not in handoff
-    assert "Worker B visible output:\nbeta" in handoff
+    assert "Grease Monkey visible output:\nbeta" in handoff
 
     document = await store.load_session("timeout-session")
     snapshot = document["session"]["runs"][0]
@@ -333,11 +333,12 @@ async def test_normal_run_emits_unmodified_canonical_sequence(tmp_path):
         "moderator_started", "moderator_delta", "moderator_completed", "run_completed",
     }
     types = [event["type"] for event in events]
-    assert len(events) == 11
+    canonical_types |= {"moderator_verification_started", "moderator_evidence", "moderator_verification_completed", "moderator_verification_usage"}
+    assert len(events) == 16
     assert types[0] == "run_started" and types[-1] == "run_completed"
     assert events[-1]["status"] == "completed"
     assert set(types) <= canonical_types
-    assert [event["seq"] for event in events] == list(range(1, 12))
+    assert [event["seq"] for event in events] == list(range(1, len(events) + 1))
     assert all("reason" not in event for event in events)
     assert run.status == "completed"
 

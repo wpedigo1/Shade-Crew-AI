@@ -208,6 +208,7 @@ class AtomicJsonModelMixPersistence(ModelMixPersistence):
                 for message in document["session"]["messages"]:
                     if message.get("run_id") == run_id and message.get("role") == "assistant" and message.get("status") in {"waiting", "running"}:
                         message["status"] = terminal
+                        message["verification_active"] = False
             document["session"]["updated_at"] = time.time()
             self._write_atomic(path, document)
 
@@ -238,7 +239,23 @@ class AtomicJsonModelMixPersistence(ModelMixPersistence):
                 "completed_at": None,
             }
             messages.append(message)
-        if event_type in {"seat_started", "moderator_started"}:
+        if event_type == "moderator_evidence":
+            evidence = message.setdefault("evidence", [])
+            item = deepcopy(event["evidence"])
+            item["updated_at"] = event["ts"]
+            evidence[:] = [prior for prior in evidence if prior["claim_id"] != item["claim_id"]]
+            evidence.append(item)
+        elif event_type == "moderator_verification_started":
+            message["status"] = "running"
+            message["verification_active"] = True
+            message["started_at"] = event["ts"]
+        elif event_type == "moderator_verification_completed":
+            message["verification_active"] = False
+        elif event_type == "moderator_verification_usage":
+            message.setdefault("verification_usage", []).append(event.get("usage"))
+            if event.get("cost_usd") is not None:
+                message["verification_cost_usd"] = message.get("verification_cost_usd", 0) + event["cost_usd"]
+        elif event_type in {"seat_started", "moderator_started"}:
             message["status"] = "running"
             message["started_at"] = event["ts"]
         elif event_type in {"seat_delta", "moderator_delta"}:

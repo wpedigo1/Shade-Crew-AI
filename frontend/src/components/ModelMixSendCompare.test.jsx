@@ -114,7 +114,7 @@ function seatModels() {
   });
 }
 
-test('selecting Compare mode hides the Moderator selector and hides-but-keeps-mounted the Moderator panel', async () => {
+test('selecting Compare mode hides the Crew Chief selector and hides-but-keeps-mounted the Crew Chief panel', async () => {
   await renderObserver();
   const modeSelect = document.querySelector('.modelmix-mode-select');
   assert.equal(document.querySelector('.modelmix-models #modelmix-moderator-model') != null, true);
@@ -225,8 +225,8 @@ test('a Compare-mode run renders cleanly with worker content and no moderator-sh
 
   const moderator = articles[1];
   assert.ok(moderator.classList.contains('modelmix-panel-hidden'));
-  assert.equal(moderator.textContent.includes('Moderator synthesis'), false);
+  assert.equal(moderator.textContent.includes('Crew Chief synthesis'), false);
   assert.equal(moderator.textContent.includes('Alice speaks first.'), false);
   assert.equal(moderator.textContent.includes('Bob speaks second.'), false);
-  assert.equal(document.body.textContent.includes('Moderator synthesis'), false);
+  assert.equal(document.body.textContent.includes('Crew Chief synthesis'), false);
 });

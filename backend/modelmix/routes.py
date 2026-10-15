@@ -99,7 +99,9 @@ async def _over_budget_rejection(
     for message in session.get("messages") or []:
         if message.get("run_id") != last_run_id:
             continue
-        cost = message.get("cost_usd")
+        costs = [message.get("cost_usd"), message.get("verification_cost_usd")]
+        known_costs = [cost for cost in costs if isinstance(cost, (int, float))]
+        cost = sum(known_costs) if known_costs else None
         if cost is None:
             continue
         if not isinstance(cost, (int, float)):
@@ -126,7 +128,7 @@ async def stream_two_workers(body: TwoWorkerRequest) -> StreamingResponse:
     if body.worker_b_model is None and body.moderator_model is not None:
         raise HTTPException(
             status_code=422,
-            detail="A moderator requires a second worker (worker_b_model); "
+            detail="Crew Chief requires a second worker (worker_b_model); "
             "Solo mode runs worker_a only",
         )
     if (

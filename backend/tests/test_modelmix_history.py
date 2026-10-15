@@ -121,8 +121,8 @@ def test_moderator_current_turn_output_still_bounded_at_visible_cap():
 
     assert moderator_input.truncation == {"worker_a": True}
     assert "truncated deterministically" in moderator_input.messages[1]["content"]
-    section = moderator_input.messages[1]["content"].split("Worker A visible output:\n", 1)[1]
-    section = section.split("\n\nWorker B status:", 1)[0]
+    section = moderator_input.messages[1]["content"].split("Gearhead visible output:\n", 1)[1]
+    section = section.split("\n\nGrease Monkey status:", 1)[0]
     assert len(section) == MAX_VISIBLE_OUTPUT_CHARS
 
 

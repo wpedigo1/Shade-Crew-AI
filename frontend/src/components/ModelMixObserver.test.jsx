@@ -30,9 +30,9 @@ vi.mock('../modelmixApi', () => ({
         models: { worker_a: 'mod:a', moderator: 'mod:m', worker_b: 'mod:b' },
       }],
       messages: [
-        { run_id: 'run-001', seat: 'worker_a', content: 'Mechanic A evidence', status: 'completed' },
-        { run_id: 'run-001', seat: 'moderator', content: 'Moderator synthesis', status: 'completed', finish_reason: 'stop' },
-        { run_id: 'run-001', seat: 'worker_b', content: 'Mechanic B evidence', status: 'completed' },
+        { run_id: 'run-001', seat: 'worker_a', content: 'Gearhead evidence', status: 'completed' },
+        { run_id: 'run-001', seat: 'moderator', content: 'Crew Chief synthesis', status: 'completed', finish_reason: 'stop', evidence: [{ claim_id: 'c1', claim: 'Voltage claim', result: 'contradicted', summary: 'Source says 12 V', sources: [{ source_id: 's1', title: 'Reference', url: 'https://example.org/spec', excerpt: '12 V', kind: 'search_snippet' }] }] },
+        { run_id: 'run-001', seat: 'worker_b', content: 'Grease Monkey evidence', status: 'completed' },
       ],
     },
   }),
@@ -99,7 +99,7 @@ test('top bar is a single compact strip with brand, mode control, session status
   assert.equal(document.querySelector('.modelmix-session-status').textContent, 'completed');
   const council = document.querySelector('.modelmix-topbar a');
   assert.equal(council, null);
-  assert.deepEqual([...document.querySelectorAll('.modelmix-worker h2')].map(n => n.textContent), ['Mechanic A', 'Moderator', 'Mechanic B']);
+  assert.deepEqual([...document.querySelectorAll('.modelmix-worker h2')].map(n => n.textContent), ['Gearhead', 'Crew Chief', 'Grease Monkey']);
   const actionButtons = [...document.querySelector('.modelmix-actions').querySelectorAll('button')];
   assert.deepEqual(actionButtons.map((button) => button.textContent.trim()), ['Send', 'Stop']);
   assert.ok(document.querySelector('.modelmix-actions span[role="status"]'));
@@ -111,7 +111,7 @@ test('collapse hides only the transcript body via class while the panel stays mo
   await renderObserver();
   const workerA = document.querySelector('article.modelmix-worker');
   assert.equal(document.querySelectorAll('article.modelmix-worker').length, 3);
-  click(workerA.querySelector('[aria-label="Collapse Mechanic A"]'));
+  click(workerA.querySelector('[aria-label="Collapse Gearhead"]'));
   assert.ok(workerA.classList.contains('modelmix-panel-collapsed'));
   assert.equal(workerA.querySelectorAll('.modelmix-transcript').length, 1);
   assert.equal(workerA.querySelectorAll('h2').length, 1);
@@ -126,7 +126,7 @@ test('collapse hides only the transcript body via class while the panel stays mo
 test('maximize keeps all three panels mounted and hides the others from layout via class', async () => {
   await renderObserver();
   const [workerA, moderator, workerB] = document.querySelectorAll('article.modelmix-worker');
-  click(workerA.querySelector('[aria-label="Maximize Mechanic A"]'));
+  click(workerA.querySelector('[aria-label="Maximize Gearhead"]'));
   assert.ok(workerA.classList.contains('modelmix-panel-maximized'));
   assert.ok(moderator.classList.contains('modelmix-panel-hidden'));
   assert.ok(workerB.classList.contains('modelmix-panel-hidden'));
@@ -134,7 +134,7 @@ test('maximize keeps all three panels mounted and hides the others from layout v
   assert.equal(document.querySelectorAll('.modelmix-transcript').length, 3);
   assert.ok(document.querySelector('.modelmix-workers').classList.contains('modelmix-workers--maximized'));
   assert.ok(document.querySelector('.modelmix-reset-layout'));
-  click(workerA.querySelector('[aria-label="Restore Mechanic A"]'));
+  click(workerA.querySelector('[aria-label="Restore Gearhead"]'));
   assert.deepEqual(viewClasses(workerA), []);
   assert.deepEqual(viewClasses(moderator), []);
   assert.deepEqual(viewClasses(workerB), []);
@@ -145,9 +145,9 @@ test('maximize keeps all three panels mounted and hides the others from layout v
 test('maximize switches focus and reset restores the three-up grid from any combination', async () => {
   await renderObserver();
   const [workerA, moderator, workerB] = document.querySelectorAll('article.modelmix-worker');
-  click(workerB.querySelector('[aria-label="Maximize Mechanic B"]'));
-  click(moderator.querySelector('[aria-label="Collapse Moderator"]'));
-  click(workerA.querySelector('[aria-label="Maximize Mechanic A"]'));
+  click(workerB.querySelector('[aria-label="Maximize Grease Monkey"]'));
+  click(moderator.querySelector('[aria-label="Collapse Crew Chief"]'));
+  click(workerA.querySelector('[aria-label="Maximize Gearhead"]'));
   assert.ok(workerA.classList.contains('modelmix-panel-maximized'));
   assert.ok(workerB.classList.contains('modelmix-panel-hidden'));
   assert.ok(moderator.classList.contains('modelmix-panel-collapsed'));
@@ -166,7 +166,7 @@ test('New Session stays in the top bar, clears the persisted session id, and res
   assert.equal(newSessionButton.disabled, false);
   click(newSessionButton);
   assert.equal(window.localStorage.getItem('modelmix.sessionId'), null);
-  assert.ok(!document.querySelector('article.modelmix-worker').textContent.includes('Mechanic A evidence'));
+  assert.ok(!document.querySelector('article.modelmix-worker').textContent.includes('Gearhead evidence'));
   assert.ok(document.querySelector('.modelmix-topbar .new-session'));
 });
 
@@ -185,4 +185,12 @@ test('run metadata debug line sits behind Details, hidden by default', async () 
   assert.equal(toggle.getAttribute('aria-expanded'), 'true');
   click(toggle);
   assert.equal(runMeta.getAttribute('data-open'), 'false');
+});
+
+test('Crew Chief shows compact source provenance after session restore', async () => {
+  await renderObserver();
+  const panel = document.querySelector('.modelmix-moderator');
+  assert.ok(panel.querySelector('details').textContent.includes('contradicted'));
+  assert.equal(panel.querySelector('details a').getAttribute('href'), 'https://example.org/spec');
+  assert.equal(panel.querySelector('details').open, false);
 });

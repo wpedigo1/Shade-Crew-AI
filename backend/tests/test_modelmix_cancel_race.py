@@ -11,6 +11,10 @@ terminal), which is timing-independent.
 import asyncio
 import json
 
+import pytest
+from backend.modelmix.moderator import run_moderator
+from backend.modelmix.verification import run_crew_chief
+
 from backend.modelmix.registry import RunRegistry
 from backend.modelmix.timeouts import CANCEL_GRACE_SECONDS, await_cancellation_grace
 from backend.modelmix.persistence import AtomicJsonModelMixPersistence
@@ -29,6 +33,7 @@ class StallOnCancelProvider(LLMProvider):
 
     def __init__(self):
         self.cancelled = False
+        self.started = False
         self.cancelled_seen = False
         self.release = asyncio.Event()
         self.stream_finished = asyncio.Event()
@@ -38,6 +43,7 @@ class StallOnCancelProvider(LLMProvider):
         return True
 
     async def stream_query(self, model_id, messages, timeout=120.0, temperature=0.7):
+        self.started = True
         try:
             yield ProviderStreamEvent(type="text_delta", delta="stall ")
             while True:
@@ -67,6 +73,7 @@ class PromptCancelledProvider(LLMProvider):
 
     def __init__(self):
         self.cancelled = False
+        self.started = False
         self.stream_finished = asyncio.Event()
 
     @property
@@ -74,6 +81,7 @@ class PromptCancelledProvider(LLMProvider):
         return True
 
     async def stream_query(self, model_id, messages, timeout=120.0, temperature=0.7):
+        self.started = True
         try:
             await asyncio.sleep(30)
             yield ProviderStreamEvent(type="completed", result={"content": "late"})
@@ -99,12 +107,14 @@ class InstantProvider(LLMProvider):
     def __init__(self, content):
         self.content = content
         self.cancelled = False
+        self.started = False
 
     @property
     def supports_streaming(self):
         return True
 
     async def stream_query(self, model_id, messages, timeout=120.0, temperature=0.7):
+        self.started = True
         try:
             yield ProviderStreamEvent(type="text_delta", delta=self.content)
             yield ProviderStreamEvent(type="completed", result={"content": self.content})
@@ -278,7 +288,8 @@ async def test_prompt_cancel_regression_is_completely_unchanged(tmp_path):
     assert hung_a.stream_finished.is_set() and hung_b.stream_finished.is_set()
 
 
-async def test_moderator_slow_to_cancel_reaches_run_cancelled_within_grace(tmp_path):
+@pytest.mark.parametrize("runner", [run_moderator, run_crew_chief])
+async def test_moderator_slow_to_cancel_reaches_run_cancelled_within_grace(tmp_path, runner):
     workers_a = InstantProvider("alpha")
     workers_b = InstantProvider("beta")
     moderator = StallOnCancelProvider()
@@ -287,11 +298,12 @@ async def test_moderator_slow_to_cancel_reaches_run_cancelled_within_grace(tmp_p
         persistence=AtomicJsonModelMixPersistence(tmp_path),
         seat_timeout=3.0,
         run_timeout=60,
+        moderator_runner=runner,
     )
     run = await registry.start(
         "grace moderator", "a", "b", providers.__getitem__, "m"
     )
-    await until(lambda: any(e["type"] == "moderator_delta" for e in run._events))
+    await until(lambda: moderator.started)
 
     started = asyncio.get_running_loop().time()
     await registry.cancel(run.run_id)
@@ -313,7 +325,8 @@ async def test_moderator_slow_to_cancel_reaches_run_cancelled_within_grace(tmp_p
     await asyncio.sleep(0.05)
 
 
-async def test_moderator_prompt_cancel_regression(tmp_path):
+@pytest.mark.parametrize("runner", [run_moderator, run_crew_chief])
+async def test_moderator_prompt_cancel_regression(tmp_path, runner):
     workers_a = InstantProvider("alpha")
     workers_b = InstantProvider("beta")
     moderator = PromptCancelledProvider()
@@ -322,11 +335,12 @@ async def test_moderator_prompt_cancel_regression(tmp_path):
         persistence=AtomicJsonModelMixPersistence(tmp_path),
         seat_timeout=3.0,
         run_timeout=60,
+        moderator_runner=runner,
     )
     run = await registry.start(
         "fast moderator cancel", "a", "b", providers.__getitem__, "m"
     )
-    await until(lambda: any(e["type"] == "moderator_started" for e in run._events))
+    await until(lambda: moderator.started)
 
     started = asyncio.get_running_loop().time()
     await registry.cancel(run.run_id)

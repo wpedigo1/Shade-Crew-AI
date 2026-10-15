@@ -111,8 +111,8 @@ async def test_moderator_waits_for_both_workers_and_receives_visible_isolated_ou
 
     moderator_text = moderator.messages[0][1]["content"]
     assert "original prompt" in moderator_text
-    assert "Worker A visible output:\nvisible A" in moderator_text
-    assert "Worker B visible output:\nvisible B" in moderator_text
+    assert "Gearhead visible output:\nvisible A" in moderator_text
+    assert "Grease Monkey visible output:\nvisible B" in moderator_text
     assert "private" not in moderator_text
     assert worker_a.messages == [[{"role": "user", "content": "original prompt"}]]
     assert worker_b.messages == [[{"role": "user", "content": "original prompt"}]]
@@ -121,7 +121,7 @@ async def test_moderator_waits_for_both_workers_and_receives_visible_isolated_ou
     assert "final answer" not in str(worker_a.messages + worker_b.messages)
 
     events = await run.events_after(0)
-    moderator_events = [event for event in events if event["type"].startswith("moderator_")]
+    moderator_events = [event for event in events if event["type"] in {"moderator_started", "moderator_delta", "moderator_completed", "moderator_failed"}]
     assert [event["type"] for event in moderator_events] == [
         "moderator_started", "moderator_delta", "moderator_delta", "moderator_completed"
     ]
@@ -212,8 +212,8 @@ async def test_registry_preserves_seat_history_across_turns_and_model_hot_swap(t
     ]
     assert "TURN1_WORKER_A_SENTINEL" not in str(moderator_messages)
     assert "TURN1_WORKER_B_SENTINEL" not in str(moderator_messages)
-    assert "TURN2_WORKER_A_SENTINEL" in moderator_messages[-1]["content"]
-    assert "TURN2_WORKER_B_SENTINEL" in moderator_messages[-1]["content"]
+    assert "TURN2_WORKER_A_SENTINEL" in moderator_messages[3]["content"]
+    assert "TURN2_WORKER_B_SENTINEL" in moderator_messages[3]["content"]
 
 
 async def test_failed_seat_partial_history_is_reused_and_empty_failure_is_skipped(tmp_path):
@@ -267,8 +267,8 @@ async def test_one_worker_failure_allows_honest_partial_moderation(tmp_path):
     await run.task
 
     handoff = moderator.messages[0][1]["content"]
-    assert "Worker A status:\nUnavailable because the worker failed." in handoff
-    assert "Worker B visible output:\nusable B" in handoff
+    assert "Gearhead status:\nUnavailable because the worker failed." in handoff
+    assert "Grease Monkey visible output:\nusable B" in handoff
     events = await run.events_after(0)
     assert any(event["type"] == "seat_failed" and event["seat_id"] == "worker_a" for event in events)
     assert events[-1]["type"] == "run_completed"
@@ -365,8 +365,8 @@ async def test_input_truncation_and_unsupported_hard_cap_are_explicit():
     moderator_input = assemble_moderator_input("prompt", {"worker_a": long_text}, {"worker_b": "failed"})
     assert moderator_input.truncation == {"worker_a": True}
     assert "truncated deterministically" in moderator_input.messages[1]["content"]
-    handoff_output = moderator_input.messages[1]["content"].split("Worker A visible output:\n", 1)[1]
-    handoff_output = handoff_output.split("\n\nWorker B status:", 1)[0]
+    handoff_output = moderator_input.messages[1]["content"].split("Gearhead visible output:\n", 1)[1]
+    handoff_output = handoff_output.split("\n\nGrease Monkey status:", 1)[0]
     assert len(handoff_output) == MAX_VISIBLE_OUTPUT_CHARS
 
     events = []
